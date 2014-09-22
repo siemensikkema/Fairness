@@ -36,6 +36,7 @@
 		5FF3609D19D03CA900BBC643 /* FairnessTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FairnessTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FF360A219D03CA900BBC643 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5FF360A319D03CA900BBC643 /* FairnessTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FairnessTests.swift; sourceTree = "<group>"; };
+		5FF360AD19D03F2F00BBC643 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				5FF3608D19D03CA900BBC643 /* AppDelegate.swift */,
+				5FF360AD19D03F2F00BBC643 /* MyPlayground.playground */,
 				5FF3608F19D03CA900BBC643 /* ViewController.swift */,
 				5FF3609119D03CA900BBC643 /* Main.storyboard */,
 				5FF3609419D03CA900BBC643 /* Images.xcassets */,
