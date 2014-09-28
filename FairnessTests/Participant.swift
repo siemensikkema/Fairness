@@ -2,6 +2,12 @@
 class Participant {
 
     var balance = 0.0
+    var name: String
+
+    init(name: String) {
+
+        self.name = name
+    }
 
     func pay(amount: Double, forParticipants participants: [Participant]) {
 

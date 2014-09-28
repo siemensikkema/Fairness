@@ -8,7 +8,7 @@ class TwoParticipantTransactionTests: XCTestCase {
 
     override func setUp() {
 
-        participants = [Participant(), Participant()]
+        participants = [Participant(name: ""), Participant(name: "")]
     }
     
     func testSharedPaymentFromA() {

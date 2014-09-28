@@ -1,7 +1,10 @@
 import UIKit
 
 
-class ParticpantCell: UITableViewCell {
+class ParticipantCell: UITableViewCell {
 
-    
+    func configure(participant: Participant) {
+
+        self.textLabel?.text = participant.name
+    }
 }
