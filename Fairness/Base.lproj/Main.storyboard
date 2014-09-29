@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="g2j-NW-RU8">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Pay View Controller-->
@@ -20,32 +21,28 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jXD-Rg-TF9" userLabel="Name">
-                                            <rect key="frame" x="20" y="11" width="230" height="21"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jXD-Rg-TF9" userLabel="Name">
+                                            <rect key="frame" x="20" y="11" width="230" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PTa-33-nrp" userLabel="Balance">
-                                            <rect key="frame" x="258" y="11" width="42" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="42" id="nI5-cQ-e6q"/>
-                                            </constraints>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PTa-33-nrp" userLabel="Balance">
+                                            <rect key="frame" x="258" y="11" width="42" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="PTa-33-nrp" firstAttribute="top" secondItem="VDt-QM-tUO" secondAttribute="top" constant="11" id="BV4-B5-sZw"/>
-                                        <constraint firstItem="jXD-Rg-TF9" firstAttribute="leading" secondItem="VDt-QM-tUO" secondAttribute="leading" constant="20" id="HnR-2d-OAd"/>
-                                        <constraint firstAttribute="trailing" secondItem="PTa-33-nrp" secondAttribute="trailing" constant="20" id="RBG-IJ-1ED"/>
-                                        <constraint firstItem="PTa-33-nrp" firstAttribute="leading" secondItem="jXD-Rg-TF9" secondAttribute="trailing" constant="8" id="qTY-uq-z3x"/>
-                                        <constraint firstItem="jXD-Rg-TF9" firstAttribute="top" secondItem="VDt-QM-tUO" secondAttribute="top" constant="11" id="wtd-zN-K3t"/>
+                                        <constraint firstItem="jXD-Rg-TF9" firstAttribute="top" secondItem="VDt-QM-tUO" secondAttribute="topMargin" constant="3" id="3kp-0e-sUy"/>
+                                        <constraint firstItem="PTa-33-nrp" firstAttribute="leading" secondItem="jXD-Rg-TF9" secondAttribute="trailing" constant="8" id="YEj-AC-HQx"/>
+                                        <constraint firstItem="jXD-Rg-TF9" firstAttribute="leading" secondItem="VDt-QM-tUO" secondAttribute="leadingMargin" constant="12" id="koq-aA-cI2"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="PTa-33-nrp" secondAttribute="trailing" constant="12" id="oCL-6x-sfW"/>
+                                        <constraint firstItem="PTa-33-nrp" firstAttribute="top" secondItem="VDt-QM-tUO" secondAttribute="topMargin" constant="3" id="xAz-LR-5uF"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="balanceLabel" destination="PTa-33-nrp" id="YXw-kb-dqP"/>
-                                    <outlet property="balanceLabelWidthConstraint" destination="nI5-cQ-e6q" id="wl3-xL-NlI"/>
                                     <outlet property="nameLabel" destination="jXD-Rg-TF9" id="duN-BY-jJ9"/>
                                 </connections>
                             </tableViewCell>
