@@ -35,6 +35,7 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="jXD-Rg-TF9" firstAttribute="top" secondItem="VDt-QM-tUO" secondAttribute="topMargin" constant="3" id="3kp-0e-sUy"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="jXD-Rg-TF9" secondAttribute="bottom" constant="4" id="84S-Td-6OQ"/>
                                         <constraint firstItem="PTa-33-nrp" firstAttribute="leading" secondItem="jXD-Rg-TF9" secondAttribute="trailing" constant="8" id="YEj-AC-HQx"/>
                                         <constraint firstItem="jXD-Rg-TF9" firstAttribute="leading" secondItem="VDt-QM-tUO" secondAttribute="leadingMargin" constant="12" id="koq-aA-cI2"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="PTa-33-nrp" secondAttribute="trailing" constant="12" id="oCL-6x-sfW"/>
