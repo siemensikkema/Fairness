@@ -13,6 +13,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="Wbz-Mf-LgN">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gsd-hj-QDb">
+                                    <rect key="frame" x="8" y="7" width="304" height="30"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done"/>
+                                </textField>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Participant" id="Vt1-rI-POe" customClass="ParticipantCell" customModule="Fairness" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
@@ -54,6 +66,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="Wps-L0-ZAc"/>
+                    <connections>
+                        <outlet property="amountTextField" destination="Gsd-hj-QDb" id="sdr-pC-O5s"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZVl-LN-WY1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
