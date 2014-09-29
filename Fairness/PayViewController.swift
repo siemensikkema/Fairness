@@ -17,7 +17,7 @@ class PayViewController: UITableViewController {
 
         let cell = tableView.dequeueReusableCellWithIdentifier("Participant", forIndexPath: indexPath) as ParticipantCell
 
-        cell.configure(participants[indexPath.row])
+        cell.configure(ParticipantViewModel(participant: participants[indexPath.row]))
 
         return cell
     }   
