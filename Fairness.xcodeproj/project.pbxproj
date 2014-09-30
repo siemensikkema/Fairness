@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5F07154419D17E14008D4A30 /* ParticipantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F07154319D17E14008D4A30 /* ParticipantCell.swift */; };
+		5FE1A83319DB246700BCC98C /* BalanceFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE1A83219DB246700BCC98C /* BalanceFormatter.swift */; };
 		5FF2872C19D8732F0050CF87 /* Participant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF65CF819D17696006259A4 /* Participant.swift */; };
 		5FF2872D19D88D460050CF87 /* Participant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF65CF819D17696006259A4 /* Participant.swift */; };
 		5FF3608E19D03CA900BBC643 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF3608D19D03CA900BBC643 /* AppDelegate.swift */; };
@@ -30,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		5F07154319D17E14008D4A30 /* ParticipantCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticipantCell.swift; sourceTree = "<group>"; };
+		5FE1A83219DB246700BCC98C /* BalanceFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalanceFormatter.swift; sourceTree = "<group>"; };
 		5FF3608819D03CA900BBC643 /* Fairness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fairness.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FF3608C19D03CA900BBC643 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5FF3608D19D03CA900BBC643 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 			children = (
 				5FF3608D19D03CA900BBC643 /* AppDelegate.swift */,
 				5FF65CF819D17696006259A4 /* Participant.swift */,
+				5FE1A83219DB246700BCC98C /* BalanceFormatter.swift */,
 				5FF360AD19D03F2F00BBC643 /* MyPlayground.playground */,
 				5FF3608F19D03CA900BBC643 /* PayViewController.swift */,
 				5FF3609119D03CA900BBC643 /* Main.storyboard */,
@@ -221,6 +224,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FE1A83319DB246700BCC98C /* BalanceFormatter.swift in Sources */,
 				5F07154419D17E14008D4A30 /* ParticipantCell.swift in Sources */,
 				5FF3609019D03CA900BBC643 /* PayViewController.swift in Sources */,
 				5FF3608E19D03CA900BBC643 /* AppDelegate.swift in Sources */,
