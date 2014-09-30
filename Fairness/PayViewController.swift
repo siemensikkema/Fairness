@@ -4,6 +4,8 @@ import UIKit
 class PayViewController: UITableViewController {
 
     let participants = [Participant(name: "Siemen"), Participant(name: "Willem")]
+    var payer: Participant?
+    var payees: [Participant] = []
 
 
     @IBOutlet weak var amountTextField: UITextField!
@@ -30,6 +32,24 @@ class PayViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 
-        amountTextField.becomeFirstResponder()
+        let participant = participants[indexPath.row]
+
+        if payer == nil {
+
+            payer = participant
+            amountTextField.userInteractionEnabled = true
+            amountTextField.becomeFirstResponder()
+        }
+        else {
+
+            if let index = find(payees, participant) {
+
+                payees.removeAtIndex(index)
+            }
+            else {
+
+                payees.append(participant)
+            }
+        }
     }
 }

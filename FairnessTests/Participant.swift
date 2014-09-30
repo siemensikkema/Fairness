@@ -33,7 +33,7 @@ class ParticipantViewModel {
     init(participant: Participant) {
 
         name = participant.name
-        balanceString = balanceFormatter.stringFromNumber(participant.balance)
+        balanceString = balanceFormatter.stringFromNumber(participant.balance)!
     }
 }
 
@@ -53,4 +53,25 @@ class Participant {
         let amountPerParticipant = amount/Double(participants.count)
         participants.map { $0.balance -= amountPerParticipant }
     }
+}
+
+
+// MARK: Hashable
+
+extension Participant: Hashable {
+
+    var hashValue: Int {
+
+        return balance.hashValue ^ name.hashValue
+    }
+}
+
+
+// MARK: Equatable
+
+extension Participant: Equatable {}
+
+func ==(lhs: Participant, rhs: Participant) -> Bool {
+
+    return lhs.hashValue == rhs.hashValue
 }
