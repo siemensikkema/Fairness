@@ -1,4 +1,4 @@
-import UIKit
+import Foundation
 
 
 private let sharedBalanceFormatter = BalanceFormatter()
@@ -15,6 +15,7 @@ class BalanceFormatter: NSNumberFormatter {
 
         super.init()
         numberStyle = .CurrencyStyle
+        currencySymbol = ""
     }
 
     required init(coder aDecoder: NSCoder) {
