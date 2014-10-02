@@ -51,7 +51,9 @@ class AmountEntryTests: XCTestCase {
 
             let changedText = text.stringByReplacingCharactersInRange(range.toRange(text), withString: string)
 
-            if let range = changedText.rangeOfString("^(\\.|0(?=\\.)|0(?=$)|[1-9]*)(\\.\\d{0,2}|$)", options: .RegularExpressionSearch) {
+            let regex = "^(0?(?=(\\.|$))|[1-9][0-9]*?)(\\.\\d{0,2}|$)"
+
+            if let range = changedText.rangeOfString(regex, options: .RegularExpressionSearch) {
 
                 return range.endIndex == changedText.endIndex
             }
@@ -105,5 +107,11 @@ class AmountEntryTests: XCTestCase {
 
         textField.text = ""
         XCTAssertFalse(textFieldDelegate.textField(textField, shouldChangeCharactersInRange: NSRange(location: 0, length: 0), replacementString: "01"))
+    }
+
+    func testNumberWithZeroFollowingFirstCharacterIsAllowed() {
+
+        textField.text = ""
+        XCTAssertTrue(textFieldDelegate.textField(textField, shouldChangeCharactersInRange: NSRange(location: 0, length: 0), replacementString: "10"))
     }
 }
