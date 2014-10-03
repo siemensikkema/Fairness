@@ -4,7 +4,7 @@ import Tools
 
 class AmountTextFieldDelegate: NSObject, UITextFieldDelegate {
 
-    var balanceFormatter: BalanceFormatter!
+    var balanceFormatter = BalanceFormatter()
 
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
 
