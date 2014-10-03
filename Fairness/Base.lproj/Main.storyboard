@@ -22,7 +22,7 @@
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done"/>
                                     <connections>
-                                        <outlet property="delegate" destination="g2j-NW-RU8" id="963-FQ-e10"/>
+                                        <outlet property="delegate" destination="6vH-at-pxy" id="vyU-WT-FO3"/>
                                     </connections>
                                 </textField>
                             </subviews>
@@ -74,6 +74,7 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZVl-LN-WY1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="6vH-at-pxy" customClass="AmountTextFieldDelegate" customModule="Fairness" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="644" y="96"/>
         </scene>

@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		5F07154419D17E14008D4A30 /* ParticipantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F07154319D17E14008D4A30 /* ParticipantCell.swift */; };
+		5FB89EFC19DED03200AE1A05 /* AmountTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB89EFB19DED03200AE1A05 /* AmountTextFieldDelegate.swift */; };
+		5FB89EFD19DED05D00AE1A05 /* AmountTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB89EFB19DED03200AE1A05 /* AmountTextFieldDelegate.swift */; };
+		5FB89EFF19DED42F00AE1A05 /* AmountEntryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB89EFE19DED42F00AE1A05 /* AmountEntryTests.swift */; };
 		5FCEC49E19DD8944001BDA01 /* Tools.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FCEC49D19DD8944001BDA01 /* Tools.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5FCEC4B019DD8944001BDA01 /* Tools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FCEC49919DD8944001BDA01 /* Tools.framework */; };
 		5FCEC4B119DD8944001BDA01 /* Tools.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5FCEC49919DD8944001BDA01 /* Tools.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -21,7 +24,7 @@
 		5FF3609319D03CA900BBC643 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FF3609119D03CA900BBC643 /* Main.storyboard */; };
 		5FF3609519D03CA900BBC643 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FF3609419D03CA900BBC643 /* Images.xcassets */; };
 		5FF3609819D03CA900BBC643 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FF3609619D03CA900BBC643 /* LaunchScreen.xib */; };
-		5FF360A419D03CA900BBC643 /* FairnessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF360A319D03CA900BBC643 /* FairnessTests.swift */; };
+		5FF360A419D03CA900BBC643 /* TransactionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF360A319D03CA900BBC643 /* TransactionTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +60,8 @@
 
 /* Begin PBXFileReference section */
 		5F07154319D17E14008D4A30 /* ParticipantCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticipantCell.swift; sourceTree = "<group>"; };
+		5FB89EFB19DED03200AE1A05 /* AmountTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmountTextFieldDelegate.swift; sourceTree = "<group>"; };
+		5FB89EFE19DED42F00AE1A05 /* AmountEntryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmountEntryTests.swift; sourceTree = "<group>"; };
 		5FCEC49919DD8944001BDA01 /* Tools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Tools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FCEC49C19DD8944001BDA01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5FCEC49D19DD8944001BDA01 /* Tools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tools.h; sourceTree = "<group>"; };
@@ -73,7 +78,7 @@
 		5FF3609719D03CA900BBC643 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		5FF3609D19D03CA900BBC643 /* FairnessTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FairnessTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FF360A219D03CA900BBC643 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5FF360A319D03CA900BBC643 /* FairnessTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FairnessTests.swift; sourceTree = "<group>"; };
+		5FF360A319D03CA900BBC643 /* TransactionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTests.swift; sourceTree = "<group>"; };
 		5FF360AD19D03F2F00BBC643 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		5FF65CF819D17696006259A4 /* Participant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Participant.swift; path = FairnessTests/Participant.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -167,6 +172,7 @@
 				5FF65CF819D17696006259A4 /* Participant.swift */,
 				5FE1A83219DB246700BCC98C /* BalanceFormatter.swift */,
 				5FF360AD19D03F2F00BBC643 /* MyPlayground.playground */,
+				5FB89EFB19DED03200AE1A05 /* AmountTextFieldDelegate.swift */,
 				5FF3608F19D03CA900BBC643 /* PayViewController.swift */,
 				5FF3609119D03CA900BBC643 /* Main.storyboard */,
 				5F07154319D17E14008D4A30 /* ParticipantCell.swift */,
@@ -188,7 +194,8 @@
 		5FF360A019D03CA900BBC643 /* FairnessTests */ = {
 			isa = PBXGroup;
 			children = (
-				5FF360A319D03CA900BBC643 /* FairnessTests.swift */,
+				5FF360A319D03CA900BBC643 /* TransactionTests.swift */,
+				5FB89EFE19DED42F00AE1A05 /* AmountEntryTests.swift */,
 				5FF360A119D03CA900BBC643 /* Supporting Files */,
 			);
 			path = FairnessTests;
@@ -356,6 +363,7 @@
 				5F07154419D17E14008D4A30 /* ParticipantCell.swift in Sources */,
 				5FF3609019D03CA900BBC643 /* PayViewController.swift in Sources */,
 				5FF3608E19D03CA900BBC643 /* AppDelegate.swift in Sources */,
+				5FB89EFC19DED03200AE1A05 /* AmountTextFieldDelegate.swift in Sources */,
 				5FF2872C19D8732F0050CF87 /* Participant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -364,7 +372,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5FF360A419D03CA900BBC643 /* FairnessTests.swift in Sources */,
+				5FB89EFD19DED05D00AE1A05 /* AmountTextFieldDelegate.swift in Sources */,
+				5FF360A419D03CA900BBC643 /* TransactionTests.swift in Sources */,
+				5FB89EFF19DED42F00AE1A05 /* AmountEntryTests.swift in Sources */,
 				5FF2872D19D88D460050CF87 /* Participant.swift in Sources */,
 				5FE1A83519DB28D700BCC98C /* BalanceFormatter.swift in Sources */,
 			);
@@ -595,6 +605,7 @@
 				5FCEC4B319DD8944001BDA01 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5FF3608319D03CA900BBC643 /* Build configuration list for PBXProject "Fairness" */ = {
 			isa = XCConfigurationList;
