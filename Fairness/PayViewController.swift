@@ -6,6 +6,7 @@ class PayViewController: UITableViewController {
     let participants = [Participant(name: "Siemen"), Participant(name: "Willem")]
     var payer: Participant?
     var payees: [Participant] = []
+    var amounts = [0.0, 0.0]
 
 
     @IBOutlet weak var amountTextField: UITextField!
@@ -17,15 +18,29 @@ class PayViewController: UITableViewController {
 
             let amount = (self.amountTextField.text as NSString).doubleValue
 
-            println(amount)
-            println(countElements(payees.filter { $0 != actualPayer }))
-
             // a transaction is valid when there is a nonzero amount and at least one participant who is not the payer is involved
             let transactionIsValid = amount > 0.0 && countElements(payees.filter { $0 != actualPayer }) > 0
 
             if transactionIsValid {
 
-                println("updating transaction")
+                for (index, participant) in enumerate(participants) {
+
+                    var currentAmount = 0.0
+
+                    if find(payees, participant) != nil {
+
+                        currentAmount = -amount / Double(payees.count)
+                    }
+
+                    if participant == payer {
+
+                        currentAmount += amount
+                    }
+
+                    amounts[index] = currentAmount
+                }
+
+                tableView.reloadData()
             }
         }
     }
@@ -41,7 +56,7 @@ class PayViewController: UITableViewController {
 
         let cell = tableView.dequeueReusableCellWithIdentifier("Participant", forIndexPath: indexPath) as ParticipantCell
 
-        cell.configure(ParticipantViewModel(participant: participants[indexPath.row]))
+        cell.configure(ParticipantViewModel(participant: participants[indexPath.row], amount: amounts[indexPath.row]))
 
         return cell
     }

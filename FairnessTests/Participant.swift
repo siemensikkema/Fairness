@@ -3,15 +3,17 @@ import UIKit
 
 class ParticipantViewModel {
 
-    let name: String
+    let amountString: String
     let balanceString: String
-    let balanceFormatter = BalanceFormatter.sharedInstance
+    let name: String
 
+    private let balanceFormatter = BalanceFormatter.sharedInstance
 
-    init(participant: Participant) {
+    init(participant: Participant, amount: Double) {
 
-        name = participant.name
+        amountString = balanceFormatter.stringFromNumber(amount)!
         balanceString = balanceFormatter.stringFromNumber(participant.balance)!
+        name = participant.name
     }
 }
 
