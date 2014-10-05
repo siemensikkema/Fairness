@@ -22,6 +22,7 @@
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done"/>
                                     <connections>
+                                        <action selector="amountChanged:" destination="g2j-NW-RU8" eventType="editingChanged" id="AZe-FI-Bbb"/>
                                         <outlet property="delegate" destination="6vH-at-pxy" id="vyU-WT-FO3"/>
                                     </connections>
                                 </textField>
