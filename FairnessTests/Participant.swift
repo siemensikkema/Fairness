@@ -1,21 +1,24 @@
 import UIKit
 
 
-class ParticipantViewModel {
+struct ParticipantViewModel {
 
     let amountString: String
     let balanceString: String
     let name: String
 
+
     private let balanceFormatter = BalanceFormatter.sharedInstance
+
 
     init(participant: Participant, amount: Double) {
 
-        amountString = balanceFormatter.stringFromNumber(amount)!
-        balanceString = balanceFormatter.stringFromNumber(participant.balance)!
+        amountString = balanceFormatter.stringFromNumber(amount) ?? ""
+        balanceString = balanceFormatter.stringFromNumber(participant.balance) ?? ""
         name = participant.name
     }
 }
+
 
 class Participant {
 
@@ -26,13 +29,6 @@ class Participant {
     init(name: String) {
 
         self.name = name
-    }
-
-    func pay(amount: Double, forParticipants participants: [Participant]) {
-
-        balance += amount
-        let amountPerParticipant = amount/Double(participants.count)
-        participants.map { $0.balance -= amountPerParticipant }
     }
 }
 

@@ -8,7 +8,7 @@ class ParticipantCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
 
 
-    func configure(participantViewModel: ParticipantViewModel) {
+    func configure(#participantViewModel: ParticipantViewModel) {
 
         amountLabel.text = participantViewModel.amountString
         nameLabel.text = participantViewModel.name

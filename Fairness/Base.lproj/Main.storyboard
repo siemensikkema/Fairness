@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6249" systemVersion="14A379a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Wa6-SV-Kor">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6249" systemVersion="14A388a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Wa6-SV-Kor">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6243"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -22,7 +22,7 @@
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done"/>
                                     <connections>
-                                        <action selector="amountChanged:" destination="g2j-NW-RU8" eventType="editingChanged" id="AZe-FI-Bbb"/>
+                                        <action selector="amountDidChange" destination="g2j-NW-RU8" eventType="editingChanged" id="kbT-xE-8vw"/>
                                         <outlet property="delegate" destination="6vH-at-pxy" id="vyU-WT-FO3"/>
                                     </connections>
                                 </textField>
@@ -37,25 +37,25 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jXD-Rg-TF9" userLabel="Name">
-                                            <rect key="frame" x="20" y="11" width="192" height="20.5"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jXD-Rg-TF9" userLabel="Name">
+                                            <rect key="frame" x="20" y="11" width="46" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MdW-g7-jFH">
-                                            <rect key="frame" x="270" y="11" width="42" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MdW-g7-jFH">
+                                            <rect key="frame" x="252" y="11" width="60" height="21"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="42" id="Aoi-V1-p7X"/>
+                                                <constraint firstAttribute="width" constant="60" id="Aoi-V1-p7X"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PTa-33-nrp" userLabel="Balance">
-                                            <rect key="frame" x="220" y="11" width="42" height="21"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Balance" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PTa-33-nrp" userLabel="Balance">
+                                            <rect key="frame" x="73" y="11" width="62" height="21"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="42" id="OKV-hP-lMl"/>
+                                                <constraint firstAttribute="width" constant="62" id="OKV-hP-lMl"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="highlightedColor"/>
@@ -64,7 +64,6 @@
                                     <constraints>
                                         <constraint firstItem="jXD-Rg-TF9" firstAttribute="top" secondItem="VDt-QM-tUO" secondAttribute="topMargin" constant="3" id="3kp-0e-sUy"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="jXD-Rg-TF9" secondAttribute="bottom" constant="4" id="84S-Td-6OQ"/>
-                                        <constraint firstItem="MdW-g7-jFH" firstAttribute="leading" secondItem="PTa-33-nrp" secondAttribute="trailing" constant="8" id="NG1-ft-RkA"/>
                                         <constraint firstItem="MdW-g7-jFH" firstAttribute="trailing" secondItem="VDt-QM-tUO" secondAttribute="trailingMargin" id="RyR-hy-rAI"/>
                                         <constraint firstItem="PTa-33-nrp" firstAttribute="leading" secondItem="jXD-Rg-TF9" secondAttribute="trailing" constant="8" id="YEj-AC-HQx"/>
                                         <constraint firstItem="jXD-Rg-TF9" firstAttribute="leading" secondItem="VDt-QM-tUO" secondAttribute="leadingMargin" constant="12" id="koq-aA-cI2"/>

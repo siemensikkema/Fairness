@@ -24,7 +24,6 @@
 		5FF3609319D03CA900BBC643 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FF3609119D03CA900BBC643 /* Main.storyboard */; };
 		5FF3609519D03CA900BBC643 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FF3609419D03CA900BBC643 /* Images.xcassets */; };
 		5FF3609819D03CA900BBC643 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FF3609619D03CA900BBC643 /* LaunchScreen.xib */; };
-		5FF360A419D03CA900BBC643 /* TransactionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF360A319D03CA900BBC643 /* TransactionTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,7 +77,6 @@
 		5FF3609719D03CA900BBC643 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		5FF3609D19D03CA900BBC643 /* FairnessTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FairnessTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FF360A219D03CA900BBC643 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5FF360A319D03CA900BBC643 /* TransactionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTests.swift; sourceTree = "<group>"; };
 		5FF360AD19D03F2F00BBC643 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		5FF65CF819D17696006259A4 /* Participant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Participant.swift; path = FairnessTests/Participant.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -194,7 +192,6 @@
 		5FF360A019D03CA900BBC643 /* FairnessTests */ = {
 			isa = PBXGroup;
 			children = (
-				5FF360A319D03CA900BBC643 /* TransactionTests.swift */,
 				5FB89EFE19DED42F00AE1A05 /* AmountEntryTests.swift */,
 				5FF360A119D03CA900BBC643 /* Supporting Files */,
 			);
@@ -373,7 +370,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5FB89EFD19DED05D00AE1A05 /* AmountTextFieldDelegate.swift in Sources */,
-				5FF360A419D03CA900BBC643 /* TransactionTests.swift in Sources */,
 				5FB89EFF19DED42F00AE1A05 /* AmountEntryTests.swift in Sources */,
 				5FF2872D19D88D460050CF87 /* Participant.swift in Sources */,
 				5FE1A83519DB28D700BCC98C /* BalanceFormatter.swift in Sources */,
