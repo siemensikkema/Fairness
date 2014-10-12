@@ -29,6 +29,8 @@ class Transaction {
 
             participant.balance += amounts[index]
         }
+
+        resetTransaction()
     }
 
     func resetTransaction() {
@@ -89,7 +91,7 @@ class PayViewController: UITableViewController {
 
     let transaction = Transaction()
 
-
+    @IBOutlet var accessoryToolbar: UIToolbar!
     @IBOutlet weak var amountTextField: UITextField!
 
 
@@ -97,6 +99,25 @@ class PayViewController: UITableViewController {
 
         transaction.update()
         tableView.reloadData()
+    }
+
+    func reset() {
+
+        amountTextField.resignFirstResponder()
+        amountTextField.text = ""
+        transaction.resetTransaction()
+        tableView.reloadData()
+    }
+
+
+    // MARK: UIViewController
+
+
+    override func viewDidLoad() {
+
+        super.viewDidLoad()
+
+        amountTextField.inputAccessoryView = accessoryToolbar
     }
 
 
@@ -121,8 +142,6 @@ class PayViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 
-        amountTextField.resignFirstResponder()
-
         let index = indexPath.row
 
         if transaction.payerIndex == nil {
@@ -146,5 +165,16 @@ class PayViewController: UITableViewController {
 
         transaction.cost = (amountTextField.text as NSString).doubleValue
         updateTransaction()
+    }
+
+    @IBAction func didTapCancelButton(sender: AnyObject) {
+
+        reset()
+    }
+
+    @IBAction func didTapDoneButton(sender: AnyObject) {
+
+        transaction.apply()
+        reset()
     }
 }

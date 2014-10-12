@@ -85,10 +85,28 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="Wps-L0-ZAc"/>
                     <connections>
+                        <outlet property="accessoryToolbar" destination="xUd-Oe-3bS" id="lqj-ee-OVH"/>
                         <outlet property="amountTextField" destination="Gsd-hj-QDb" id="sdr-pC-O5s"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZVl-LN-WY1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="xUd-Oe-3bS">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <items>
+                        <barButtonItem systemItem="cancel" id="gkN-ZX-LfD">
+                            <connections>
+                                <action selector="didTapCancelButton:" destination="g2j-NW-RU8" id="Wjg-yh-OQo"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="jqi-bZ-D5R"/>
+                        <barButtonItem systemItem="done" id="ccX-6L-N9T">
+                            <connections>
+                                <action selector="didTapDoneButton:" destination="g2j-NW-RU8" id="in1-Sp-Ae7"/>
+                            </connections>
+                        </barButtonItem>
+                    </items>
+                </toolbar>
                 <customObject id="6vH-at-pxy" customClass="AmountTextFieldDelegate" customModule="Fairness" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="644" y="96"/>
@@ -96,13 +114,16 @@
         <!--Navigation Controller-->
         <scene sceneID="gxd-nJ-7GQ">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Wa6-SV-Kor" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBarsWhenKeyboardAppears="YES" id="Wa6-SV-Kor" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="dTE-zM-6d9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="8Ju-5i-6M2">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="g2j-NW-RU8" kind="relationship" relationship="rootViewController" id="3AV-XI-M9v"/>
                     </connections>
