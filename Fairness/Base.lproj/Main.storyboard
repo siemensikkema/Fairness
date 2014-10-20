@@ -9,7 +9,7 @@
         <scene sceneID="rgS-tv-TYi">
             <objects>
                 <tableViewController id="g2j-NW-RU8" customClass="PayViewController" customModule="Fairness" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="2wO-P0-BA6">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="58" sectionHeaderHeight="22" sectionFooterHeight="22" id="2wO-P0-BA6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -38,37 +38,30 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jXD-Rg-TF9" userLabel="Name">
-                                            <rect key="frame" x="20" y="11" width="46" height="21"/>
+                                            <rect key="frame" x="8" y="18" width="45.5" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MdW-g7-jFH">
-                                            <rect key="frame" x="252" y="11" width="60" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="60" id="Aoi-V1-p7X"/>
-                                            </constraints>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalCompressionResistancePriority="751" text="Amount" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MdW-g7-jFH">
+                                            <rect key="frame" x="252" y="29" width="60" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Balance" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PTa-33-nrp" userLabel="Balance">
-                                            <rect key="frame" x="73" y="11" width="62" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="62" id="OKV-hP-lMl"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Balance" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PTa-33-nrp" userLabel="Balance">
+                                            <rect key="frame" x="248" y="8" width="64" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="jXD-Rg-TF9" firstAttribute="top" secondItem="VDt-QM-tUO" secondAttribute="topMargin" constant="3" id="3kp-0e-sUy"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="jXD-Rg-TF9" secondAttribute="bottom" constant="4" id="84S-Td-6OQ"/>
-                                        <constraint firstItem="MdW-g7-jFH" firstAttribute="trailing" secondItem="VDt-QM-tUO" secondAttribute="trailingMargin" id="RyR-hy-rAI"/>
-                                        <constraint firstItem="PTa-33-nrp" firstAttribute="leading" secondItem="jXD-Rg-TF9" secondAttribute="trailing" constant="8" id="YEj-AC-HQx"/>
-                                        <constraint firstItem="jXD-Rg-TF9" firstAttribute="leading" secondItem="VDt-QM-tUO" secondAttribute="leadingMargin" constant="12" id="koq-aA-cI2"/>
-                                        <constraint firstItem="MdW-g7-jFH" firstAttribute="top" secondItem="VDt-QM-tUO" secondAttribute="topMargin" constant="3" id="qqu-0s-AO4"/>
-                                        <constraint firstItem="PTa-33-nrp" firstAttribute="top" secondItem="VDt-QM-tUO" secondAttribute="topMargin" constant="3" id="xAz-LR-5uF"/>
+                                        <constraint firstItem="PTa-33-nrp" firstAttribute="trailing" secondItem="VDt-QM-tUO" secondAttribute="trailingMargin" id="2az-yY-1z8"/>
+                                        <constraint firstItem="MdW-g7-jFH" firstAttribute="top" secondItem="PTa-33-nrp" secondAttribute="bottom" constant="0.5" id="6DH-9z-939"/>
+                                        <constraint firstItem="jXD-Rg-TF9" firstAttribute="leading" secondItem="VDt-QM-tUO" secondAttribute="leadingMargin" id="Rvf-cO-14P"/>
+                                        <constraint firstItem="PTa-33-nrp" firstAttribute="top" secondItem="VDt-QM-tUO" secondAttribute="topMargin" id="WSI-03-Jh9"/>
+                                        <constraint firstItem="MdW-g7-jFH" firstAttribute="trailing" secondItem="VDt-QM-tUO" secondAttribute="trailingMargin" id="ZWN-g4-lIB"/>
+                                        <constraint firstAttribute="centerY" secondItem="jXD-Rg-TF9" secondAttribute="centerY" id="yZI-UE-dAh"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>

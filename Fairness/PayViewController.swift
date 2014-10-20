@@ -13,9 +13,20 @@ class Transaction {
 
     var cost = 0.0
     var amounts = [Double]()
-    var payerIndex: Int?
+    var payerIndex: Int? {
+
+        didSet {
+
+            if let index = payerIndex {
+
+                transactionStatuses[index] = transactionStatuses[index] == TransactionStatusType.PayerSharingCost ? .Payee : .Payer
+            }
+        }
+    }
     var payeeIndices = [Int]()
+    var transactionStatuses = [TransactionStatusType]()
     var numberOfParticipants: Int { return participantStore.participants.count }
+
 
     init() {
 
@@ -39,6 +50,7 @@ class Transaction {
         cost = 0.0
         payerIndex = nil
         payeeIndices = [Int]()
+        transactionStatuses = [TransactionStatusType](count: numberOfParticipants, repeatedValue: .None)
     }
 
     func togglePayeeAtIndex(index: Int) {
@@ -68,11 +80,17 @@ class Transaction {
 
             if find(payeeIndices, index) != nil {
 
+                transactionStatuses[index] = .Payee
                 currentAmount = -cost / Double(payeeIndices.count)
+            }
+            else {
+
+                transactionStatuses[index] = .None // clear any value from previous update
             }
 
             if index == payerIndex {
 
+                transactionStatuses[index] = transactionStatuses[index] == TransactionStatusType.Payee ? .PayerSharingCost : .Payer;
                 currentAmount += cost
             }
             
@@ -80,9 +98,10 @@ class Transaction {
         }
     }
 
+    // TODO: replace with clearer way to access participant view models
     subscript(index: Int) -> ParticipantViewModel {
 
-        return ParticipantViewModel(participant: participantStore.participants[index], amount: amounts[index])
+        return ParticipantViewModel(participant: participantStore.participants[index], amount: amounts[index], transactionStatus:transactionStatuses[index])
     }
 }
 
