@@ -1,13 +1,10 @@
 import UIKit
 
 
-enum TransactionStatusType {
+struct TransactionItem  {
 
-    case None
-    case Payee
-    case Payer
-    // TODO: is something like NS_OPTIONS appropriate here? http://natecook.com/blog/2014/07/swift-options-bitmask-generator/
-    case PayerSharingCost
+    var amount = 0.0
+    var isPayee, isPayer: Bool
 }
 
 
@@ -16,18 +13,19 @@ struct ParticipantViewModel {
     let amountString: String
     let balanceString: String
     let name: String
-    let transactionStatus: TransactionStatusType = .None
+    let isPayee, isPayer: Bool
 
 
     private let balanceFormatter = BalanceFormatter.sharedInstance
 
 
-    init(participant: Participant, amount: Double, transactionStatus: TransactionStatusType) {
+    init(participant: Participant, transactionItem: TransactionItem) {
 
-        amountString = balanceFormatter.stringFromNumber(amount) ?? ""
+        amountString = balanceFormatter.stringFromNumber(transactionItem.amount) ?? ""
         balanceString = balanceFormatter.stringFromNumber(participant.balance) ?? ""
         name = participant.name
-        self.transactionStatus = transactionStatus
+        isPayee = transactionItem.isPayee
+        isPayer = transactionItem.isPayer
     }
 }
 
