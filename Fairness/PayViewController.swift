@@ -1,6 +1,5 @@
 import UIKit
 
-
 class PayViewController: UITableViewController {
 
     let transaction = Transaction()
@@ -24,9 +23,7 @@ class PayViewController: UITableViewController {
         tableView.reloadData()
     }
 
-
     // MARK: UIViewController
-
 
     override func viewDidLoad() {
 
@@ -34,7 +31,6 @@ class PayViewController: UITableViewController {
 
         amountTextField.inputAccessoryView = accessoryToolbar
     }
-
 
     // MARK: UITableViewDataSource
 
@@ -51,7 +47,6 @@ class PayViewController: UITableViewController {
 
         return cell
     }
-
 
     // MARK: UITableViewDelegate
 
@@ -72,7 +67,6 @@ class PayViewController: UITableViewController {
 
         updateTransaction()
     }
-
 
     // MARK: Actions
 

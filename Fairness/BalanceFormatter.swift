@@ -1,8 +1,6 @@
 import Foundation
 
-
 private let sharedBalanceFormatter = BalanceFormatter()
-
 
 class BalanceFormatter: NSNumberFormatter {
 
@@ -19,6 +17,7 @@ class BalanceFormatter: NSNumberFormatter {
     }
 
     required init(coder aDecoder: NSCoder) {
+        
         fatalError("init(coder:) has not been implemented")
     }
 }

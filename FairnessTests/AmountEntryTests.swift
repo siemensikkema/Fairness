@@ -2,7 +2,6 @@ import UIKit
 import XCTest
 import Tools
 
-
 class AmountEntryTests: XCTestCase {
 
     var balanceFormatter: BalanceFormatter!
@@ -19,14 +18,12 @@ class AmountEntryTests: XCTestCase {
         textField = UITextField()
     }
 
-
     // MARK: Helper methods
 
     func fillInString(string: String, atLocation location: Int) -> Bool {
 
         return amountTextFieldDelegate.textField(textField, shouldChangeCharactersInRange: NSRange(location: location, length: 0), replacementString: string)
     }
-
 
     // MARK: Tests
 

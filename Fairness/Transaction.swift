@@ -2,10 +2,8 @@ class Transaction {
 
     let participantStore = ParticipantStore()
 
-
     var cost = 0.0
     var transactionItems = [TransactionItem]()
-
 
     var hasPayer: Bool {
 
@@ -27,18 +25,16 @@ class Transaction {
         return cost > 0 && transactionItems.filter { $0.isPayer || $0.isPayee }.count > 1
     }
 
-
     init() {
 
         resetTransaction()
     }
 
-
     func apply() {
 
         for (index, participant) in enumerate(participantStore.participants) {
 
-            participant.balance += transactionItems[index].amount
+            participant.balance += transactionItems[index].amount ?? 0
         }
 
         resetTransaction()
@@ -52,7 +48,7 @@ class Transaction {
     func resetTransaction() {
 
         cost = 0.0
-        transactionItems = [TransactionItem](count: numberOfParticipants, repeatedValue: TransactionItem(amount: 0.0, isPayee: false, isPayer: false))
+        transactionItems = [TransactionItem](count: numberOfParticipants, repeatedValue: TransactionItem(amount: nil, isPayee: false, isPayer: false))
     }
 
     func togglePayeeAtIndex(index: Int) {
@@ -71,7 +67,7 @@ class Transaction {
 
         transactionItems = transactionItems.map { (var transactionItem: TransactionItem) in
 
-            transactionItem.amount = 0.0
+            var amount: Double?
 
             if (!self.isValid) {
 
@@ -80,15 +76,15 @@ class Transaction {
 
             if transactionItem.isPayee {
 
-                transactionItem.amount -= self.cost/numberOfPayees
+                amount = -self.cost/numberOfPayees
             }
 
             if transactionItem.isPayer {
 
-                transactionItem.amount += self.cost
+                amount = (amount ?? 0) + self.cost
             }
 
-            return transactionItem
+            return TransactionItem(amount: amount, isPayee: transactionItem.isPayee, isPayer: transactionItem.isPayer)
         }
     }
 }

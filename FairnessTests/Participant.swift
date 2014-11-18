@@ -1,49 +1,46 @@
 import UIKit
 
-
 struct TransactionItem  {
 
-    var amount = 0.0
+    let amount: Double?
     var isPayee, isPayer: Bool
 }
-
 
 struct ParticipantViewModel {
 
     let amountString: String
-    let balanceString: String
     let name: String
     let isPayee, isPayer: Bool
 
-
     private let balanceFormatter = BalanceFormatter.sharedInstance
-
 
     init(participant: Participant, transactionItem: TransactionItem) {
 
-        amountString = balanceFormatter.stringFromNumber(transactionItem.amount) ?? ""
-        balanceString = balanceFormatter.stringFromNumber(participant.balance) ?? ""
+        amountString = balanceFormatter.stringFromNumber(participant.balance) ?? ""
+
+        if let amount = transactionItem.amount {
+
+            let transactionAmountString = balanceFormatter.stringFromNumber(amount) ?? ""
+            let transactionAmountPrefix = amount > 0 ? "+" : ""
+            amountString = "\(amountString) \(transactionAmountPrefix)\(transactionAmountString)"
+        }
+
         name = participant.name
         isPayee = transactionItem.isPayee
         isPayer = transactionItem.isPayer
     }
 }
 
-
 class Participant {
 
     var balance = 0.0
     var name: String
 
-    
     init(name: String) {
 
         self.name = name
     }
 }
-
-
-// MARK: Hashable
 
 extension Participant: Hashable {
 
@@ -52,9 +49,6 @@ extension Participant: Hashable {
         return balance.hashValue ^ name.hashValue
     }
 }
-
-
-// MARK: Equatable
 
 extension Participant: Equatable {}
 

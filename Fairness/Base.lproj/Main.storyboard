@@ -38,35 +38,27 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jXD-Rg-TF9" userLabel="Name">
-                                            <rect key="frame" x="8" y="18" width="45.5" height="20.5"/>
+                                            <rect key="frame" x="8" y="18" width="46" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalCompressionResistancePriority="751" text="Amount" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MdW-g7-jFH">
-                                            <rect key="frame" x="252" y="29" width="60" height="20.5"/>
+                                            <rect key="frame" x="252" y="18" width="60" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Balance" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PTa-33-nrp" userLabel="Balance">
-                                            <rect key="frame" x="248" y="8" width="64" height="20.5"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="PTa-33-nrp" firstAttribute="trailing" secondItem="VDt-QM-tUO" secondAttribute="trailingMargin" id="2az-yY-1z8"/>
-                                        <constraint firstItem="MdW-g7-jFH" firstAttribute="top" secondItem="PTa-33-nrp" secondAttribute="bottom" constant="0.5" id="6DH-9z-939"/>
                                         <constraint firstItem="jXD-Rg-TF9" firstAttribute="leading" secondItem="VDt-QM-tUO" secondAttribute="leadingMargin" id="Rvf-cO-14P"/>
-                                        <constraint firstItem="PTa-33-nrp" firstAttribute="top" secondItem="VDt-QM-tUO" secondAttribute="topMargin" id="WSI-03-Jh9"/>
                                         <constraint firstItem="MdW-g7-jFH" firstAttribute="trailing" secondItem="VDt-QM-tUO" secondAttribute="trailingMargin" id="ZWN-g4-lIB"/>
+                                        <constraint firstAttribute="centerY" secondItem="MdW-g7-jFH" secondAttribute="centerY" constant="0.5" id="wJy-Xv-FwK"/>
                                         <constraint firstAttribute="centerY" secondItem="jXD-Rg-TF9" secondAttribute="centerY" id="yZI-UE-dAh"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="amountLabel" destination="MdW-g7-jFH" id="8OC-4h-Gle"/>
-                                    <outlet property="balanceLabel" destination="PTa-33-nrp" id="YXw-kb-dqP"/>
                                     <outlet property="nameLabel" destination="jXD-Rg-TF9" id="duN-BY-jJ9"/>
                                 </connections>
                             </tableViewCell>
