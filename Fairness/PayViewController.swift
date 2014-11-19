@@ -1,45 +1,52 @@
 import UIKit
 
-class PayViewController: UITableViewController {
+class CostTextFieldController: NSObject {
 
-    let transaction = Transaction()
+    @IBOutlet weak var costTextField: UITextField!
+    @IBOutlet weak var transactionController: TransactionController!
 
-    @IBOutlet var accessoryToolbar: UIToolbar!
-    @IBOutlet weak var amountTextField: UITextField!
-    @IBOutlet weak var doneBarButtonItem: UIBarButtonItem!
+    @IBAction func costDidChange() {
 
-    func updateTransaction() {
+        transactionController.cost = (costTextField.text as NSString).doubleValue
+    }
 
-        transaction.update()
-        tableView.reloadData()
-        self.doneBarButtonItem.enabled = transaction.isValid
+    func transactionDidStart() {
+
+        costTextField.userInteractionEnabled = true
+        costTextField.becomeFirstResponder()
     }
 
     func reset() {
 
-        amountTextField.resignFirstResponder()
-        amountTextField.text = ""
-        transaction.resetTransaction()
-        tableView.reloadData()
+        costTextField.userInteractionEnabled = false
+        costTextField.resignFirstResponder()
+        costTextField.text = ""
+    }
+}
+
+class TransactionController: NSObject, UITableViewDelegate, UITableViewDataSource {
+
+    @IBOutlet weak var costTextFieldController: CostTextFieldController!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var doneBarButtonItem: UIBarButtonItem!
+
+    private let transaction = Transaction()
+
+    var cost: Double = 0.0 {
+
+        didSet {
+
+            transaction.cost = cost
+            updateTransaction()
+        }
     }
 
-    // MARK: UIViewController
-
-    override func viewDidLoad() {
-
-        super.viewDidLoad()
-
-        amountTextField.inputAccessoryView = accessoryToolbar
-    }
-
-    // MARK: UITableViewDataSource
-
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
         return transaction.numberOfParticipants
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCellWithIdentifier("Participant", forIndexPath: indexPath) as ParticipantCell
 
@@ -48,42 +55,52 @@ class PayViewController: UITableViewController {
         return cell
     }
 
-    // MARK: UITableViewDelegate
-
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 
         let index = indexPath.row
 
         if !transaction.hasPayer {
 
             transaction.togglePayerAtIndex(index)
-            amountTextField.userInteractionEnabled = true
-            amountTextField.becomeFirstResponder()
+            costTextFieldController.transactionDidStart()
         }
         else {
 
             transaction.togglePayeeAtIndex(index)
         }
-
+        
         updateTransaction()
     }
 
-    // MARK: Actions
+    private func updateTransaction() {
 
-    @IBAction func amountDidChange() {
-
-        transaction.cost = (amountTextField.text as NSString).doubleValue
-        updateTransaction()
+        transaction.update()
+        tableView.reloadData()
+        self.doneBarButtonItem.enabled = transaction.isValid
     }
 
-    @IBAction func didTapCancelButton(sender: AnyObject) {
+    @IBAction func reset() {
 
-        reset()
+        costTextFieldController.reset()
+        transaction.reset()
+        tableView.reloadData()
     }
 
-    @IBAction func didTapDoneButton(sender: AnyObject) {
+    @IBAction func apply() {
 
         transaction.apply()
         reset()
+    }
+}
+
+class PayViewController: UITableViewController {
+
+    @IBOutlet var accessoryToolbar: UIToolbar!
+    @IBOutlet weak var costTextField: UITextField!
+
+    override func viewDidLoad() {
+
+        super.viewDidLoad()
+        costTextField.inputAccessoryView = accessoryToolbar
     }
 }

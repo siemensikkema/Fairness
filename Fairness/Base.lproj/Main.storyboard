@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A388a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Wa6-SV-Kor">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Wa6-SV-Kor">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6246"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -13,16 +13,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="Wbz-Mf-LgN">
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="Wbz-Mf-LgN" userLabel="Header View">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gsd-hj-QDb">
+                                <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gsd-hj-QDb" userLabel="Cost">
                                     <rect key="frame" x="8" y="7" width="304" height="30"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done"/>
                                     <connections>
-                                        <action selector="amountDidChange" destination="g2j-NW-RU8" eventType="editingChanged" id="kbT-xE-8vw"/>
+                                        <action selector="costDidChange" destination="Gvk-Ox-Fpx" eventType="editingChanged" id="CFr-DR-czn"/>
                                         <outlet property="delegate" destination="6vH-at-pxy" id="vyU-WT-FO3"/>
                                     </connections>
                                 </textField>
@@ -64,15 +64,16 @@
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="g2j-NW-RU8" id="xql-Sm-XU9"/>
-                            <outlet property="delegate" destination="g2j-NW-RU8" id="Mzp-4p-QId"/>
+                            <outlet property="dataSource" destination="d0H-zN-KRX" id="WKN-6p-qMz"/>
+                            <outlet property="delegate" destination="d0H-zN-KRX" id="jFF-qT-UAM"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Wps-L0-ZAc"/>
+                    <navigationItem key="navigationItem" id="Wps-L0-ZAc">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="h7N-KA-poz"/>
+                    </navigationItem>
                     <connections>
-                        <outlet property="accessoryToolbar" destination="xUd-Oe-3bS" id="lqj-ee-OVH"/>
-                        <outlet property="amountTextField" destination="Gsd-hj-QDb" id="sdr-pC-O5s"/>
-                        <outlet property="doneBarButtonItem" destination="ccX-6L-N9T" id="lYc-Nh-hda"/>
+                        <outlet property="accessoryToolbar" destination="xUd-Oe-3bS" id="FPN-UA-Uxf"/>
+                        <outlet property="costTextField" destination="Gsd-hj-QDb" id="IPq-7K-pBp"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZVl-LN-WY1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -82,18 +83,31 @@
                     <items>
                         <barButtonItem systemItem="cancel" id="gkN-ZX-LfD">
                             <connections>
-                                <action selector="didTapCancelButton:" destination="g2j-NW-RU8" id="Wjg-yh-OQo"/>
+                                <action selector="reset" destination="d0H-zN-KRX" id="bLW-q2-EfZ"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="jqi-bZ-D5R"/>
                         <barButtonItem enabled="NO" systemItem="done" id="ccX-6L-N9T">
                             <connections>
-                                <action selector="didTapDoneButton:" destination="g2j-NW-RU8" id="in1-Sp-Ae7"/>
+                                <action selector="apply" destination="d0H-zN-KRX" id="Uys-iz-Rih"/>
                             </connections>
                         </barButtonItem>
                     </items>
                 </toolbar>
                 <customObject id="6vH-at-pxy" customClass="AmountTextFieldDelegate" customModule="Fairness" customModuleProvider="target"/>
+                <customObject id="d0H-zN-KRX" customClass="TransactionController" customModule="Fairness" customModuleProvider="target">
+                    <connections>
+                        <outlet property="costTextFieldController" destination="Gvk-Ox-Fpx" id="i3Z-hp-qoA"/>
+                        <outlet property="doneBarButtonItem" destination="ccX-6L-N9T" id="rSI-uh-mTj"/>
+                        <outlet property="tableView" destination="2wO-P0-BA6" id="VOa-Qv-qMO"/>
+                    </connections>
+                </customObject>
+                <customObject id="Gvk-Ox-Fpx" customClass="CostTextFieldController" customModule="Fairness" customModuleProvider="target">
+                    <connections>
+                        <outlet property="costTextField" destination="Gsd-hj-QDb" id="wDI-TQ-lqq"/>
+                        <outlet property="transactionController" destination="d0H-zN-KRX" id="gq8-ut-Ouf"/>
+                    </connections>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="644" y="96"/>
         </scene>

@@ -27,7 +27,7 @@ class Transaction {
 
     init() {
 
-        resetTransaction()
+        reset()
     }
 
     func apply() {
@@ -37,7 +37,7 @@ class Transaction {
             participant.balance += transactionItems[index].amount ?? 0
         }
 
-        resetTransaction()
+        reset()
     }
 
     func participantViewModelAtIndex(index: Int) -> ParticipantViewModel {
@@ -45,7 +45,7 @@ class Transaction {
         return ParticipantViewModel(participant: participantStore.participants[index], transactionItem:transactionItems[index])
     }
 
-    func resetTransaction() {
+    func reset() {
 
         cost = 0.0
         transactionItems = [TransactionItem](count: numberOfParticipants, repeatedValue: TransactionItem(amount: nil, isPayee: false, isPayer: false))
