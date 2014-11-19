@@ -2,27 +2,26 @@ class Transaction {
 
     let participantStore = ParticipantStore()
 
-    var cost = 0.0
-    var transactionItems = [TransactionItem]()
+    var cost: Double = 0.0 {
+
+        didSet { update() }
+    }
+
+    var participantTransactionModels = [ParticipantTransactionModel]()
 
     var hasPayer: Bool {
 
-        for transactionItem in transactionItems {
+        for participantViewModel in participantTransactionModels {
 
-            if transactionItem.isPayer { return true }
+            if participantViewModel.isPayer { return true }
         }
 
         return false
     }
 
-    var numberOfParticipants: Int {
-
-        return participantStore.participants.count
-    }
-
     var isValid: Bool {
 
-        return cost > 0 && transactionItems.filter { $0.isPayer || $0.isPayee }.count > 1
+        return cost > 0 && participantTransactionModels.filter { $0.isPayer || $0.isPayee }.count > 1
     }
 
     init() {
@@ -34,57 +33,59 @@ class Transaction {
 
         for (index, participant) in enumerate(participantStore.participants) {
 
-            participant.balance += transactionItems[index].amount ?? 0
+            participant.balance += participantTransactionModels[index].maybeAmount ?? 0
         }
 
         reset()
     }
 
-    func participantViewModelAtIndex(index: Int) -> ParticipantViewModel {
-
-        return ParticipantViewModel(participant: participantStore.participants[index], transactionItem:transactionItems[index])
-    }
-
     func reset() {
 
         cost = 0.0
-        transactionItems = [TransactionItem](count: numberOfParticipants, repeatedValue: TransactionItem(amount: nil, isPayee: false, isPayer: false))
+
+        participantTransactionModels = participantStore.participants.map { (participant: Participant) in
+
+            ParticipantTransactionModel(participant: participant, amount: nil, isPayee: false, isPayer: false)
+        }
     }
 
     func togglePayeeAtIndex(index: Int) {
 
-        transactionItems[index].isPayee = !transactionItems[index].isPayee
+        participantTransactionModels[index].isPayee = !participantTransactionModels[index].isPayee
+        update()
     }
 
     func togglePayerAtIndex(index: Int) {
 
-        transactionItems[index].isPayer = !transactionItems[index].isPayer
+        participantTransactionModels[index].isPayer = !participantTransactionModels[index].isPayer
+        update()
     }
 
-    func update() {
+    private func update() {
 
-        let numberOfPayees = Double(transactionItems.reduce(0) { $0 + ($1.isPayee ? 1 : 0) })
+        let numberOfPayees = Double(participantTransactionModels.reduce(0) { $0 + ($1.isPayee ? 1 : 0) })
 
-        transactionItems = transactionItems.map { (var transactionItem: TransactionItem) in
+        for index in 0..<participantTransactionModels.count {
 
-            var amount: Double?
+            var maybeAmount: Double?
 
-            if (!self.isValid) {
+            if (self.isValid) {
 
-                return transactionItem
+                let participantTransactionModel = participantTransactionModels[index]
+
+                if participantTransactionModel.isPayee {
+
+                    maybeAmount = -self.cost/numberOfPayees
+                }
+
+                if participantTransactionModel.isPayer {
+
+                    maybeAmount = (maybeAmount ?? 0) + self.cost
+                }
+
             }
 
-            if transactionItem.isPayee {
-
-                amount = -self.cost/numberOfPayees
-            }
-
-            if transactionItem.isPayer {
-
-                amount = (amount ?? 0) + self.cost
-            }
-
-            return TransactionItem(amount: amount, isPayee: transactionItem.isPayee, isPayer: transactionItem.isPayer)
+            participantTransactionModels[index].maybeAmount = maybeAmount
         }
     }
 }

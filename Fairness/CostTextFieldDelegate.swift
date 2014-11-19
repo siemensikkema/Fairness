@@ -1,7 +1,7 @@
 import UIKit
 import Tools
 
-class AmountTextFieldDelegate: NSObject, UITextFieldDelegate {
+class CostTextFieldDelegate: NSObject, UITextFieldDelegate {
 
     var balanceFormatter = BalanceFormatter()
 

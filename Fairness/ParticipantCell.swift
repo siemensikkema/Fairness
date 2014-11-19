@@ -5,12 +5,12 @@ class ParticipantCell: UITableViewCell {
     @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
 
-    func configure(#participantViewModel: ParticipantViewModel) {
+    func configure(#participantTransactionModel: ParticipantTransactionModel) {
 
-        amountLabel.text = participantViewModel.amountString
-        nameLabel.text = participantViewModel.name
+        amountLabel.text = participantTransactionModel.amountString
+        nameLabel.text = participantTransactionModel.name
 
-        self.backgroundColor = participantViewModel.isPayee ? UIColor.greenColor() : UIColor.whiteColor()
-        self.layer.borderWidth = participantViewModel.isPayer ? 1 : 0
+        self.backgroundColor = participantTransactionModel.isPayee ? UIColor.greenColor() : UIColor.whiteColor()
+        self.layer.borderWidth = participantTransactionModel.isPayer ? 1 : 0
     }
 }

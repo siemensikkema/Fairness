@@ -5,7 +5,7 @@ import Tools
 class AmountEntryTests: XCTestCase {
 
     var balanceFormatter: BalanceFormatter!
-    var amountTextFieldDelegate: AmountTextFieldDelegate!
+    var costTextFieldDelegate: CostTextFieldDelegate!
     var textField: UITextField!
 
     override func setUp() {
@@ -13,8 +13,8 @@ class AmountEntryTests: XCTestCase {
         balanceFormatter = BalanceFormatter()
         balanceFormatter.decimalSeparator = "."
 
-        amountTextFieldDelegate = AmountTextFieldDelegate()
-        amountTextFieldDelegate.balanceFormatter = balanceFormatter
+        costTextFieldDelegate = CostTextFieldDelegate()
+        costTextFieldDelegate.balanceFormatter = balanceFormatter
         textField = UITextField()
     }
 
@@ -22,7 +22,7 @@ class AmountEntryTests: XCTestCase {
 
     func fillInString(string: String, atLocation location: Int) -> Bool {
 
-        return amountTextFieldDelegate.textField(textField, shouldChangeCharactersInRange: NSRange(location: location, length: 0), replacementString: string)
+        return costTextFieldDelegate.textField(textField, shouldChangeCharactersInRange: NSRange(location: location, length: 0), replacementString: string)
     }
 
     // MARK: Tests
@@ -35,7 +35,7 @@ class AmountEntryTests: XCTestCase {
     func testNumberIsFormattedWhenEditingDidEnd() {
 
         textField.text = "1"
-        amountTextFieldDelegate.textFieldDidEndEditing(textField)
+        costTextFieldDelegate.textFieldDidEndEditing(textField)
         XCTAssertEqual(textField.text, balanceFormatter.stringFromNumber(1)!)
     }
 

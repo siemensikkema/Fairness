@@ -8,8 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		5F07154419D17E14008D4A30 /* ParticipantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F07154319D17E14008D4A30 /* ParticipantCell.swift */; };
-		5FB89EFC19DED03200AE1A05 /* AmountTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB89EFB19DED03200AE1A05 /* AmountTextFieldDelegate.swift */; };
-		5FB89EFD19DED05D00AE1A05 /* AmountTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB89EFB19DED03200AE1A05 /* AmountTextFieldDelegate.swift */; };
+		5F7BFF1B1A1C925100A2357C /* TransactionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7BFF1A1A1C925100A2357C /* TransactionController.swift */; };
+		5F7BFF1D1A1C927B00A2357C /* CostTextFieldController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7BFF1C1A1C927B00A2357C /* CostTextFieldController.swift */; };
+		5F7BFF1F1A1C92E500A2357C /* ParticipantTransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7BFF1E1A1C92E500A2357C /* ParticipantTransactionModel.swift */; };
+		5FB89EFC19DED03200AE1A05 /* CostTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB89EFB19DED03200AE1A05 /* CostTextFieldDelegate.swift */; };
+		5FB89EFD19DED05D00AE1A05 /* CostTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB89EFB19DED03200AE1A05 /* CostTextFieldDelegate.swift */; };
 		5FB89EFF19DED42F00AE1A05 /* AmountEntryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB89EFE19DED42F00AE1A05 /* AmountEntryTests.swift */; };
 		5FB8BAE019F591A00075C2AE /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB8BADF19F591A00075C2AE /* Transaction.swift */; };
 		5FB8BAE219F592020075C2AE /* ParticipantStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB8BAE119F592020075C2AE /* ParticipantStore.swift */; };
@@ -22,7 +25,7 @@
 		5FF2872C19D8732F0050CF87 /* Participant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF65CF819D17696006259A4 /* Participant.swift */; };
 		5FF2872D19D88D460050CF87 /* Participant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF65CF819D17696006259A4 /* Participant.swift */; };
 		5FF3608E19D03CA900BBC643 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF3608D19D03CA900BBC643 /* AppDelegate.swift */; };
-		5FF3609019D03CA900BBC643 /* PayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF3608F19D03CA900BBC643 /* PayViewController.swift */; };
+		5FF3609019D03CA900BBC643 /* TransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF3608F19D03CA900BBC643 /* TransactionViewController.swift */; };
 		5FF3609319D03CA900BBC643 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FF3609119D03CA900BBC643 /* Main.storyboard */; };
 		5FF3609519D03CA900BBC643 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FF3609419D03CA900BBC643 /* Images.xcassets */; };
 		5FF3609819D03CA900BBC643 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FF3609619D03CA900BBC643 /* LaunchScreen.xib */; };
@@ -61,7 +64,10 @@
 
 /* Begin PBXFileReference section */
 		5F07154319D17E14008D4A30 /* ParticipantCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticipantCell.swift; sourceTree = "<group>"; };
-		5FB89EFB19DED03200AE1A05 /* AmountTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmountTextFieldDelegate.swift; sourceTree = "<group>"; };
+		5F7BFF1A1A1C925100A2357C /* TransactionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionController.swift; sourceTree = "<group>"; };
+		5F7BFF1C1A1C927B00A2357C /* CostTextFieldController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CostTextFieldController.swift; sourceTree = "<group>"; };
+		5F7BFF1E1A1C92E500A2357C /* ParticipantTransactionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticipantTransactionModel.swift; sourceTree = "<group>"; };
+		5FB89EFB19DED03200AE1A05 /* CostTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CostTextFieldDelegate.swift; sourceTree = "<group>"; };
 		5FB89EFE19DED42F00AE1A05 /* AmountEntryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmountEntryTests.swift; sourceTree = "<group>"; };
 		5FB8BADF19F591A00075C2AE /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		5FB8BAE119F592020075C2AE /* ParticipantStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticipantStore.swift; sourceTree = "<group>"; };
@@ -77,7 +83,7 @@
 		5FF3608819D03CA900BBC643 /* Fairness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fairness.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FF3608C19D03CA900BBC643 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5FF3608D19D03CA900BBC643 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5FF3608F19D03CA900BBC643 /* PayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayViewController.swift; sourceTree = "<group>"; };
+		5FF3608F19D03CA900BBC643 /* TransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewController.swift; sourceTree = "<group>"; };
 		5FF3609219D03CA900BBC643 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5FF3609419D03CA900BBC643 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5FF3609719D03CA900BBC643 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -182,9 +188,10 @@
 		5FF3608A19D03CA900BBC643 /* Fairness */ = {
 			isa = PBXGroup;
 			children = (
-				5FB89EFB19DED03200AE1A05 /* AmountTextFieldDelegate.swift */,
 				5FF3608D19D03CA900BBC643 /* AppDelegate.swift */,
 				5FE1A83219DB246700BCC98C /* BalanceFormatter.swift */,
+				5F7BFF1C1A1C927B00A2357C /* CostTextFieldController.swift */,
+				5FB89EFB19DED03200AE1A05 /* CostTextFieldDelegate.swift */,
 				5FF3609419D03CA900BBC643 /* Images.xcassets */,
 				5FF3609619D03CA900BBC643 /* LaunchScreen.xib */,
 				5FF3609119D03CA900BBC643 /* Main.storyboard */,
@@ -192,9 +199,11 @@
 				5FF65CF819D17696006259A4 /* Participant.swift */,
 				5F07154319D17E14008D4A30 /* ParticipantCell.swift */,
 				5FB8BAE119F592020075C2AE /* ParticipantStore.swift */,
-				5FF3608F19D03CA900BBC643 /* PayViewController.swift */,
+				5F7BFF1E1A1C92E500A2357C /* ParticipantTransactionModel.swift */,
 				5FF3608B19D03CA900BBC643 /* Supporting Files */,
 				5FB8BADF19F591A00075C2AE /* Transaction.swift */,
+				5F7BFF1A1A1C925100A2357C /* TransactionController.swift */,
+				5FF3608F19D03CA900BBC643 /* TransactionViewController.swift */,
 			);
 			path = Fairness;
 			sourceTree = "<group>";
@@ -377,11 +386,14 @@
 			files = (
 				5FB8BAE019F591A00075C2AE /* Transaction.swift in Sources */,
 				5FE1A83419DB283A00BCC98C /* BalanceFormatter.swift in Sources */,
+				5F7BFF1D1A1C927B00A2357C /* CostTextFieldController.swift in Sources */,
 				5F07154419D17E14008D4A30 /* ParticipantCell.swift in Sources */,
-				5FF3609019D03CA900BBC643 /* PayViewController.swift in Sources */,
+				5FF3609019D03CA900BBC643 /* TransactionViewController.swift in Sources */,
 				5FF3608E19D03CA900BBC643 /* AppDelegate.swift in Sources */,
+				5F7BFF1F1A1C92E500A2357C /* ParticipantTransactionModel.swift in Sources */,
+				5F7BFF1B1A1C925100A2357C /* TransactionController.swift in Sources */,
 				5FB8BAE219F592020075C2AE /* ParticipantStore.swift in Sources */,
-				5FB89EFC19DED03200AE1A05 /* AmountTextFieldDelegate.swift in Sources */,
+				5FB89EFC19DED03200AE1A05 /* CostTextFieldDelegate.swift in Sources */,
 				5FF2872C19D8732F0050CF87 /* Participant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -390,7 +402,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5FB89EFD19DED05D00AE1A05 /* AmountTextFieldDelegate.swift in Sources */,
+				5FB89EFD19DED05D00AE1A05 /* CostTextFieldDelegate.swift in Sources */,
 				5FB89EFF19DED42F00AE1A05 /* AmountEntryTests.swift in Sources */,
 				5FF2872D19D88D460050CF87 /* Participant.swift in Sources */,
 				5FE1A83519DB28D700BCC98C /* BalanceFormatter.swift in Sources */,

@@ -94,7 +94,7 @@
                         </barButtonItem>
                     </items>
                 </toolbar>
-                <customObject id="6vH-at-pxy" customClass="AmountTextFieldDelegate" customModule="Fairness" customModuleProvider="target"/>
+                <customObject id="6vH-at-pxy" customClass="CostTextFieldDelegate" customModule="Fairness" customModuleProvider="target"/>
                 <customObject id="d0H-zN-KRX" customClass="TransactionController" customModule="Fairness" customModuleProvider="target">
                     <connections>
                         <outlet property="costTextFieldController" destination="Gvk-Ox-Fpx" id="i3Z-hp-qoA"/>
