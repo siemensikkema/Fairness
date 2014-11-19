@@ -1,12 +1,32 @@
 import UIKit
 
-class TransactionController: NSObject, UITableViewDelegate, UITableViewDataSource {
+class TransactionController: NSObject, UITableViewDelegate {
+
+    typealias ParticipantDataSource = TableViewDataSource<ParticipantTransactionModel, ParticipantCell>
 
     @IBOutlet weak var costTextFieldController: CostTextFieldController!
-    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var doneBarButtonItem: UIBarButtonItem!
+    @IBOutlet weak var tableView: UITableView! {
+
+        didSet {
+
+            tableView.dataSource = participantDataSource.toObjC
+        }
+    }
+
+    let participantDataSource: ParticipantDataSource
 
     private let transaction = Transaction()
+
+    override init() {
+
+        participantDataSource = ParticipantDataSource { (participantTransactionModel, cell) in
+
+            cell.configure(participantTransactionViewModel: participantTransactionModel.toViewModel())
+        }
+
+        participantDataSource.items = transaction.participantTransactionModels
+    }
 
     var cost: Double = 0.0 {
 
@@ -15,20 +35,6 @@ class TransactionController: NSObject, UITableViewDelegate, UITableViewDataSourc
             transaction.cost = cost
             updateTransaction()
         }
-    }
-
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
-        return transaction.participantTransactionModels.count
-    }
-
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-
-        let cell = tableView.dequeueReusableCellWithIdentifier("Participant", forIndexPath: indexPath) as ParticipantCell
-
-        cell.configure(participantTransactionModel: transaction.participantTransactionModels[indexPath.row])
-
-        return cell
     }
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -51,13 +57,14 @@ class TransactionController: NSObject, UITableViewDelegate, UITableViewDataSourc
     private func updateTransaction() {
 
         tableView.reloadData()
-        self.doneBarButtonItem.enabled = transaction.isValid
+        doneBarButtonItem.enabled = transaction.isValid
     }
 
     @IBAction func reset() {
 
         costTextFieldController.reset()
         transaction.reset()
+        participantDataSource.items = transaction.participantTransactionModels
         tableView.reloadData()
     }
     

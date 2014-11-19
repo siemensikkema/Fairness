@@ -1,16 +1,21 @@
 import UIKit
 
-class ParticipantCell: UITableViewCell {
+class ParticipantCell: UITableViewCell, ReusableCell {
 
     @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
 
-    func configure(#participantTransactionModel: ParticipantTransactionModel) {
+    func configure(#participantTransactionViewModel: ParticipantTransactionViewModel) {
 
-        amountLabel.text = participantTransactionModel.amountString
-        nameLabel.text = participantTransactionModel.name
+        amountLabel.text = participantTransactionViewModel.amountString
+        nameLabel.text = participantTransactionViewModel.name
 
-        self.backgroundColor = participantTransactionModel.isPayee ? UIColor.greenColor() : UIColor.whiteColor()
-        self.layer.borderWidth = participantTransactionModel.isPayer ? 1 : 0
+        self.backgroundColor = participantTransactionViewModel.isPayee ? UIColor.greenColor() : UIColor.whiteColor()
+        self.layer.borderWidth = participantTransactionViewModel.isPayer ? 1 : 0
+    }
+
+    class func reuseIdentifier() -> String {
+
+        return "Participant"
     }
 }

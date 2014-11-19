@@ -7,7 +7,7 @@ class Transaction {
         didSet { update() }
     }
 
-    var participantTransactionModels = [ParticipantTransactionModel]()
+    var participantTransactionModels: [ParticipantTransactionModel] = []
 
     var hasPayer: Bool {
 
