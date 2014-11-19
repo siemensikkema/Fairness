@@ -93,7 +93,7 @@ class TransactionController: NSObject, UITableViewDelegate, UITableViewDataSourc
     }
 }
 
-class PayViewController: UITableViewController {
+class TransactionViewController: UITableViewController {
 
     @IBOutlet var accessoryToolbar: UIToolbar!
     @IBOutlet weak var costTextField: UITextField!
