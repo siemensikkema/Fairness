@@ -1,6 +1,6 @@
 import UIKit
 
-class TransactionViewController: UITableViewController {
+class TransactionEntryViewController: UITableViewController {
 
     @IBOutlet var accessoryToolbar: UIToolbar!
     @IBOutlet weak var costTextField: UITextField!

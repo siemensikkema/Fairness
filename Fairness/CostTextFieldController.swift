@@ -3,11 +3,11 @@ import UIKit
 class CostTextFieldController: NSObject {
 
     @IBOutlet weak var costTextField: UITextField!
-    @IBOutlet weak var transactionController: TransactionController!
+    @IBOutlet weak var transactionCalculatorController: TransactionCalculatorController!
 
     @IBAction func costDidChange() {
 
-        transactionController.cost = (costTextField.text as NSString).doubleValue
+        transactionCalculatorController.cost = (costTextField.text as NSString).doubleValue
     }
 
     func transactionDidStart() {

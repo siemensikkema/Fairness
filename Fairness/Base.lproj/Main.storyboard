@@ -5,10 +5,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Transaction View Controller-->
+        <!--Transaction Entry View Controller-->
         <scene sceneID="rgS-tv-TYi">
             <objects>
-                <tableViewController id="g2j-NW-RU8" customClass="TransactionViewController" customModule="Fairness" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="g2j-NW-RU8" customClass="TransactionEntryViewController" customModule="Fairness" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="58" sectionHeaderHeight="22" sectionFooterHeight="22" id="2wO-P0-BA6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -94,7 +94,7 @@
                     </items>
                 </toolbar>
                 <customObject id="6vH-at-pxy" customClass="CostTextFieldDelegate" customModule="Fairness" customModuleProvider="target"/>
-                <customObject id="d0H-zN-KRX" customClass="TransactionController" customModule="Fairness" customModuleProvider="target">
+                <customObject id="d0H-zN-KRX" customClass="TransactionCalculatorController" customModule="Fairness" customModuleProvider="target">
                     <connections>
                         <outlet property="costTextFieldController" destination="Gvk-Ox-Fpx" id="i3Z-hp-qoA"/>
                         <outlet property="doneBarButtonItem" destination="ccX-6L-N9T" id="rSI-uh-mTj"/>
@@ -104,7 +104,7 @@
                 <customObject id="Gvk-Ox-Fpx" customClass="CostTextFieldController" customModule="Fairness" customModuleProvider="target">
                     <connections>
                         <outlet property="costTextField" destination="Gsd-hj-QDb" id="wDI-TQ-lqq"/>
-                        <outlet property="transactionController" destination="d0H-zN-KRX" id="gq8-ut-Ouf"/>
+                        <outlet property="transactionCalculatorController" destination="d0H-zN-KRX" id="ff5-ZE-1sU"/>
                     </connections>
                 </customObject>
             </objects>

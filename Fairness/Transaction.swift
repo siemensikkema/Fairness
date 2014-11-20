@@ -1,5 +1,8 @@
-class Transaction {
+class TransactionCalculator {
 
+    typealias ModelDidBecomeInvalidCallback = (participantTransactionModels: [ParticipantTransactionModel]) -> ()
+
+    let modelDidBecomeInvalidCallback: ModelDidBecomeInvalidCallback
     let participantStore = ParticipantStore()
 
     var cost: Double = 0.0 {
@@ -7,7 +10,10 @@ class Transaction {
         didSet { update() }
     }
 
-    var participantTransactionModels: [ParticipantTransactionModel] = []
+    var participantTransactionModels: [ParticipantTransactionModel] = [] {
+
+        didSet { modelDidBecomeInvalidCallback(participantTransactionModels: participantTransactionModels) }
+    }
 
     var hasPayer: Bool {
 
@@ -24,8 +30,9 @@ class Transaction {
         return cost > 0 && participantTransactionModels.filter { $0.isPayer || $0.isPayee }.count > 1
     }
 
-    init() {
+    init(modelDidBecomeInvalidCallback: ModelDidBecomeInvalidCallback) {
 
+        self.modelDidBecomeInvalidCallback = modelDidBecomeInvalidCallback
         reset()
     }
 
