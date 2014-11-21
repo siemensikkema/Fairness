@@ -21,43 +21,56 @@ class CostTextFieldControllerTests: XCTestCase {
     }
 }
 
-extension CostTextFieldControllerTests {
+class CostTextFieldControllerCostDidChangeTests: CostTextFieldControllerTests {
 
     func testCostGetSetOnTransactionCalculatorController() {
 
         let cost = 1.23
-        sut.costTextField.text = "\(cost)"
+        textField.text = "\(cost)"
         sut.costDidChange()
         XCTAssertEqual(sut.transactionCalculatorController.cost, cost)
     }
+}
 
-    func testTextFieldIsFirstResponderAfterTransactionDidStart() {
+class CostTextFieldControllerTransactionDidStartTests: CostTextFieldControllerTests {
 
+    override func setUp() {
+
+        super.setUp()
         sut.transactionDidStart()
+    }
+
+    func testTextFieldIsFirstResponder() {
+
         XCTAssertTrue(textField.isFirstResponder())
     }
 
-    func testTextFieldIsNotFirstResponderAfterReset() {
+    func testTextFieldUserInteractionIsEnabled() {
 
+        XCTAssertTrue(textField.userInteractionEnabled)
+    }
+}
+
+class CostTextFieldControllerTransactionDidResetTests: CostTextFieldControllerTests {
+
+    override func setUp() {
+
+        super.setUp()
         sut.reset()
+    }
+
+    func testTextFieldIsNotFirstResponder() {
+
         XCTAssertFalse(textField.isFirstResponder())
     }
 
-    func testTextFieldUserInteractionIsEnabledAfterTransactionDidStart() {
+    func testTextFieldUserInteractionIsDisabled() {
 
-        sut.transactionDidStart()
-        XCTAssertTrue(textField.userInteractionEnabled)
-    }
-
-    func testTextFieldUserInteractionIsDisabledAfterReset() {
-
-        sut.reset()
         XCTAssertFalse(textField.userInteractionEnabled)
     }
 
-    func testTextFieldTextIsEmptyAfterReset() {
+    func testTextFieldTextIsEmpty() {
 
-        sut.reset()
         XCTAssertEqual(textField.text, "")
     }
 }
