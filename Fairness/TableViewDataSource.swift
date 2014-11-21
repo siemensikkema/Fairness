@@ -5,8 +5,7 @@ protocol DataSourceItem {}
 class TableViewDataSource<ItemType: DataSourceItem, CellType: UITableViewCell where CellType: ReusableCell> {
 
     typealias Configurator = (ItemType, CellType) -> ()
-    let configurator: Configurator
-    let toObjC: TableViewDataSourceObjC!
+    let toObjC: TableViewDataSourceObjC
     var items: [ItemType] = [] {
 
         didSet {
@@ -17,11 +16,8 @@ class TableViewDataSource<ItemType: DataSourceItem, CellType: UITableViewCell wh
 
     init(configurator: Configurator) {
 
-        self.configurator = configurator
-
         self.toObjC = TableViewDataSourceObjC(cellIdentifier: CellType.reuseIdentifier()) { (item, cell) in
-
-            self.configurator(item as ItemType, cell as CellType)
+            configurator(item as ItemType, cell as CellType)
         }
     }
 
@@ -34,7 +30,7 @@ class TableViewDataSource<ItemType: DataSourceItem, CellType: UITableViewCell wh
     }
 }
 
-public class TableViewDataSourceObjC: NSObject, UITableViewDataSource {
+class TableViewDataSourceObjC: NSObject, UITableViewDataSource {
 
     typealias ConfiguratorObjC = (DataSourceItem, AnyObject) -> Void
 
@@ -42,12 +38,12 @@ public class TableViewDataSourceObjC: NSObject, UITableViewDataSource {
     let configurator: ConfiguratorObjC
     var items: [DataSourceItem] = []
 
-    public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
         return items.count
     }
 
-    public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
         if let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as? UITableViewCell {
 

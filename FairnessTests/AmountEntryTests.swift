@@ -1,6 +1,5 @@
 import UIKit
 import XCTest
-import Tools
 
 class AmountEntryTests: XCTestCase {
 
@@ -13,8 +12,7 @@ class AmountEntryTests: XCTestCase {
         balanceFormatter = BalanceFormatter()
         balanceFormatter.decimalSeparator = "."
 
-        costTextFieldDelegate = CostTextFieldDelegate()
-        costTextFieldDelegate.balanceFormatter = balanceFormatter
+        costTextFieldDelegate = CostTextFieldDelegateForTesting(balanceFormatter: balanceFormatter)
         textField = UITextField()
     }
 

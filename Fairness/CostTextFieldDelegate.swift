@@ -3,7 +3,7 @@ import Tools
 
 class CostTextFieldDelegate: NSObject, UITextFieldDelegate {
 
-    var balanceFormatter = BalanceFormatter()
+    private var balanceFormatter: BalanceFormatter = BalanceFormatter()
 
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
 
@@ -29,5 +29,14 @@ class CostTextFieldDelegate: NSObject, UITextFieldDelegate {
 
         // format the amount when editing did end
         textField.text = balanceFormatter.stringFromNumber((textField.text as NSString).doubleValue)
+    }
+}
+
+class CostTextFieldDelegateForTesting: CostTextFieldDelegate {
+
+    convenience init(balanceFormatter: BalanceFormatter) {
+
+        self.init()
+        self.balanceFormatter = balanceFormatter
     }
 }
