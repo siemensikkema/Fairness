@@ -78,3 +78,8 @@ extension TransactionCalculatorController: UITableViewDelegate {
         updateTransaction()
     }
 }
+
+class TransactionCalculatorControllerForTesting: TransactionCalculatorController {
+
+    private override func updateTransaction() {}
+}

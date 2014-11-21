@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5F07154419D17E14008D4A30 /* ParticipantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F07154319D17E14008D4A30 /* ParticipantCell.swift */; };
+		5F0C31411A1F44740066B297 /* CostTextFieldControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0C31401A1F44740066B297 /* CostTextFieldControllerTests.swift */; };
 		5F7BFF1B1A1C925100A2357C /* TransactionCalculatorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7BFF1A1A1C925100A2357C /* TransactionCalculatorController.swift */; };
 		5F7BFF1D1A1C927B00A2357C /* CostTextFieldController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7BFF1C1A1C927B00A2357C /* CostTextFieldController.swift */; };
 		5F7BFF1F1A1C92E500A2357C /* ParticipantTransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7BFF1E1A1C92E500A2357C /* ParticipantTransactionModel.swift */; };
@@ -75,6 +76,7 @@
 
 /* Begin PBXFileReference section */
 		5F07154319D17E14008D4A30 /* ParticipantCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticipantCell.swift; sourceTree = "<group>"; };
+		5F0C31401A1F44740066B297 /* CostTextFieldControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CostTextFieldControllerTests.swift; sourceTree = "<group>"; };
 		5F7BFF1A1A1C925100A2357C /* TransactionCalculatorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionCalculatorController.swift; sourceTree = "<group>"; };
 		5F7BFF1C1A1C927B00A2357C /* CostTextFieldController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CostTextFieldController.swift; sourceTree = "<group>"; };
 		5F7BFF1E1A1C92E500A2357C /* ParticipantTransactionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticipantTransactionModel.swift; sourceTree = "<group>"; };
@@ -273,6 +275,7 @@
 		5FF360A019D03CA900BBC643 /* FairnessTests */ = {
 			isa = PBXGroup;
 			children = (
+				5F0C31401A1F44740066B297 /* CostTextFieldControllerTests.swift */,
 				5FB89EFE19DED42F00AE1A05 /* AmountEntryTests.swift */,
 				5FAC01EC1A1F292A00EAACC2 /* TableViewDataSourceTests.swift */,
 				5FF360A119D03CA900BBC643 /* Supporting Files */,
@@ -461,6 +464,7 @@
 			files = (
 				5FC240D11A1F377D006CB86F /* ParticipantCell.swift in Sources */,
 				5FC240C91A1F361C006CB86F /* TableViewDataSource.swift in Sources */,
+				5F0C31411A1F44740066B297 /* CostTextFieldControllerTests.swift in Sources */,
 				5FC240D21A1F3798006CB86F /* TransactionCalculator.swift in Sources */,
 				5FC240CD1A1F373D006CB86F /* CostTextFieldController.swift in Sources */,
 				5FC240D01A1F3773006CB86F /* ParticipantTransactionModel.swift in Sources */,
