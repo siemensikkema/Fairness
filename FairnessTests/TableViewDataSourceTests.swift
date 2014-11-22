@@ -5,10 +5,7 @@ class Item: DataSourceItem {}
 
 class Cell: UITableViewCell, ReusableCell {
 
-    class func reuseIdentifier() -> String {
-
-        return "Cell"
-    }
+    class func reuseIdentifier() -> String { return "Cell" }
 }
 
 class TableViewDataSourceTests: XCTestCase {

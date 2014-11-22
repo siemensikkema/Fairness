@@ -11,7 +11,7 @@ class Participant {
     }
 }
 
-extension Participant: Hashable {
+extension Participant: Hashable, Equatable {
 
     var hashValue: Int {
 
@@ -19,9 +19,7 @@ extension Participant: Hashable {
     }
 }
 
-extension Participant: Equatable {}
-
 func ==(lhs: Participant, rhs: Participant) -> Bool {
 
-    return lhs.hashValue == rhs.hashValue
+    return lhs.name == rhs.name && lhs.balance == rhs.balance
 }

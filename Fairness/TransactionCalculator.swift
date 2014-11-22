@@ -3,7 +3,7 @@ class TransactionCalculator {
     typealias ModelDidBecomeInvalidCallback = (participantTransactionModels: [ParticipantTransactionModel]) -> ()
 
     let modelDidBecomeInvalidCallback: ModelDidBecomeInvalidCallback
-    let participantStore = ParticipantStore()
+    private let participantStore: ParticipantStore
 
     var cost: Double = 0.0 {
 
@@ -30,10 +30,16 @@ class TransactionCalculator {
         return cost > 0 && participantTransactionModels.filter { $0.isPayer || $0.isPayee }.count > 1
     }
 
-    init(modelDidBecomeInvalidCallback: ModelDidBecomeInvalidCallback) {
+    init(modelDidBecomeInvalidCallback: ModelDidBecomeInvalidCallback, participantStore: ParticipantStore) {
 
         self.modelDidBecomeInvalidCallback = modelDidBecomeInvalidCallback
+        self.participantStore = participantStore
         reset()
+    }
+
+    convenience init(modelDidBecomeInvalidCallback: ModelDidBecomeInvalidCallback) {
+
+        self.init(modelDidBecomeInvalidCallback: modelDidBecomeInvalidCallback, participantStore: ParticipantStore())
     }
 
     func apply() {
