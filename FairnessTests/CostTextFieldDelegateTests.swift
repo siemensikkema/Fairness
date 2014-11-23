@@ -1,10 +1,10 @@
 import UIKit
 import XCTest
 
-class AmountEntryTests: XCTestCase {
+class CostTextFieldDelegateTests: XCTestCase {
 
     var balanceFormatter: BalanceFormatter!
-    var costTextFieldDelegate: CostTextFieldDelegate!
+    var sut: CostTextFieldDelegate!
     var textField: UITextField!
 
     override func setUp() {
@@ -12,18 +12,17 @@ class AmountEntryTests: XCTestCase {
         balanceFormatter = BalanceFormatter()
         balanceFormatter.decimalSeparator = "."
 
-        costTextFieldDelegate = CostTextFieldDelegateForTesting(balanceFormatter: balanceFormatter)
+        sut = CostTextFieldDelegate(balanceFormatter: balanceFormatter)
         textField = UITextField()
     }
 
-    // MARK: Helper methods
-
     func fillInString(string: String, atLocation location: Int) -> Bool {
 
-        return costTextFieldDelegate.textField(textField, shouldChangeCharactersInRange: NSRange(location: location, length: 0), replacementString: string)
+        return sut.textField(textField, shouldChangeCharactersInRange: NSRange(location: location, length: 0), replacementString: string)
     }
+}
 
-    // MARK: Tests
+extension CostTextFieldDelegateTests {
 
     func testEnteringOneDigit() {
 
@@ -33,7 +32,7 @@ class AmountEntryTests: XCTestCase {
     func testNumberIsFormattedWhenEditingDidEnd() {
 
         textField.text = "1"
-        costTextFieldDelegate.textFieldDidEndEditing(textField)
+        sut.textFieldDidEndEditing(textField)
         XCTAssertEqual(textField.text, balanceFormatter.stringFromNumber(1)!)
     }
 

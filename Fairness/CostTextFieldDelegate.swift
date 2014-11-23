@@ -32,7 +32,7 @@ class CostTextFieldDelegate: NSObject, UITextFieldDelegate {
     }
 }
 
-class CostTextFieldDelegateForTesting: CostTextFieldDelegate {
+extension CostTextFieldDelegate {
 
     convenience init(balanceFormatter: BalanceFormatter) {
 
