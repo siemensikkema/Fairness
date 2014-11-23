@@ -35,6 +35,7 @@
 		5FCB1C6F1A21E93C00F4B5DC /* TransactionEntryViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCB1C6E1A21E93C00F4B5DC /* TransactionEntryViewControllerTests.swift */; };
 		5FCB1C701A21EF3800F4B5DC /* TransactionEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF3608F19D03CA900BBC643 /* TransactionEntryViewController.swift */; };
 		5FCB1C711A21F0C800F4B5DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FF3609119D03CA900BBC643 /* Main.storyboard */; };
+		5FCB1C731A2229DF00F4B5DC /* TransactionCalculatorControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCB1C721A2229DF00F4B5DC /* TransactionCalculatorControllerTests.swift */; };
 		5FCEC49E19DD8944001BDA01 /* Tools.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FCEC49D19DD8944001BDA01 /* Tools.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5FCEC4B019DD8944001BDA01 /* Tools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FCEC49919DD8944001BDA01 /* Tools.framework */; };
 		5FCEC4B119DD8944001BDA01 /* Tools.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5FCEC49919DD8944001BDA01 /* Tools.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -99,6 +100,7 @@
 		5FB8BAE319F5BA3E0075C2AE /* Dollar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Dollar.framework; path = "Dollar.swift/Dollar/build/Debug-iphoneos/Dollar.framework"; sourceTree = "<group>"; };
 		5FB8BAEF19F637F70075C2AE /* Cent.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cent.framework; path = "Dollar.swift/Cent/build/Debug-iphoneos/Cent.framework"; sourceTree = "<group>"; };
 		5FCB1C6E1A21E93C00F4B5DC /* TransactionEntryViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionEntryViewControllerTests.swift; sourceTree = "<group>"; };
+		5FCB1C721A2229DF00F4B5DC /* TransactionCalculatorControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionCalculatorControllerTests.swift; sourceTree = "<group>"; };
 		5FCEC49919DD8944001BDA01 /* Tools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Tools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FCEC49C19DD8944001BDA01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5FCEC49D19DD8944001BDA01 /* Tools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tools.h; sourceTree = "<group>"; };
@@ -285,6 +287,7 @@
 		5FF360A019D03CA900BBC643 /* FairnessTests */ = {
 			isa = PBXGroup;
 			children = (
+				5FCB1C721A2229DF00F4B5DC /* TransactionCalculatorControllerTests.swift */,
 				5FF360A119D03CA900BBC643 /* Supporting Files */,
 				5F0C31441A2075470066B297 /* BalanceFormatterTests.swift */,
 				5F0C31401A1F44740066B297 /* CostTextFieldControllerTests.swift */,
@@ -493,6 +496,7 @@
 				5FAC01ED1A1F292A00EAACC2 /* TableViewDataSourceTests.swift in Sources */,
 				5FB89EFF19DED42F00AE1A05 /* CostTextFieldDelegateTests.swift in Sources */,
 				5FF2872D19D88D460050CF87 /* Participant.swift in Sources */,
+				5FCB1C731A2229DF00F4B5DC /* TransactionCalculatorControllerTests.swift in Sources */,
 				5F0C31471A2078030066B297 /* TransactionCalculatorTests.swift in Sources */,
 				5FC240CF1A1F3766006CB86F /* TransactionCalculatorController.swift in Sources */,
 				5FC240CC1A1F373D006CB86F /* BalanceFormatter.swift in Sources */,

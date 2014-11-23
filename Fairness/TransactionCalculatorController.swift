@@ -23,19 +23,25 @@ class TransactionCalculatorController: NSObject {
         }
     }
 
-    override init() {
+    convenience override init() {
 
-        let dataSource = ParticipantDataSource { (participantTransactionModel, cell) in
+        let participantDataSource = ParticipantDataSource { (participantTransactionModel, cell) in
 
             cell.configure(participantTransactionViewModel: participantTransactionModel.toViewModel())
         }
 
-        transactionCalculator = TransactionCalculator { participantTransactionViewModels in
+        let transactionCalculator = TransactionCalculator { participantTransactionViewModels in
 
-            dataSource.items = participantTransactionViewModels
+            participantDataSource.items = participantTransactionViewModels
         }
 
-        participantDataSource = dataSource
+        self.init(participantDataSource: participantDataSource, transactionCalculator: transactionCalculator)
+    }
+
+    init(participantDataSource: ParticipantDataSource, transactionCalculator: TransactionCalculator) {
+
+        self.participantDataSource = participantDataSource
+        self.transactionCalculator = transactionCalculator
     }
 
     private func updateTransaction() {
@@ -48,14 +54,12 @@ class TransactionCalculatorController: NSObject {
 
         costTextFieldController.reset()
         transactionCalculator.reset()
-        participantDataSource.items = transactionCalculator.participantTransactionModels
         tableView.reloadData()
     }
     
     @IBAction func apply() {
         
         transactionCalculator.apply()
-        reset()
     }
 }
 
@@ -65,21 +69,16 @@ extension TransactionCalculatorController: UITableViewDelegate {
 
         let index = indexPath.row
 
-        if !transactionCalculator.hasPayer {
+        if transactionCalculator.hasPayer {
+
+            transactionCalculator.togglePayeeAtIndex(index)
+        }
+        else {
 
             transactionCalculator.togglePayerAtIndex(index)
             costTextFieldController.transactionDidStart()
         }
-        else {
-
-            transactionCalculator.togglePayeeAtIndex(index)
-        }
         
         updateTransaction()
     }
-}
-
-class TransactionCalculatorControllerForTesting: TransactionCalculatorController {
-
-    private override func updateTransaction() {}
 }

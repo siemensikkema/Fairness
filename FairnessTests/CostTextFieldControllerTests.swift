@@ -5,15 +5,19 @@ class CostTextFieldControllerTests: XCTestCase {
 
     var sut: CostTextFieldController!
     var textField: UITextField!
-    var transactionCalculatorController: TransactionCalculatorControllerForTesting!
+    var transactionCalculatorController: TransactionCalculatorController!
     var window: UIWindow!
+    let tableView = UITableView()
+    let doneBarButtonItem = UIBarButtonItem()
 
     override func setUp() {
 
         sut = CostTextFieldController()
         textField = UITextField()
         sut.costTextField = textField
-        transactionCalculatorController = TransactionCalculatorControllerForTesting()
+        transactionCalculatorController = TransactionCalculatorController()
+        transactionCalculatorController.tableView = tableView
+        transactionCalculatorController.doneBarButtonItem = doneBarButtonItem
         sut.transactionCalculatorController = transactionCalculatorController
 
         window = UIWindow()
