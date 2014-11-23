@@ -32,6 +32,9 @@
 		5FC240D11A1F377D006CB86F /* ParticipantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F07154319D17E14008D4A30 /* ParticipantCell.swift */; };
 		5FC240D21A1F3798006CB86F /* TransactionCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB8BADF19F591A00075C2AE /* TransactionCalculator.swift */; };
 		5FC240D31A1F37B3006CB86F /* ParticipantStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB8BAE119F592020075C2AE /* ParticipantStore.swift */; };
+		5FCB1C6F1A21E93C00F4B5DC /* TransactionEntryViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCB1C6E1A21E93C00F4B5DC /* TransactionEntryViewControllerTests.swift */; };
+		5FCB1C701A21EF3800F4B5DC /* TransactionEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF3608F19D03CA900BBC643 /* TransactionEntryViewController.swift */; };
+		5FCB1C711A21F0C800F4B5DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FF3609119D03CA900BBC643 /* Main.storyboard */; };
 		5FCEC49E19DD8944001BDA01 /* Tools.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FCEC49D19DD8944001BDA01 /* Tools.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5FCEC4B019DD8944001BDA01 /* Tools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FCEC49919DD8944001BDA01 /* Tools.framework */; };
 		5FCEC4B119DD8944001BDA01 /* Tools.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5FCEC49919DD8944001BDA01 /* Tools.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -95,6 +98,7 @@
 		5FB8BAE119F592020075C2AE /* ParticipantStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticipantStore.swift; sourceTree = "<group>"; };
 		5FB8BAE319F5BA3E0075C2AE /* Dollar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Dollar.framework; path = "Dollar.swift/Dollar/build/Debug-iphoneos/Dollar.framework"; sourceTree = "<group>"; };
 		5FB8BAEF19F637F70075C2AE /* Cent.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cent.framework; path = "Dollar.swift/Cent/build/Debug-iphoneos/Cent.framework"; sourceTree = "<group>"; };
+		5FCB1C6E1A21E93C00F4B5DC /* TransactionEntryViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionEntryViewControllerTests.swift; sourceTree = "<group>"; };
 		5FCEC49919DD8944001BDA01 /* Tools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Tools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FCEC49C19DD8944001BDA01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5FCEC49D19DD8944001BDA01 /* Tools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tools.h; sourceTree = "<group>"; };
@@ -288,6 +292,7 @@
 				5F0C31421A20723D0066B297 /* ParticipantTransactionModelTests.swift */,
 				5FAC01EC1A1F292A00EAACC2 /* TableViewDataSourceTests.swift */,
 				5F0C31461A2078030066B297 /* TransactionCalculatorTests.swift */,
+				5FCB1C6E1A21E93C00F4B5DC /* TransactionEntryViewControllerTests.swift */,
 			);
 			path = FairnessTests;
 			sourceTree = "<group>";
@@ -433,6 +438,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FCB1C711A21F0C800F4B5DC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -475,10 +481,12 @@
 				5FC240D11A1F377D006CB86F /* ParticipantCell.swift in Sources */,
 				5FC240C91A1F361C006CB86F /* TableViewDataSource.swift in Sources */,
 				5F0C31451A2075470066B297 /* BalanceFormatterTests.swift in Sources */,
+				5FCB1C701A21EF3800F4B5DC /* TransactionEntryViewController.swift in Sources */,
 				5F0C31411A1F44740066B297 /* CostTextFieldControllerTests.swift in Sources */,
 				5FC240D21A1F3798006CB86F /* TransactionCalculator.swift in Sources */,
 				5FC240CD1A1F373D006CB86F /* CostTextFieldController.swift in Sources */,
 				5FC240D01A1F3773006CB86F /* ParticipantTransactionModel.swift in Sources */,
+				5FCB1C6F1A21E93C00F4B5DC /* TransactionEntryViewControllerTests.swift in Sources */,
 				5FC240C81A1F361C006CB86F /* ReusableCell.swift in Sources */,
 				5FC240D31A1F37B3006CB86F /* ParticipantStore.swift in Sources */,
 				5FC240CE1A1F373D006CB86F /* CostTextFieldDelegate.swift in Sources */,
