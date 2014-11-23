@@ -13,7 +13,7 @@ class TransactionEntryViewControllerTests: XCTestCase {
         sut.view.hidden = false
     }
 
-    func testA() {
+    func testCostTextFieldInputAccessoryViewIsSetCorrectly() {
 
         XCTAssertEqual(sut.costTextField.inputAccessoryView!, sut.accessoryToolbar)
     }
