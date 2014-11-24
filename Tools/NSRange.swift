@@ -1,3 +1,4 @@
+import Foundation
 
 // credits: http://stackoverflow.com/a/25808713
 extension NSRange {

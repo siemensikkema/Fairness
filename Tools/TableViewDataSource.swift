@@ -8,10 +8,7 @@ class TableViewDataSource<ItemType: DataSourceItem, CellType: UITableViewCell wh
     let toObjC: TableViewDataSourceObjC
     var items: [ItemType] = [] {
 
-        didSet {
-
-            toObjC.items = itemsObjC()
-        }
+        didSet { toObjC.items = itemsObjC() }
     }
 
     init(configurator: Configurator) {

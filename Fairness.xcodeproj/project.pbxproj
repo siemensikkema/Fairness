@@ -12,18 +12,11 @@
 		5F0C31431A20723D0066B297 /* ParticipantTransactionModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0C31421A20723D0066B297 /* ParticipantTransactionModelTests.swift */; };
 		5F0C31451A2075470066B297 /* BalanceFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0C31441A2075470066B297 /* BalanceFormatterTests.swift */; };
 		5F0C31471A2078030066B297 /* TransactionCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0C31461A2078030066B297 /* TransactionCalculatorTests.swift */; };
-		5F27117F1A22654F00434D59 /* TableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F27117E1A22654F00434D59 /* TableViewDelegate.swift */; };
-		5F2711801A22655B00434D59 /* TableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F27117E1A22654F00434D59 /* TableViewDelegate.swift */; };
 		5F7BFF1D1A1C927B00A2357C /* CostTextFieldController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7BFF1C1A1C927B00A2357C /* CostTextFieldController.swift */; };
 		5F7BFF1F1A1C92E500A2357C /* ParticipantTransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7BFF1E1A1C92E500A2357C /* ParticipantTransactionModel.swift */; };
-		5F7BFF211A1CC0DC00A2357C /* ReusableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7BFF201A1CC0DC00A2357C /* ReusableCell.swift */; };
-		5F7BFF231A1CD63B00A2357C /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7BFF221A1CD63B00A2357C /* TableViewDataSource.swift */; };
-		5FAC01ED1A1F292A00EAACC2 /* TableViewDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FAC01EC1A1F292A00EAACC2 /* TableViewDataSourceTests.swift */; };
 		5FB89EFC19DED03200AE1A05 /* CostTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB89EFB19DED03200AE1A05 /* CostTextFieldDelegate.swift */; };
 		5FB8BAE019F591A00075C2AE /* TransactionCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB8BADF19F591A00075C2AE /* TransactionCalculator.swift */; };
 		5FB8BAE219F592020075C2AE /* ParticipantStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB8BAE119F592020075C2AE /* ParticipantStore.swift */; };
-		5FC240C81A1F361C006CB86F /* ReusableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7BFF201A1CC0DC00A2357C /* ReusableCell.swift */; };
-		5FC240C91A1F361C006CB86F /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7BFF221A1CD63B00A2357C /* TableViewDataSource.swift */; };
 		5FC240CC1A1F373D006CB86F /* BalanceFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE1A83219DB246700BCC98C /* BalanceFormatter.swift */; };
 		5FC240CD1A1F373D006CB86F /* CostTextFieldController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7BFF1C1A1C927B00A2357C /* CostTextFieldController.swift */; };
 		5FC240CE1A1F373D006CB86F /* CostTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB89EFB19DED03200AE1A05 /* CostTextFieldDelegate.swift */; };
@@ -39,11 +32,10 @@
 		5FCB1C701A21EF3800F4B5DC /* TransactionEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF3608F19D03CA900BBC643 /* TransactionEntryViewController.swift */; };
 		5FCB1C711A21F0C800F4B5DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FF3609119D03CA900BBC643 /* Main.storyboard */; };
 		5FCB1C731A2229DF00F4B5DC /* TransactionCalculatorControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCB1C721A2229DF00F4B5DC /* TransactionCalculatorControllerTests.swift */; };
-		5FCB1C751A22615F00F4B5DC /* TableViewDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCB1C741A22615F00F4B5DC /* TableViewDelegateTests.swift */; };
 		5FCEC49E19DD8944001BDA01 /* Tools.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FCEC49D19DD8944001BDA01 /* Tools.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5FCEC4B019DD8944001BDA01 /* Tools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FCEC49919DD8944001BDA01 /* Tools.framework */; };
 		5FCEC4B119DD8944001BDA01 /* Tools.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5FCEC49919DD8944001BDA01 /* Tools.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		5FCEC4BA19DD897E001BDA01 /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCEC4B919DD897E001BDA01 /* Tools.swift */; };
+		5FCEC4BA19DD897E001BDA01 /* NSRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCEC4B919DD897E001BDA01 /* NSRange.swift */; };
 		5FE1A83419DB283A00BCC98C /* BalanceFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE1A83219DB246700BCC98C /* BalanceFormatter.swift */; };
 		5FF2872C19D8732F0050CF87 /* Participant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF65CF819D17696006259A4 /* Participant.swift */; };
 		5FF2872D19D88D460050CF87 /* Participant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF65CF819D17696006259A4 /* Participant.swift */; };
@@ -54,6 +46,24 @@
 		5FF3609819D03CA900BBC643 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FF3609619D03CA900BBC643 /* LaunchScreen.xib */; };
 		5FFD2FD61A2395550089BCAC /* TransactionCalculatorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC3DF461A23869E00248026 /* TransactionCalculatorController.swift */; };
 		5FFD2FD81A2396D60089BCAC /* MainStoryboardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD2FD71A2396D60089BCAC /* MainStoryboardTests.swift */; };
+		5FFD2FDC1A23D9190089BCAC /* ReusableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD2FD91A23D9190089BCAC /* ReusableCell.swift */; };
+		5FFD2FDD1A23D9190089BCAC /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD2FDA1A23D9190089BCAC /* TableViewDataSource.swift */; };
+		5FFD2FDE1A23D9190089BCAC /* TableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD2FDB1A23D9190089BCAC /* TableViewDelegate.swift */; };
+		5FFD2FED1A23D9FA0089BCAC /* Tools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FCEC49919DD8944001BDA01 /* Tools.framework */; };
+		5FFD2FF31A23DA080089BCAC /* TableViewDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD2FDF1A23D9600089BCAC /* TableViewDataSourceTests.swift */; };
+		5FFD2FF41A23DA080089BCAC /* TableViewDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD2FE01A23D9600089BCAC /* TableViewDelegateTests.swift */; };
+		5FFD2FF51A23DAC00089BCAC /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD2FDA1A23D9190089BCAC /* TableViewDataSource.swift */; };
+		5FFD2FF61A23DAF10089BCAC /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD2FDA1A23D9190089BCAC /* TableViewDataSource.swift */; };
+		5FFD2FF71A23DB0D0089BCAC /* ReusableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD2FD91A23D9190089BCAC /* ReusableCell.swift */; };
+		5FFD2FF81A23DB0E0089BCAC /* ReusableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD2FD91A23D9190089BCAC /* ReusableCell.swift */; };
+		5FFD2FF91A23DB220089BCAC /* TableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD2FDB1A23D9190089BCAC /* TableViewDelegate.swift */; };
+		5FFD2FFA1A23DB230089BCAC /* TableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD2FDB1A23D9190089BCAC /* TableViewDelegate.swift */; };
+		5FFD2FFB1A23DB280089BCAC /* NSRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCEC4B919DD897E001BDA01 /* NSRange.swift */; };
+		5FFD2FFC1A23DB290089BCAC /* NSRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCEC4B919DD897E001BDA01 /* NSRange.swift */; };
+		5FFD2FFD1A23DBCA0089BCAC /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD2FDA1A23D9190089BCAC /* TableViewDataSource.swift */; };
+		5FFD2FFE1A23DBD10089BCAC /* TableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD2FDB1A23D9190089BCAC /* TableViewDelegate.swift */; };
+		5FFD2FFF1A23DBD40089BCAC /* ReusableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD2FD91A23D9190089BCAC /* ReusableCell.swift */; };
+		5FFD30001A23DBD90089BCAC /* NSRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCEC4B919DD897E001BDA01 /* NSRange.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +80,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 5FF3608719D03CA900BBC643;
 			remoteInfo = Fairness;
+		};
+		5FFD2FEE1A23D9FA0089BCAC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5FF3608019D03CA900BBC643 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5FCEC49819DD8944001BDA01;
+			remoteInfo = Tools;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -93,12 +110,8 @@
 		5F0C31421A20723D0066B297 /* ParticipantTransactionModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticipantTransactionModelTests.swift; sourceTree = "<group>"; };
 		5F0C31441A2075470066B297 /* BalanceFormatterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalanceFormatterTests.swift; sourceTree = "<group>"; };
 		5F0C31461A2078030066B297 /* TransactionCalculatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionCalculatorTests.swift; sourceTree = "<group>"; };
-		5F27117E1A22654F00434D59 /* TableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDelegate.swift; sourceTree = "<group>"; };
 		5F7BFF1C1A1C927B00A2357C /* CostTextFieldController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CostTextFieldController.swift; sourceTree = "<group>"; };
 		5F7BFF1E1A1C92E500A2357C /* ParticipantTransactionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticipantTransactionModel.swift; sourceTree = "<group>"; };
-		5F7BFF201A1CC0DC00A2357C /* ReusableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableCell.swift; sourceTree = "<group>"; };
-		5F7BFF221A1CD63B00A2357C /* TableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
-		5FAC01EC1A1F292A00EAACC2 /* TableViewDataSourceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDataSourceTests.swift; sourceTree = "<group>"; };
 		5FB89EFB19DED03200AE1A05 /* CostTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CostTextFieldDelegate.swift; sourceTree = "<group>"; };
 		5FB89EFE19DED42F00AE1A05 /* CostTextFieldDelegateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CostTextFieldDelegateTests.swift; sourceTree = "<group>"; };
 		5FB8BADF19F591A00075C2AE /* TransactionCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionCalculator.swift; sourceTree = "<group>"; };
@@ -109,13 +122,11 @@
 		5FC3DF461A23869E00248026 /* TransactionCalculatorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionCalculatorController.swift; sourceTree = "<group>"; };
 		5FCB1C6E1A21E93C00F4B5DC /* TransactionEntryViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionEntryViewControllerTests.swift; sourceTree = "<group>"; };
 		5FCB1C721A2229DF00F4B5DC /* TransactionCalculatorControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionCalculatorControllerTests.swift; sourceTree = "<group>"; };
-		5FCB1C741A22615F00F4B5DC /* TableViewDelegateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDelegateTests.swift; sourceTree = "<group>"; };
 		5FCEC49919DD8944001BDA01 /* Tools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Tools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FCEC49C19DD8944001BDA01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5FCEC49D19DD8944001BDA01 /* Tools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tools.h; sourceTree = "<group>"; };
 		5FCEC4AB19DD8944001BDA01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5FCEC4AC19DD8944001BDA01 /* ToolsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsTests.swift; sourceTree = "<group>"; };
-		5FCEC4B919DD897E001BDA01 /* Tools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
+		5FCEC4B919DD897E001BDA01 /* NSRange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSRange.swift; sourceTree = "<group>"; };
 		5FE1A83219DB246700BCC98C /* BalanceFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalanceFormatter.swift; sourceTree = "<group>"; };
 		5FF3608819D03CA900BBC643 /* Fairness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fairness.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FF3608C19D03CA900BBC643 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -128,6 +139,12 @@
 		5FF360A219D03CA900BBC643 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5FF65CF819D17696006259A4 /* Participant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Participant.swift; path = FairnessTests/Participant.swift; sourceTree = SOURCE_ROOT; };
 		5FFD2FD71A2396D60089BCAC /* MainStoryboardTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainStoryboardTests.swift; sourceTree = "<group>"; };
+		5FFD2FD91A23D9190089BCAC /* ReusableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableCell.swift; sourceTree = "<group>"; };
+		5FFD2FDA1A23D9190089BCAC /* TableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
+		5FFD2FDB1A23D9190089BCAC /* TableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDelegate.swift; sourceTree = "<group>"; };
+		5FFD2FDF1A23D9600089BCAC /* TableViewDataSourceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDataSourceTests.swift; sourceTree = "<group>"; };
+		5FFD2FE01A23D9600089BCAC /* TableViewDelegateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDelegateTests.swift; sourceTree = "<group>"; };
+		5FFD2FE71A23D9FA0089BCAC /* ToolsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToolsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +170,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5FFD2FE41A23D9FA0089BCAC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5FFD2FED1A23D9FA0089BCAC /* Tools.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -174,16 +199,6 @@
 				5FB89EFB19DED03200AE1A05 /* CostTextFieldDelegate.swift */,
 			);
 			name = "Amount entry and formatting";
-			sourceTree = "<group>";
-		};
-		5F7BFF261A1CDC8900A2357C /* TableView Tools */ = {
-			isa = PBXGroup;
-			children = (
-				5F7BFF201A1CC0DC00A2357C /* ReusableCell.swift */,
-				5F7BFF221A1CD63B00A2357C /* TableViewDataSource.swift */,
-				5F27117E1A22654F00434D59 /* TableViewDelegate.swift */,
-			);
-			name = "TableView Tools";
 			sourceTree = "<group>";
 		};
 		5F7BFF291A1CDD1400A2357C /* Participant */ = {
@@ -221,8 +236,11 @@
 			isa = PBXGroup;
 			children = (
 				5FCEC49B19DD8944001BDA01 /* Supporting Files */,
+				5FCEC4B919DD897E001BDA01 /* NSRange.swift */,
+				5FFD2FD91A23D9190089BCAC /* ReusableCell.swift */,
+				5FFD2FDA1A23D9190089BCAC /* TableViewDataSource.swift */,
+				5FFD2FDB1A23D9190089BCAC /* TableViewDelegate.swift */,
 				5FCEC49D19DD8944001BDA01 /* Tools.h */,
-				5FCEC4B919DD897E001BDA01 /* Tools.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -238,7 +256,8 @@
 		5FCEC4A919DD8944001BDA01 /* ToolsTests */ = {
 			isa = PBXGroup;
 			children = (
-				5FCEC4AC19DD8944001BDA01 /* ToolsTests.swift */,
+				5FFD2FDF1A23D9600089BCAC /* TableViewDataSourceTests.swift */,
+				5FFD2FE01A23D9600089BCAC /* TableViewDelegateTests.swift */,
 				5FCEC4AA19DD8944001BDA01 /* Supporting Files */,
 			);
 			path = ToolsTests;
@@ -270,6 +289,7 @@
 				5FF3608819D03CA900BBC643 /* Fairness.app */,
 				5FF3609D19D03CA900BBC643 /* FairnessTests.xctest */,
 				5FCEC49919DD8944001BDA01 /* Tools.framework */,
+				5FFD2FE71A23D9FA0089BCAC /* ToolsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -278,7 +298,6 @@
 			isa = PBXGroup;
 			children = (
 				5FF3608B19D03CA900BBC643 /* Supporting Files */,
-				5F7BFF261A1CDC8900A2357C /* TableView Tools */,
 				5F7BFF241A1CDB4300A2357C /* Transaction and Participant overview and creation */,
 				5FF3608D19D03CA900BBC643 /* AppDelegate.swift */,
 				5FF3609419D03CA900BBC643 /* Images.xcassets */,
@@ -305,8 +324,6 @@
 				5FB89EFE19DED42F00AE1A05 /* CostTextFieldDelegateTests.swift */,
 				5FFD2FD71A2396D60089BCAC /* MainStoryboardTests.swift */,
 				5F0C31421A20723D0066B297 /* ParticipantTransactionModelTests.swift */,
-				5FAC01EC1A1F292A00EAACC2 /* TableViewDataSourceTests.swift */,
-				5FCB1C741A22615F00F4B5DC /* TableViewDelegateTests.swift */,
 				5FCB1C721A2229DF00F4B5DC /* TransactionCalculatorControllerTests.swift */,
 				5F0C31461A2078030066B297 /* TransactionCalculatorTests.swift */,
 				5FCB1C6E1A21E93C00F4B5DC /* TransactionEntryViewControllerTests.swift */,
@@ -391,6 +408,24 @@
 			productReference = 5FF3609D19D03CA900BBC643 /* FairnessTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		5FFD2FE61A23D9FA0089BCAC /* ToolsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5FFD2FF01A23D9FA0089BCAC /* Build configuration list for PBXNativeTarget "ToolsTests" */;
+			buildPhases = (
+				5FFD2FE31A23D9FA0089BCAC /* Sources */,
+				5FFD2FE41A23D9FA0089BCAC /* Frameworks */,
+				5FFD2FE51A23D9FA0089BCAC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5FFD2FEF1A23D9FA0089BCAC /* PBXTargetDependency */,
+			);
+			name = ToolsTests;
+			productName = ToolsTests;
+			productReference = 5FFD2FE71A23D9FA0089BCAC /* ToolsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -411,6 +446,9 @@
 						CreatedOnToolsVersion = 6.0;
 						TestTargetID = 5FF3608719D03CA900BBC643;
 					};
+					5FFD2FE61A23D9FA0089BCAC = {
+						CreatedOnToolsVersion = 6.2;
+					};
 				};
 			};
 			buildConfigurationList = 5FF3608319D03CA900BBC643 /* Build configuration list for PBXProject "Fairness" */;
@@ -429,6 +467,7 @@
 				5FF3608719D03CA900BBC643 /* Fairness */,
 				5FF3609C19D03CA900BBC643 /* FairnessTests */,
 				5FCEC49819DD8944001BDA01 /* Tools */,
+				5FFD2FE61A23D9FA0089BCAC /* ToolsTests */,
 			);
 		};
 /* End PBXProject section */
@@ -459,6 +498,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5FFD2FE51A23D9FA0089BCAC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -466,7 +512,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5FCEC4BA19DD897E001BDA01 /* Tools.swift in Sources */,
+				5FFD2FDE1A23D9190089BCAC /* TableViewDelegate.swift in Sources */,
+				5FFD2FDD1A23D9190089BCAC /* TableViewDataSource.swift in Sources */,
+				5FFD2FDC1A23D9190089BCAC /* ReusableCell.swift in Sources */,
+				5FCEC4BA19DD897E001BDA01 /* NSRange.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,19 +523,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F27117F1A22654F00434D59 /* TableViewDelegate.swift in Sources */,
+				5FFD2FFE1A23DBD10089BCAC /* TableViewDelegate.swift in Sources */,
 				5FC3DF471A23869E00248026 /* TransactionCalculatorController.swift in Sources */,
 				5FB8BAE019F591A00075C2AE /* TransactionCalculator.swift in Sources */,
 				5FE1A83419DB283A00BCC98C /* BalanceFormatter.swift in Sources */,
 				5F7BFF1D1A1C927B00A2357C /* CostTextFieldController.swift in Sources */,
+				5FFD2FFF1A23DBD40089BCAC /* ReusableCell.swift in Sources */,
+				5FFD30001A23DBD90089BCAC /* NSRange.swift in Sources */,
 				5F07154419D17E14008D4A30 /* ParticipantCell.swift in Sources */,
 				5FF3609019D03CA900BBC643 /* TransactionEntryViewController.swift in Sources */,
 				5FF3608E19D03CA900BBC643 /* AppDelegate.swift in Sources */,
 				5F7BFF1F1A1C92E500A2357C /* ParticipantTransactionModel.swift in Sources */,
-				5F7BFF211A1CC0DC00A2357C /* ReusableCell.swift in Sources */,
 				5FB8BAE219F592020075C2AE /* ParticipantStore.swift in Sources */,
-				5F7BFF231A1CD63B00A2357C /* TableViewDataSource.swift in Sources */,
 				5FB89EFC19DED03200AE1A05 /* CostTextFieldDelegate.swift in Sources */,
+				5FFD2FFD1A23DBCA0089BCAC /* TableViewDataSource.swift in Sources */,
 				5FC3DF441A232D0E00248026 /* ParticipantController.swift in Sources */,
 				5FF2872C19D8732F0050CF87 /* Participant.swift in Sources */,
 			);
@@ -498,28 +548,40 @@
 			files = (
 				5F0C31431A20723D0066B297 /* ParticipantTransactionModelTests.swift in Sources */,
 				5FC240D11A1F377D006CB86F /* ParticipantCell.swift in Sources */,
-				5FC240C91A1F361C006CB86F /* TableViewDataSource.swift in Sources */,
+				5FFD2FFC1A23DB290089BCAC /* NSRange.swift in Sources */,
 				5F0C31451A2075470066B297 /* BalanceFormatterTests.swift in Sources */,
 				5FCB1C701A21EF3800F4B5DC /* TransactionEntryViewController.swift in Sources */,
 				5F0C31411A1F44740066B297 /* CostTextFieldControllerTests.swift in Sources */,
+				5FFD2FF71A23DB0D0089BCAC /* ReusableCell.swift in Sources */,
 				5FC3DF481A238E0800248026 /* CostTextFieldDelegateTests.swift in Sources */,
+				5FFD2FF51A23DAC00089BCAC /* TableViewDataSource.swift in Sources */,
 				5FC240D21A1F3798006CB86F /* TransactionCalculator.swift in Sources */,
 				5FC240CD1A1F373D006CB86F /* CostTextFieldController.swift in Sources */,
 				5FC240D01A1F3773006CB86F /* ParticipantTransactionModel.swift in Sources */,
 				5FC3DF451A232EE300248026 /* ParticipantController.swift in Sources */,
 				5FCB1C6F1A21E93C00F4B5DC /* TransactionEntryViewControllerTests.swift in Sources */,
-				5FC240C81A1F361C006CB86F /* ReusableCell.swift in Sources */,
 				5FFD2FD81A2396D60089BCAC /* MainStoryboardTests.swift in Sources */,
-				5FCB1C751A22615F00F4B5DC /* TableViewDelegateTests.swift in Sources */,
 				5FFD2FD61A2395550089BCAC /* TransactionCalculatorController.swift in Sources */,
 				5FC240D31A1F37B3006CB86F /* ParticipantStore.swift in Sources */,
 				5FC240CE1A1F373D006CB86F /* CostTextFieldDelegate.swift in Sources */,
-				5FAC01ED1A1F292A00EAACC2 /* TableViewDataSourceTests.swift in Sources */,
 				5FF2872D19D88D460050CF87 /* Participant.swift in Sources */,
 				5FCB1C731A2229DF00F4B5DC /* TransactionCalculatorControllerTests.swift in Sources */,
 				5F0C31471A2078030066B297 /* TransactionCalculatorTests.swift in Sources */,
-				5F2711801A22655B00434D59 /* TableViewDelegate.swift in Sources */,
+				5FFD2FFA1A23DB230089BCAC /* TableViewDelegate.swift in Sources */,
 				5FC240CC1A1F373D006CB86F /* BalanceFormatter.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5FFD2FE31A23D9FA0089BCAC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5FFD2FF81A23DB0E0089BCAC /* ReusableCell.swift in Sources */,
+				5FFD2FF31A23DA080089BCAC /* TableViewDataSourceTests.swift in Sources */,
+				5FFD2FFB1A23DB280089BCAC /* NSRange.swift in Sources */,
+				5FFD2FF61A23DAF10089BCAC /* TableViewDataSource.swift in Sources */,
+				5FFD2FF91A23DB220089BCAC /* TableViewDelegate.swift in Sources */,
+				5FFD2FF41A23DA080089BCAC /* TableViewDelegateTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -535,6 +597,11 @@
 			isa = PBXTargetDependency;
 			target = 5FF3608719D03CA900BBC643 /* Fairness */;
 			targetProxy = 5FF3609E19D03CA900BBC643 /* PBXContainerItemProxy */;
+		};
+		5FFD2FEF1A23D9FA0089BCAC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5FCEC49819DD8944001BDA01 /* Tools */;
+			targetProxy = 5FFD2FEE1A23D9FA0089BCAC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -742,6 +809,38 @@
 			};
 			name = Release;
 		};
+		5FFD2FF11A23D9FA0089BCAC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ToolsTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		5FFD2FF21A23D9FA0089BCAC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ToolsTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -780,6 +879,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		5FFD2FF01A23D9FA0089BCAC /* Build configuration list for PBXNativeTarget "ToolsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5FFD2FF11A23D9FA0089BCAC /* Debug */,
+				5FFD2FF21A23D9FA0089BCAC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
