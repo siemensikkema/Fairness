@@ -1,42 +1,40 @@
 import XCTest
 import UIKit
 
-class CostTextFieldControllerTests: XCTestCase {
+class CostTextFieldControllerTestsBase: XCTestCase {
 
     var sut: CostTextFieldController!
     var textField: UITextField!
-    var transactionCalculatorController: TransactionCalculatorController!
     var window: UIWindow!
-    let tableView = UITableView()
-    let doneBarButtonItem = UIBarButtonItem()
 
     override func setUp() {
 
         sut = CostTextFieldController()
         textField = UITextField()
         sut.costTextField = textField
-        transactionCalculatorController = TransactionCalculatorController()
-        transactionCalculatorController.tableView = tableView
-        transactionCalculatorController.doneBarButtonItem = doneBarButtonItem
-        sut.transactionCalculatorController = transactionCalculatorController
 
+        // textField must be added to a window in order for isFirstResponder() to work
         window = UIWindow()
         window.addSubview(textField)
     }
 }
 
-class CostTextFieldControllerCostDidChangeTests: CostTextFieldControllerTests {
+class CostTextFieldControllerTests: CostTextFieldControllerTestsBase {
 
     func testCostGetSetOnTransactionCalculatorController() {
 
         let cost = 1.23
         textField.text = "\(cost)"
+
+        sut.costDidChangeCallback = { costFromCallback in
+
+            XCTAssertEqual(costFromCallback, cost)
+        }
         sut.costDidChange()
-        XCTAssertEqual(sut.transactionCalculatorController.cost, cost)
     }
 }
 
-class CostTextFieldControllerTransactionDidStartTests: CostTextFieldControllerTests {
+class CostTextFieldControllerTransactionDidStartTests: CostTextFieldControllerTestsBase {
 
     override func setUp() {
 
@@ -55,7 +53,7 @@ class CostTextFieldControllerTransactionDidStartTests: CostTextFieldControllerTe
     }
 }
 
-class CostTextFieldControllerTransactionDidResetTests: CostTextFieldControllerTests {
+class CostTextFieldControllerTransactionDidResetTests: CostTextFieldControllerTestsBase {
 
     override func setUp() {
 

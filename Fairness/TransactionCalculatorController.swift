@@ -4,44 +4,47 @@ class TransactionCalculatorController: NSObject {
 
     typealias ParticipantDataSource = TableViewDataSource<ParticipantTransactionModel, ParticipantCell>
 
-    @IBOutlet weak var costTextFieldController: CostTextFieldController!
+    @IBOutlet var costTextFieldController: CostTextFieldController!
+    @IBOutlet var tableViewDelegateSplitter: TableViewDelegateSplitter!
     @IBOutlet weak var doneBarButtonItem: UIBarButtonItem!
+    @IBOutlet weak var participantController: ParticipantController!
     @IBOutlet weak var tableView: UITableView! {
-
-        didSet { tableView.dataSource = participantDataSource.toObjC }
-    }
-
-    private let participantDataSource: ParticipantDataSource
-    private let transactionCalculator: TransactionCalculator
-
-    var cost: Double = 0.0 {
 
         didSet {
 
-            transactionCalculator.cost = cost
-            updateTransaction()
+            tableView.dataSource = participantDataSource.toObjC
         }
     }
 
-    convenience override init() {
+    var participantDataSource: ParticipantDataSource!
+    var transactionCalculator: TransactionCalculator!
 
-        let participantDataSource = ParticipantDataSource { (participantTransactionModel, cell) in
+    override func awakeFromNib() {
+
+        super.awakeFromNib()
+
+        transactionCalculator = TransactionCalculator()
+        participantDataSource = ParticipantDataSource { (participantTransactionModel, cell) in
 
             cell.configure(participantTransactionViewModel: participantTransactionModel.toViewModel())
         }
 
-        let transactionCalculator = TransactionCalculator { participantTransactionViewModels in
+        // TODO: self.tableViewDelegateSplitter.editingDelegate = participantController
+        participantController.participantUpdateCallback = { [unowned self] participants in
 
-            participantDataSource.items = participantTransactionViewModels
+            let participantTransactionModels = participants.map { (participant: Participant) in
+
+                ParticipantTransactionModel(participant: participant)
+            }
+            self.participantDataSource.items = participantTransactionModels
+            self.transactionCalculator.participantTransactionModels = participantTransactionModels
         }
 
-        self.init(participantDataSource: participantDataSource, transactionCalculator: transactionCalculator)
-    }
+        costTextFieldController.costDidChangeCallback = { [unowned self] cost in
 
-    init(participantDataSource: ParticipantDataSource, transactionCalculator: TransactionCalculator) {
-
-        self.participantDataSource = participantDataSource
-        self.transactionCalculator = transactionCalculator
+            self.transactionCalculator.cost = cost
+            self.updateTransaction()
+        }
     }
 
     private func updateTransaction() {
@@ -49,6 +52,9 @@ class TransactionCalculatorController: NSObject {
         tableView.reloadData()
         doneBarButtonItem.enabled = transactionCalculator.isValid
     }
+}
+
+extension TransactionCalculatorController {
 
     @IBAction func reset() {
 
@@ -56,10 +62,11 @@ class TransactionCalculatorController: NSObject {
         transactionCalculator.reset()
         tableView.reloadData()
     }
-    
+
     @IBAction func apply() {
-        
-        transactionCalculator.apply()
+
+        participantController.applyAmounts(transactionCalculator.amounts)
+        reset()
     }
 }
 
@@ -74,7 +81,7 @@ extension TransactionCalculatorController: TableViewSelectionDelegate {
             transactionCalculator.togglePayeeAtIndex(index)
         }
         else {
-
+            
             transactionCalculator.togglePayerAtIndex(index)
             costTextFieldController.transactionDidStart()
         }

@@ -16,17 +16,21 @@ class TransactionCalculatorControllerTestsBase: XCTestCase {
     class TransactionCalculatorForTesting: TransactionCalculator {
 
         var didCallReset = false
+        var didCallAmounts = false
+        var didSetCost = false
+        var hasPayerForTesting = false
+        var payerIndexForTesting: Int?
+        var payeeIndexForTesting: Int?
 
-        override func reset() {
+        override var amounts: [Double] {
 
-            didCallReset = true
+            didCallAmounts = true
+            return []
         }
 
-        var didCallApply = false
+        override var cost: Double {
 
-        override func apply() {
-
-            didCallApply = true
+            didSet { didSetCost = true }
         }
 
         override var isValid: Bool {
@@ -34,43 +38,36 @@ class TransactionCalculatorControllerTestsBase: XCTestCase {
             return true
         }
 
-        var hasPayerForTesting = false
-
         override var hasPayer: Bool {
 
             return hasPayerForTesting
         }
 
-        var payerIndexForTesting: Int?
+        override func reset() {
 
+            didCallReset = true
+        }
+        
         override func togglePayerAtIndex(index: Int) {
 
             payerIndexForTesting = index
         }
 
-        var payeeIndexForTesting: Int?
-
         override func togglePayeeAtIndex(index: Int) {
 
             payeeIndexForTesting = index
-        }
-
-        init() {
-
-            super.init(modelDidBecomeInvalidCallback: { a in }, participantStore: ParticipantStore(participants: []))
         }
     }
 
     class CostTextFieldControllerForTesting: CostTextFieldController {
 
         var didCallReset = false
+        var didCallTransactionDidStart = false
 
         override func reset() {
 
             didCallReset = true
         }
-
-        var didCallTransactionDidStart = false
 
         override func transactionDidStart() {
 
@@ -78,9 +75,20 @@ class TransactionCalculatorControllerTestsBase: XCTestCase {
         }
     }
 
+    class ParticipantControllerForTesting: ParticipantController {
+
+        var didCallApplyAmounts = false
+
+        override func applyAmounts(amounts: [Double]) {
+
+            didCallApplyAmounts = true
+        }
+    }
+
     var costTextFieldController: CostTextFieldControllerForTesting!
     var doneBarButtonItem: UIBarButtonItem!
     var participantDataSource: TransactionCalculatorController.ParticipantDataSource!
+    var participantController: ParticipantControllerForTesting!
     var sut: TransactionCalculatorController!
     var tableView: UITableViewForTesting!
     var transactionCalculator: TransactionCalculatorForTesting!
@@ -92,11 +100,17 @@ class TransactionCalculatorControllerTestsBase: XCTestCase {
 
         costTextFieldController = CostTextFieldControllerForTesting()
         doneBarButtonItem = UIBarButtonItem()
+        participantController = ParticipantControllerForTesting()
         tableView = UITableViewForTesting()
 
-        sut = TransactionCalculatorController(participantDataSource: participantDataSource, transactionCalculator: transactionCalculator)
+        sut = TransactionCalculatorController()
         sut.costTextFieldController = costTextFieldController
+
+        sut.participantDataSource = participantDataSource
+        sut.transactionCalculator = transactionCalculator
+
         sut.doneBarButtonItem = doneBarButtonItem
+        sut.participantController = participantController
         sut.tableView = tableView
     }
 }
@@ -107,26 +121,24 @@ class TransactionCalculatorControllerTests: TransactionCalculatorControllerTests
 
         XCTAssertNotNil(sut.tableView.dataSource)
     }
-
-    func testApplyCallsApplyOnTransactionCalculator() {
-
-        sut.apply()
-        XCTAssertTrue(transactionCalculator.didCallApply)
-    }
 }
 
-class TransactionCalculatorControllerCostChangeTests: TransactionCalculatorControllerTestsBase {
+class TransactionCalculatorControllerApplyTests: TransactionCalculatorControllerTestsBase {
 
     override func setUp() {
 
         super.setUp()
-        doneBarButtonItem.enabled = false
-        sut.cost = 1
+        sut.apply()
     }
 
-    func testCostIsSetOnTransactionCalculator() {
+    func testCallsAmountsOnTransactionCalculator() {
 
-        XCTAssertEqual(transactionCalculator.cost, sut.cost)
+        XCTAssertTrue(transactionCalculator.didCallAmounts)
+    }
+
+    func testCallsApplyAmountsOnParticipantController() {
+
+        XCTAssertTrue(participantController.didCallApplyAmounts)
     }
 
     func testTableViewIsReloaded() {
@@ -134,9 +146,14 @@ class TransactionCalculatorControllerCostChangeTests: TransactionCalculatorContr
         XCTAssertTrue(tableView.didCallReloadData)
     }
 
-    func testDoneBarButtonItemIsEnabledWhenTransactionIsValid() {
+    func testCostTextFieldControllerIsReset() {
 
-        XCTAssertTrue(doneBarButtonItem.enabled)
+        XCTAssertTrue(costTextFieldController.didCallReset)
+    }
+
+    func testTransactionCalculatorIsReset() {
+
+        XCTAssertTrue(transactionCalculator.didCallReset)
     }
 }
 
@@ -197,5 +214,76 @@ class TransactionCalculatorControllerRowSelectionTests: TransactionCalculatorCon
     func testDoneBarButtonItemIsEnabledWhenTransactionIsValid() {
 
         XCTAssertTrue(doneBarButtonItem.enabled)
+    }
+}
+
+class TransactionCalculatorControllerAwakeFromNibTestsBase: TransactionCalculatorControllerTestsBase {
+
+    override func setUp() {
+
+        super.setUp()
+        sut.participantDataSource = nil
+        sut.transactionCalculator = nil
+        sut.awakeFromNib()
+    }
+}
+
+class TransactionCalculatorControllerAwakeFromNibTests: TransactionCalculatorControllerAwakeFromNibTestsBase {
+
+    func testTransactionCalculatorIsSet() {
+
+        XCTAssertNotNil(sut.transactionCalculator)
+    }
+
+    func testParticipantDataSourceIsSet() {
+
+        XCTAssertNotNil(sut.participantDataSource)
+    }
+}
+
+class TransactionCalculatorControllerCostDidChangeTests: TransactionCalculatorControllerAwakeFromNibTestsBase {
+
+    override func setUp() {
+
+        super.setUp()
+        doneBarButtonItem.enabled = false
+        sut.transactionCalculator = transactionCalculator
+        costTextFieldController.costDidChangeCallback!(1)
+    }
+
+    func testTableViewIsReloaded() {
+
+        XCTAssertTrue(tableView.didCallReloadData)
+    }
+
+    func testDoneBarButtonItemIsEnabledWhenTransactionIsValid() {
+
+
+        XCTAssertTrue(doneBarButtonItem.enabled)
+    }
+
+    func testCostIsSetOnTransactionCalculator() {
+
+        XCTAssertTrue(transactionCalculator.didSetCost)
+    }
+}
+
+class TransactionCalculatorControllerParticipantUpdateCallbackTests: TransactionCalculatorControllerAwakeFromNibTestsBase {
+
+    override func setUp() {
+
+        super.setUp()
+        let participants = ["name1", "name2"].map { Participant(name: $0) }
+        participantController.participantUpdateCallback!(participants)
+    }
+
+    func testParticipantTransactionModelsAreSetOnParticipantDataSource() {
+
+        XCTAssertEqual(sut.participantDataSource.items.count, 2)
+    }
+
+    func testParticipantTransactionModelsAreSetOnTransactionCalculator() {
+
+        XCTAssertEqual(sut.transactionCalculator.participantTransactionModels.count, 2)
     }
 }

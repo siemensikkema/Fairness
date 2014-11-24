@@ -8,7 +8,7 @@ class ParticipantTransactionModelTests: XCTestCase {
     override func setUp() {
 
         participant.balance = 10
-        sut = ParticipantTransactionModel(participant: participant, amount: nil, isPayee: false, isPayer: false)
+        sut = ParticipantTransactionModel(participant: participant)
     }
 
     func testAmountStringForNegativeAmount() {

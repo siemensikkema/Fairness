@@ -8,12 +8,18 @@ class ParticipantTransactionModel: DataSourceItem {
 
     private let participant: Participant
 
-    init(participant: Participant, amount maybeAmount: Double?, isPayee: Bool, isPayer: Bool) {
+    init(participant: Participant) {
 
-        self.isPayee = isPayee
-        self.isPayer = isPayer
-        self.maybeAmount = maybeAmount
+        isPayee = false
+        isPayer = false
         self.participant = participant
+    }
+
+    func reset() {
+
+        isPayee = false
+        isPayer = false
+        maybeAmount = nil
     }
 
     func toViewModel() -> ParticipantTransactionViewModel {

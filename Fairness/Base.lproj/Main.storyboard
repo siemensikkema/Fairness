@@ -69,15 +69,16 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="Wps-L0-ZAc"/>
                     <connections>
-                        <outlet property="accessoryToolbar" destination="xUd-Oe-3bS" id="FPN-UA-Uxf"/>
+                        <outlet property="accessoryToolbar" destination="xUd-Oe-3bS" id="GHQ-Yy-9eU"/>
                         <outlet property="addParticipantButton" destination="fJX-DT-coR" id="Wuy-LU-t6o"/>
                         <outlet property="costTextField" destination="Gsd-hj-QDb" id="IPq-7K-pBp"/>
+                        <outlet property="transactionCalculatorController" destination="wVy-vF-ImL" id="2IB-mj-nVr"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZVl-LN-WY1" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <barButtonItem systemItem="add" id="fJX-DT-coR">
                     <connections>
-                        <action selector="addParticipant" destination="g2j-NW-RU8" id="Gy6-WY-GUm"/>
+                        <action selector="addParticipant" destination="1OU-9A-1S6" id="Qms-V5-AdB"/>
                     </connections>
                 </barButtonItem>
                 <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="xUd-Oe-3bS">
@@ -86,36 +87,38 @@
                     <items>
                         <barButtonItem systemItem="cancel" id="gkN-ZX-LfD">
                             <connections>
-                                <action selector="reset" destination="d0H-zN-KRX" id="bLW-q2-EfZ"/>
+                                <action selector="reset" destination="wVy-vF-ImL" id="OsU-4S-ENe"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="jqi-bZ-D5R"/>
                         <barButtonItem enabled="NO" systemItem="done" id="ccX-6L-N9T">
                             <connections>
-                                <action selector="apply" destination="d0H-zN-KRX" id="Uys-iz-Rih"/>
+                                <action selector="apply" destination="wVy-vF-ImL" id="nvE-SC-GTB"/>
                             </connections>
                         </barButtonItem>
                     </items>
                 </toolbar>
                 <customObject id="6vH-at-pxy" customClass="CostTextFieldDelegate" customModule="Fairness" customModuleProvider="target"/>
-                <customObject id="d0H-zN-KRX" customClass="TransactionCalculatorController" customModule="Fairness" customModuleProvider="target">
-                    <connections>
-                        <outlet property="costTextFieldController" destination="Gvk-Ox-Fpx" id="i3Z-hp-qoA"/>
-                        <outlet property="doneBarButtonItem" destination="ccX-6L-N9T" id="rSI-uh-mTj"/>
-                        <outlet property="tableView" destination="2wO-P0-BA6" id="VOa-Qv-qMO"/>
-                    </connections>
-                </customObject>
                 <customObject id="Gvk-Ox-Fpx" customClass="CostTextFieldController" customModule="Fairness" customModuleProvider="target">
                     <connections>
-                        <outlet property="costTextField" destination="Gsd-hj-QDb" id="wDI-TQ-lqq"/>
-                        <outlet property="transactionCalculatorController" destination="d0H-zN-KRX" id="ff5-ZE-1sU"/>
+                        <outlet property="costTextField" destination="Gsd-hj-QDb" id="t4a-WE-kkS"/>
                     </connections>
                 </customObject>
                 <customObject id="jb8-dS-gec" customClass="TableViewDelegateSplitter" customModule="Fairness" customModuleProvider="target">
                     <connections>
-                        <outlet property="selectionDelegate" destination="d0H-zN-KRX" id="hnI-v7-bFz"/>
+                        <outlet property="selectionDelegate" destination="wVy-vF-ImL" id="Xr8-JR-T4G"/>
                     </connections>
                 </customObject>
+                <customObject id="wVy-vF-ImL" customClass="TransactionCalculatorController" customModule="Fairness" customModuleProvider="target">
+                    <connections>
+                        <outlet property="costTextFieldController" destination="Gvk-Ox-Fpx" id="enU-B1-nN9"/>
+                        <outlet property="doneBarButtonItem" destination="ccX-6L-N9T" id="uUV-Gd-08Z"/>
+                        <outlet property="participantController" destination="1OU-9A-1S6" id="5fT-Zl-6bB"/>
+                        <outlet property="tableView" destination="2wO-P0-BA6" id="Nl0-1I-keO"/>
+                        <outlet property="tableViewDelegateSplitter" destination="jb8-dS-gec" id="3xP-1M-esY"/>
+                    </connections>
+                </customObject>
+                <customObject id="1OU-9A-1S6" customClass="ParticipantController" customModule="Fairness" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="644" y="96"/>
         </scene>

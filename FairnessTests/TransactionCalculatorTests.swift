@@ -2,14 +2,29 @@ import XCTest
 
 class TransactionCalculatorTests: XCTestCase {
 
+    class ParticipantTransactionModelForTesting: ParticipantTransactionModel {
+
+        var didCallReset = false
+
+        init() {
+
+            super.init(participant: Participant(name: ""))
+        }
+
+        override func reset() {
+
+            didCallReset = true
+        }
+    }
+
     var sut: TransactionCalculator!
-    var participantStore: ParticipantStore!
-    var participantTransactionModelsAfterReset: [ParticipantTransactionModel]?
+    var participantTransactionModels: [ParticipantTransactionModelForTesting]!
 
     override func setUp() {
 
-        participantStore = ParticipantStore(participants: [Participant(name: "name1"), Participant(name: "name2")])
-        sut = TransactionCalculator(modelDidBecomeInvalidCallback: { participantTransactionModels in self.participantTransactionModelsAfterReset = participantTransactionModels}, participantStore: participantStore)
+        sut = TransactionCalculator()
+        participantTransactionModels = [ParticipantTransactionModelForTesting(), ParticipantTransactionModelForTesting()]
+        sut.participantTransactionModels = participantTransactionModels
 
         sut.togglePayerAtIndex(0)
         sut.togglePayeeAtIndex(1)
@@ -82,20 +97,20 @@ extension TransactionCalculatorTests {
         XCTAssertEqual(sut.participantTransactionModels.map { $0.maybeAmount! }, [0.615, -0.615])
     }
 
-    func testApplyAdjustsParticipantBalance() {
+    func testAmounts() {
 
-        sut.apply()
-        XCTAssertEqual(participantStore.participants.first!.balance, 1.23)
+        XCTAssertEqual(sut.amounts, [1.23,-1.23])
     }
 
-    func testReset() {
+    func testResetSetsCostToZero() {
 
-        participantTransactionModelsAfterReset = nil
         sut.reset()
+        XCTAssertEqual(sut.cost, 0.0)
+    }
 
-        if participantTransactionModelsAfterReset == nil {
+    func testResetResetsParticipantViewModels() {
 
-            XCTAssert(false)
-        }
+        sut.reset()
+        XCTAssertEqual(participantTransactionModels.map { $0.didCallReset }, [true, true])
     }
 }

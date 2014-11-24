@@ -1,18 +1,15 @@
+import Foundation
+
 class TransactionCalculator {
 
-    typealias ModelDidBecomeInvalidCallback = (participantTransactionModels: [ParticipantTransactionModel]) -> ()
+    var amounts: [Double] {
 
-    let modelDidBecomeInvalidCallback: ModelDidBecomeInvalidCallback
-    private let participantStore: ParticipantStore
+        return participantTransactionModels.map { $0.maybeAmount ?? 0 }
+    }
 
     var cost: Double = 0.0 {
 
         didSet { update() }
-    }
-
-    var participantTransactionModels: [ParticipantTransactionModel] = [] {
-
-        didSet { modelDidBecomeInvalidCallback(participantTransactionModels: participantTransactionModels) }
     }
 
     var hasPayer: Bool {
@@ -30,35 +27,15 @@ class TransactionCalculator {
         return cost > 0 && participantTransactionModels.filter { $0.isPayer || $0.isPayee }.count > 1
     }
 
-    init(modelDidBecomeInvalidCallback: ModelDidBecomeInvalidCallback, participantStore: ParticipantStore) {
-
-        self.modelDidBecomeInvalidCallback = modelDidBecomeInvalidCallback
-        self.participantStore = participantStore
-        reset()
-    }
-
-    convenience init(modelDidBecomeInvalidCallback: ModelDidBecomeInvalidCallback) {
-
-        self.init(modelDidBecomeInvalidCallback: modelDidBecomeInvalidCallback, participantStore: ParticipantStore())
-    }
-
-    func apply() {
-
-        for (index, participant) in enumerate(participantStore.participants) {
-
-            participant.balance += participantTransactionModels[index].maybeAmount ?? 0
-        }
-
-        reset()
-    }
+    var participantTransactionModels: [ParticipantTransactionModel] = []
 
     func reset() {
 
         cost = 0.0
 
-        participantTransactionModels = participantStore.participants.map { (participant: Participant) in
+        for participantTransactionModel in participantTransactionModels {
 
-            ParticipantTransactionModel(participant: participant, amount: nil, isPayee: false, isPayer: false)
+            participantTransactionModel.reset()
         }
     }
 
