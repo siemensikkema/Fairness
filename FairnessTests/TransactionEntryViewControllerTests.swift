@@ -13,12 +13,13 @@ class TransactionEntryViewControllerTests: XCTestCase {
 
     override func setUp() {
 
-        let navigationController = storyboard.instantiateInitialViewController() as? UINavigationController
-        sut = navigationController?.viewControllers.first as? TransactionEntryViewController
+        let navigationController = storyboard.instantiateInitialViewController() as UINavigationController
+        sut = navigationController.viewControllers.first as TransactionEntryViewController
         sut.view.hidden = false
 
-        costTextFieldDelegate = sut.costTextField.delegate as? CostTextFieldDelegate
-        transactionCalculatorController = sut.tableView.delegate as? TransactionCalculatorController
+        costTextFieldDelegate = sut.costTextField.delegate as CostTextFieldDelegate
+        let tableViewDelegate = sut.tableView.delegate as TableViewDelegateSplitter
+        transactionCalculatorController = tableViewDelegate.selectionDelegate as TransactionCalculatorController
         costTextFieldController = transactionCalculatorController.costTextFieldController
         costTextField = sut.costTextField
     }
@@ -79,5 +80,35 @@ extension TransactionEntryViewControllerTests {
         }
 
         XCTAssertEqual([0,2].map { actionForAccessoryToolbarButtonWithIndex($0) }, ["reset", "apply"])
+    }
+}
+
+extension TransactionEntryViewControllerTests {
+
+    func testEditButtonExists() {
+
+        XCTAssertEqual(sut.navigationItem.rightBarButtonItem!, sut.editButtonItem())
+    }
+
+    func testAddParticipantButtonExists() {
+
+        XCTAssertNotNil(sut.addParticipantButton)
+    }
+
+    func testLeftBarButtonItemIsEmptyWhenNotInEditMode() {
+
+        sut.editing = false
+        XCTAssertNil(sut.navigationItem.leftBarButtonItem)
+    }
+
+    func testAddParticipantButtonIsAddedToNavigationItemWhenInEditMode() {
+
+        sut.editing = true
+        XCTAssertEqual(sut.navigationItem.leftBarButtonItem!, sut.addParticipantButton)
+    }
+
+    func testAddParticipantButtonHasCorrectAction() {
+
+        XCTAssertEqual(String(_sel: sut.addParticipantButton.action), "addParticipant")
     }
 }

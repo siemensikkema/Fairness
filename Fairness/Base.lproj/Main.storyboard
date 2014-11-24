@@ -64,18 +64,22 @@
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="delegate" destination="d0H-zN-KRX" id="jFF-qT-UAM"/>
+                            <outlet property="delegate" destination="jb8-dS-gec" id="KUa-l2-NNI"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Wps-L0-ZAc">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="h7N-KA-poz"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="Wps-L0-ZAc"/>
                     <connections>
                         <outlet property="accessoryToolbar" destination="xUd-Oe-3bS" id="FPN-UA-Uxf"/>
+                        <outlet property="addParticipantButton" destination="fJX-DT-coR" id="Wuy-LU-t6o"/>
                         <outlet property="costTextField" destination="Gsd-hj-QDb" id="IPq-7K-pBp"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZVl-LN-WY1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <barButtonItem systemItem="add" id="fJX-DT-coR">
+                    <connections>
+                        <action selector="addParticipant" destination="g2j-NW-RU8" id="Gy6-WY-GUm"/>
+                    </connections>
+                </barButtonItem>
                 <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="xUd-Oe-3bS">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -105,6 +109,11 @@
                     <connections>
                         <outlet property="costTextField" destination="Gsd-hj-QDb" id="wDI-TQ-lqq"/>
                         <outlet property="transactionCalculatorController" destination="d0H-zN-KRX" id="ff5-ZE-1sU"/>
+                    </connections>
+                </customObject>
+                <customObject id="jb8-dS-gec" customClass="TableViewDelegateSplitter" customModule="Fairness" customModuleProvider="target">
+                    <connections>
+                        <outlet property="selectionDelegate" destination="d0H-zN-KRX" id="hnI-v7-bFz"/>
                     </connections>
                 </customObject>
             </objects>

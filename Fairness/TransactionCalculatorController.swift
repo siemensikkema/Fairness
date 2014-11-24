@@ -63,7 +63,7 @@ class TransactionCalculatorController: NSObject {
     }
 }
 
-extension TransactionCalculatorController: UITableViewDelegate {
+extension TransactionCalculatorController: TableViewSelectionDelegate {
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 

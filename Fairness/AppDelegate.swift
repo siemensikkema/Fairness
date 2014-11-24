@@ -9,10 +9,4 @@ func isRunningTests() -> Bool {
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
-
-        println("is running tests? \(isRunningTests())")
-        return true
-    }
 }
