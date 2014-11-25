@@ -51,6 +51,6 @@ struct ParticipantTransactionViewModel {
         isPayee = participantTransactionModel.isPayee
         isPayer = participantTransactionModel.isPayer
 
-        name = participantTransactionModel.participant.name
+        name = participantTransactionModel.participant.name ?? ""
     }
 }

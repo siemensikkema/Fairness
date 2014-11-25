@@ -27,4 +27,10 @@ class ParticipantTransactionModelTests: XCTestCase {
 
         XCTAssertEqual(sut.toViewModel().name, "name")
     }
+
+    func testNameLessParticipantResultsInEmptyNameString() {
+
+        participant.name = nil
+        XCTAssertEqual(sut.toViewModel().name, "")
+    }
 }

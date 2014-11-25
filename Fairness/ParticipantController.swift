@@ -2,7 +2,7 @@ import Foundation
 
 class ParticipantController: NSObject {
 
-    private let participantStore = ParticipantStore()
+    private var participants: [Participant] = [Participant(name: "Siemen"), Participant(name: "Willem")]
 
     var participantUpdateCallback: (([Participant]) -> ())? {
 
@@ -12,19 +12,20 @@ class ParticipantController: NSObject {
         }
     }
 
-    func sendParticipantUpdate() {
+    private func sendParticipantUpdate() {
 
-        participantUpdateCallback?(participantStore.participants)
+        participantUpdateCallback?(participants)
     }
 
     @IBAction func addParticipant() {
 
+        participants.append(Participant())
         sendParticipantUpdate()
     }
 
     func applyAmounts(amounts: [Double]) {
 
-        for (participant, amount) in Zip2(participantStore.participants, amounts) {
+        for (participant, amount) in Zip2(participants, amounts) {
 
             participant.balance += amount
         }

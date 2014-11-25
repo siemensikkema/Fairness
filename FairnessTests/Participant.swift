@@ -3,19 +3,22 @@ import UIKit
 class Participant {
 
     var balance = 0.0
-    var name: String
+    var name: String?
 
-    init(name: String) {
+    convenience init(name: String) {
 
+        self.init()
         self.name = name
     }
+
+    init() {}
 }
 
 extension Participant: Hashable, Equatable {
 
     var hashValue: Int {
 
-        return balance.hashValue ^ name.hashValue
+        return balance.hashValue ^ (name?.hashValue ?? 0)
     }
 }
 
