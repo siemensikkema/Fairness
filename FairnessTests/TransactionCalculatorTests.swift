@@ -18,12 +18,12 @@ class TransactionCalculatorTests: XCTestCase {
     }
 
     var sut: TransactionCalculator!
-    var notificationCenter: NotificationCenterForTesting!
+    var notificationCenter: FairnessNotificationCenterForTesting!
     var participantTransactionModels: [ParticipantTransactionModelForTesting]!
 
     override func setUp() {
 
-        notificationCenter = NotificationCenterForTesting()
+        notificationCenter = FairnessNotificationCenterForTesting()
         participantTransactionModels = [ParticipantTransactionModelForTesting(), ParticipantTransactionModelForTesting()]
 
         sut = TransactionCalculator(notificationCenter: notificationCenter)

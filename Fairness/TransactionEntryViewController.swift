@@ -7,6 +7,9 @@ class TransactionEntryViewController: UITableViewController {
     @IBOutlet var transactionCalculatorController: TransactionCalculatorController!
     @IBOutlet weak var accessoryToolbar: UIToolbar!
     @IBOutlet weak var costTextField: UITextField!
+}
+
+extension TransactionEntryViewController {
 
     override func viewDidLoad() {
 

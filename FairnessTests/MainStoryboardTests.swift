@@ -6,13 +6,13 @@ class MainStoryboardTestsBase: XCTestCase {
     let storyboard = UIStoryboard(name: "Main", bundle: NSBundle(forClass: TransactionEntryViewControllerTests.self))
 
     var costTextFieldController: CostTextFieldController!
-    var navigationController: UINavigationController!
+    var navigationController: NavigationController!
     var transactionCalculatorController: TransactionCalculatorController!
     var transactionEntryViewController: TransactionEntryViewController!
 
     override func setUp() {
 
-        navigationController = storyboard.instantiateInitialViewController() as UINavigationController
+        navigationController = storyboard.instantiateInitialViewController() as NavigationController
         transactionEntryViewController = navigationController.viewControllers.first as TransactionEntryViewController
 
         // trigger loadView
@@ -147,3 +147,10 @@ class MainStoryboardParticipantControllerTests: MainStoryboardTestsBase {
     }
 }
 
+class MainStoryboardNavigationControllerTests: MainStoryboardTestsBase {
+
+    func testNavigationBarReappearBehaviorHasOutletToNavigationController() {
+
+        XCTAssertEqual(navigationController.navigationBarReappearBehavior.navigationController, navigationController)
+    }
+}

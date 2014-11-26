@@ -10,13 +10,14 @@ class TransactionEntryViewControllerTests: XCTestCase {
 
     override func setUp() {
 
-        sut = TransactionEntryViewController()
-        costTextField = UITextField()
-        sut.costTextField = costTextField
         accessoryToolbar = UIToolbar()
+        addParticipantButton = UIBarButtonItem()
+        costTextField = UITextField()
+
+        sut = TransactionEntryViewController()
+        sut.costTextField = costTextField
         sut.accessoryToolbar = accessoryToolbar
         sut.viewDidLoad()
-        addParticipantButton = UIBarButtonItem()
         sut.addParticipantButton = addParticipantButton
     }
 }

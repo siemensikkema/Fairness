@@ -3,22 +3,22 @@ import UIKit
 
 class CostTextFieldControllerTestsBase: XCTestCase {
 
-    var notificationCenter: NotificationCenterForTesting!
+    var notificationCenter: FairnessNotificationCenterForTesting!
     var sut: CostTextFieldController!
-    var textField: UITextField!
+    var costTextField: UITextField!
     var window: UIWindow!
 
     override func setUp() {
 
-        notificationCenter = NotificationCenterForTesting()
-        textField = UITextField()
+        notificationCenter = FairnessNotificationCenterForTesting()
+        costTextField = UITextField()
 
         sut = CostTextFieldController(notificationCenter: notificationCenter)
-        sut.costTextField = textField
+        sut.costTextField = costTextField
 
         // textField must be added to a window in order for isFirstResponder() to work
         window = UIWindow()
-        window.addSubview(textField)
+        window.addSubview(costTextField)
     }
 }
 
@@ -27,7 +27,7 @@ class CostTextFieldControllerTests: CostTextFieldControllerTestsBase {
     func testCostGetSetOnTransactionCalculatorController() {
 
         let cost = 1.23
-        textField.text = "\(cost)"
+        costTextField.text = "\(cost)"
 
         sut.costDidChangeCallback = { costFromCallback in
 
@@ -47,12 +47,12 @@ class CostTextFieldControllerTransactionDidStartTests: CostTextFieldControllerTe
 
     func testTextFieldIsFirstResponder() {
 
-        XCTAssertTrue(textField.isFirstResponder())
+        XCTAssertTrue(costTextField.isFirstResponder())
     }
 
     func testTextFieldUserInteractionIsEnabled() {
 
-        XCTAssertTrue(textField.userInteractionEnabled)
+        XCTAssertTrue(costTextField.userInteractionEnabled)
     }
 }
 
@@ -61,22 +61,22 @@ class CostTextFieldControllerTransactionDidResetTests: CostTextFieldControllerTe
     override func setUp() {
 
         super.setUp()
-        textField.text = "1"
+        costTextField.text = "1"
         notificationCenter.transactionDidEndCallback?()
     }
 
     func testTextFieldIsNotFirstResponder() {
 
-        XCTAssertFalse(textField.isFirstResponder())
+        XCTAssertFalse(costTextField.isFirstResponder())
     }
 
     func testTextFieldUserInteractionIsDisabled() {
 
-        XCTAssertFalse(textField.userInteractionEnabled)
+        XCTAssertFalse(costTextField.userInteractionEnabled)
     }
 
     func testTextFieldTextIsEmpty() {
 
-        XCTAssertEqual(textField.text, "")
+        XCTAssertEqual(costTextField.text, "")
     }
 }

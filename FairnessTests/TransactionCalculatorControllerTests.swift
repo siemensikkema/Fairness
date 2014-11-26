@@ -65,7 +65,7 @@ class TransactionCalculatorControllerTestsBase: XCTestCase {
 
     var costTextFieldController: CostTextFieldController!
     var doneBarButtonItem: UIBarButtonItem!
-    var notificationCenter: NotificationCenterForTesting!
+    var notificationCenter: FairnessNotificationCenterForTesting!
     var participantDataSource: TransactionCalculatorController.ParticipantDataSource!
     var participantController: ParticipantControllerForTesting!
     var sut: TransactionCalculatorController!
@@ -79,7 +79,7 @@ class TransactionCalculatorControllerTestsBase: XCTestCase {
 
         costTextFieldController = CostTextFieldController()
         doneBarButtonItem = UIBarButtonItem()
-        notificationCenter = NotificationCenterForTesting()
+        notificationCenter = FairnessNotificationCenterForTesting()
         participantController = ParticipantControllerForTesting()
         tableView = UITableViewForTesting()
 

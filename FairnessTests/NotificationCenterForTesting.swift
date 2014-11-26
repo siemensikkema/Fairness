@@ -1,4 +1,4 @@
-class NotificationCenterForTesting: FairnessNotificationCenter {
+class FairnessNotificationCenterForTesting: FairnessNotificationCenter {
 
     var didCallTransactionDidEnd = false
     var didCallTransactionDidStart = false
