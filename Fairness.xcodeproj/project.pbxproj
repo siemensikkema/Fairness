@@ -14,6 +14,11 @@
 		5F0C31471A2078030066B297 /* TransactionCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0C31461A2078030066B297 /* TransactionCalculatorTests.swift */; };
 		5F7BFF1D1A1C927B00A2357C /* CostTextFieldController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7BFF1C1A1C927B00A2357C /* CostTextFieldController.swift */; };
 		5F7BFF1F1A1C92E500A2357C /* ParticipantTransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7BFF1E1A1C92E500A2357C /* ParticipantTransactionModel.swift */; };
+		5FB0F9761A2604A100ECE3F0 /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB0F9751A2604A100ECE3F0 /* NotificationCenter.swift */; };
+		5FB0F9781A26050400ECE3F0 /* NotificationCenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB0F9771A26050400ECE3F0 /* NotificationCenterTests.swift */; };
+		5FB0F9791A26051000ECE3F0 /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB0F9751A2604A100ECE3F0 /* NotificationCenter.swift */; };
+		5FB0F97A1A26051100ECE3F0 /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB0F9751A2604A100ECE3F0 /* NotificationCenter.swift */; };
+		5FB0F97B1A26051200ECE3F0 /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB0F9751A2604A100ECE3F0 /* NotificationCenter.swift */; };
 		5FB89EFC19DED03200AE1A05 /* CostTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB89EFB19DED03200AE1A05 /* CostTextFieldDelegate.swift */; };
 		5FB8BAE019F591A00075C2AE /* TransactionCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB8BADF19F591A00075C2AE /* TransactionCalculator.swift */; };
 		5FC240CC1A1F373D006CB86F /* BalanceFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE1A83219DB246700BCC98C /* BalanceFormatter.swift */; };
@@ -63,7 +68,6 @@
 		5FFD2FFF1A23DBD40089BCAC /* ReusableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD2FD91A23D9190089BCAC /* ReusableCell.swift */; };
 		5FFD30001A23DBD90089BCAC /* NSRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCEC4B919DD897E001BDA01 /* NSRange.swift */; };
 		5FFD30261A24FA7B0089BCAC /* ParticipantControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD30251A24FA7B0089BCAC /* ParticipantControllerTests.swift */; };
-		5FFD30281A250B6A0089BCAC /* NotificationCenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD30271A250B6A0089BCAC /* NotificationCenterTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +116,8 @@
 		5F0C31461A2078030066B297 /* TransactionCalculatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionCalculatorTests.swift; sourceTree = "<group>"; };
 		5F7BFF1C1A1C927B00A2357C /* CostTextFieldController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CostTextFieldController.swift; sourceTree = "<group>"; };
 		5F7BFF1E1A1C92E500A2357C /* ParticipantTransactionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticipantTransactionModel.swift; sourceTree = "<group>"; };
+		5FB0F9751A2604A100ECE3F0 /* NotificationCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationCenter.swift; path = Tools/NotificationCenter.swift; sourceTree = SOURCE_ROOT; };
+		5FB0F9771A26050400ECE3F0 /* NotificationCenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenterTests.swift; sourceTree = "<group>"; };
 		5FB89EFB19DED03200AE1A05 /* CostTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CostTextFieldDelegate.swift; sourceTree = "<group>"; };
 		5FB89EFE19DED42F00AE1A05 /* CostTextFieldDelegateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CostTextFieldDelegateTests.swift; sourceTree = "<group>"; };
 		5FB8BADF19F591A00075C2AE /* TransactionCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionCalculator.swift; sourceTree = "<group>"; };
@@ -145,7 +151,6 @@
 		5FFD2FE01A23D9600089BCAC /* TableViewDelegateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDelegateTests.swift; sourceTree = "<group>"; };
 		5FFD2FE71A23D9FA0089BCAC /* ToolsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToolsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FFD30251A24FA7B0089BCAC /* ParticipantControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticipantControllerTests.swift; sourceTree = "<group>"; };
-		5FFD30271A250B6A0089BCAC /* NotificationCenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenterTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,6 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				5FCEC49B19DD8944001BDA01 /* Supporting Files */,
+				5FB0F9751A2604A100ECE3F0 /* NotificationCenter.swift */,
 				5FCEC4B919DD897E001BDA01 /* NSRange.swift */,
 				5FFD2FD91A23D9190089BCAC /* ReusableCell.swift */,
 				5FFD2FDA1A23D9190089BCAC /* TableViewDataSource.swift */,
@@ -256,6 +262,7 @@
 		5FCEC4A919DD8944001BDA01 /* ToolsTests */ = {
 			isa = PBXGroup;
 			children = (
+				5FB0F9771A26050400ECE3F0 /* NotificationCenterTests.swift */,
 				5FFD2FDF1A23D9600089BCAC /* TableViewDataSourceTests.swift */,
 				5FFD2FE01A23D9600089BCAC /* TableViewDelegateTests.swift */,
 				5FCEC4AA19DD8944001BDA01 /* Supporting Files */,
@@ -328,7 +335,6 @@
 				5FCB1C721A2229DF00F4B5DC /* TransactionCalculatorControllerTests.swift */,
 				5F0C31461A2078030066B297 /* TransactionCalculatorTests.swift */,
 				5FCB1C6E1A21E93C00F4B5DC /* TransactionEntryViewControllerTests.swift */,
-				5FFD30271A250B6A0089BCAC /* NotificationCenterTests.swift */,
 			);
 			path = FairnessTests;
 			sourceTree = "<group>";
@@ -516,6 +522,7 @@
 			files = (
 				5FFD2FDE1A23D9190089BCAC /* TableViewDelegate.swift in Sources */,
 				5FFD2FDD1A23D9190089BCAC /* TableViewDataSource.swift in Sources */,
+				5FB0F97A1A26051100ECE3F0 /* NotificationCenter.swift in Sources */,
 				5FFD2FDC1A23D9190089BCAC /* ReusableCell.swift in Sources */,
 				5FCEC4BA19DD897E001BDA01 /* NSRange.swift in Sources */,
 			);
@@ -536,6 +543,7 @@
 				5FF3609019D03CA900BBC643 /* TransactionEntryViewController.swift in Sources */,
 				5FF3608E19D03CA900BBC643 /* AppDelegate.swift in Sources */,
 				5F7BFF1F1A1C92E500A2357C /* ParticipantTransactionModel.swift in Sources */,
+				5FB0F9791A26051000ECE3F0 /* NotificationCenter.swift in Sources */,
 				5FB89EFC19DED03200AE1A05 /* CostTextFieldDelegate.swift in Sources */,
 				5FFD2FFD1A23DBCA0089BCAC /* TableViewDataSource.swift in Sources */,
 				5FC3DF441A232D0E00248026 /* ParticipantController.swift in Sources */,
@@ -558,7 +566,6 @@
 				5FC3DF481A238E0800248026 /* CostTextFieldDelegateTests.swift in Sources */,
 				5FFD2FF51A23DAC00089BCAC /* TableViewDataSource.swift in Sources */,
 				5FC240D21A1F3798006CB86F /* TransactionCalculator.swift in Sources */,
-				5FFD30281A250B6A0089BCAC /* NotificationCenterTests.swift in Sources */,
 				5FC240CD1A1F373D006CB86F /* CostTextFieldController.swift in Sources */,
 				5FC240D01A1F3773006CB86F /* ParticipantTransactionModel.swift in Sources */,
 				5FC3DF451A232EE300248026 /* ParticipantController.swift in Sources */,
@@ -569,6 +576,7 @@
 				5FF2872D19D88D460050CF87 /* Participant.swift in Sources */,
 				5FCB1C731A2229DF00F4B5DC /* TransactionCalculatorControllerTests.swift in Sources */,
 				5F0C31471A2078030066B297 /* TransactionCalculatorTests.swift in Sources */,
+				5FB0F9761A2604A100ECE3F0 /* NotificationCenter.swift in Sources */,
 				5FFD2FFA1A23DB230089BCAC /* TableViewDelegate.swift in Sources */,
 				5FC240CC1A1F373D006CB86F /* BalanceFormatter.swift in Sources */,
 			);
@@ -580,6 +588,8 @@
 			files = (
 				5FFD2FF81A23DB0E0089BCAC /* ReusableCell.swift in Sources */,
 				5FFD2FF31A23DA080089BCAC /* TableViewDataSourceTests.swift in Sources */,
+				5FB0F9781A26050400ECE3F0 /* NotificationCenterTests.swift in Sources */,
+				5FB0F97B1A26051200ECE3F0 /* NotificationCenter.swift in Sources */,
 				5FFD2FFB1A23DB280089BCAC /* NSRange.swift in Sources */,
 				5FFD2FF61A23DAF10089BCAC /* TableViewDataSource.swift in Sources */,
 				5FFD2FF91A23DB220089BCAC /* TableViewDelegate.swift in Sources */,

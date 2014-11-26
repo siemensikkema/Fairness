@@ -103,12 +103,9 @@ class TransactionCalculatorControllerTestsBase: XCTestCase {
         participantController = ParticipantControllerForTesting()
         tableView = UITableViewForTesting()
 
-        sut = TransactionCalculatorController()
+        sut = TransactionCalculatorController(transactionCalculator: transactionCalculator, participantDataSource: participantDataSource)
+
         sut.costTextFieldController = costTextFieldController
-
-        sut.participantDataSource = participantDataSource
-        sut.transactionCalculator = transactionCalculator
-
         sut.doneBarButtonItem = doneBarButtonItem
         sut.participantController = participantController
         sut.tableView = tableView
@@ -181,6 +178,52 @@ class TransactionCalculatorControllerResetTests: TransactionCalculatorController
     }
 }
 
+class TransactionCalculatorControllerCostDidChangeTests: TransactionCalculatorControllerTestsBase {
+
+    override func setUp() {
+
+        super.setUp()
+        doneBarButtonItem.enabled = false
+        costTextFieldController.costDidChangeCallback!(1)
+    }
+
+    func testTableViewIsReloaded() {
+
+        XCTAssertTrue(tableView.didCallReloadData)
+    }
+
+    func testDoneBarButtonItemIsEnabledWhenTransactionIsValid() {
+
+
+        XCTAssertTrue(doneBarButtonItem.enabled)
+    }
+
+    func testCostIsSetOnTransactionCalculator() {
+
+        XCTAssertTrue(transactionCalculator.didSetCost)
+    }
+}
+
+class TransactionCalculatorControllerParticipantUpdateCallbackTests: TransactionCalculatorControllerTestsBase {
+
+    override func setUp() {
+
+        super.setUp()
+        let participants = ["name1", "name2"].map { Participant(name: $0) }
+        participantController.participantUpdateCallback!(participants)
+    }
+
+    func testParticipantTransactionModelsAreSetOnParticipantDataSource() {
+
+        XCTAssertEqual(participantDataSource.items.count, 2)
+    }
+
+    func testParticipantTransactionModelsAreSetOnTransactionCalculator() {
+
+        XCTAssertEqual(transactionCalculator.participantTransactionModels.count, 2)
+    }
+}
+
 class TransactionCalculatorControllerRowSelectionTests: TransactionCalculatorControllerTestsBase {
 
     override func setUp() {
@@ -214,76 +257,5 @@ class TransactionCalculatorControllerRowSelectionTests: TransactionCalculatorCon
     func testDoneBarButtonItemIsEnabledWhenTransactionIsValid() {
 
         XCTAssertTrue(doneBarButtonItem.enabled)
-    }
-}
-
-class TransactionCalculatorControllerAwakeFromNibTestsBase: TransactionCalculatorControllerTestsBase {
-
-    override func setUp() {
-
-        super.setUp()
-        sut.participantDataSource = nil
-        sut.transactionCalculator = nil
-        sut.awakeFromNib()
-    }
-}
-
-class TransactionCalculatorControllerAwakeFromNibTests: TransactionCalculatorControllerAwakeFromNibTestsBase {
-
-    func testTransactionCalculatorIsSet() {
-
-        XCTAssertNotNil(sut.transactionCalculator)
-    }
-
-    func testParticipantDataSourceIsSet() {
-
-        XCTAssertNotNil(sut.participantDataSource)
-    }
-}
-
-class TransactionCalculatorControllerCostDidChangeTests: TransactionCalculatorControllerAwakeFromNibTestsBase {
-
-    override func setUp() {
-
-        super.setUp()
-        doneBarButtonItem.enabled = false
-        sut.transactionCalculator = transactionCalculator
-        costTextFieldController.costDidChangeCallback!(1)
-    }
-
-    func testTableViewIsReloaded() {
-
-        XCTAssertTrue(tableView.didCallReloadData)
-    }
-
-    func testDoneBarButtonItemIsEnabledWhenTransactionIsValid() {
-
-
-        XCTAssertTrue(doneBarButtonItem.enabled)
-    }
-
-    func testCostIsSetOnTransactionCalculator() {
-
-        XCTAssertTrue(transactionCalculator.didSetCost)
-    }
-}
-
-class TransactionCalculatorControllerParticipantUpdateCallbackTests: TransactionCalculatorControllerAwakeFromNibTestsBase {
-
-    override func setUp() {
-
-        super.setUp()
-        let participants = ["name1", "name2"].map { Participant(name: $0) }
-        participantController.participantUpdateCallback!(participants)
-    }
-
-    func testParticipantTransactionModelsAreSetOnParticipantDataSource() {
-
-        XCTAssertEqual(sut.participantDataSource.items.count, 2)
-    }
-
-    func testParticipantTransactionModelsAreSetOnTransactionCalculator() {
-
-        XCTAssertEqual(sut.transactionCalculator.participantTransactionModels.count, 2)
     }
 }
