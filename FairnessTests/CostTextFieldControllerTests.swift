@@ -3,14 +3,17 @@ import UIKit
 
 class CostTextFieldControllerTestsBase: XCTestCase {
 
+    var notificationCenter: NotificationCenterForTesting!
     var sut: CostTextFieldController!
     var textField: UITextField!
     var window: UIWindow!
 
     override func setUp() {
 
-        sut = CostTextFieldController()
+        notificationCenter = NotificationCenterForTesting()
         textField = UITextField()
+
+        sut = CostTextFieldController(notificationCenter: notificationCenter)
         sut.costTextField = textField
 
         // textField must be added to a window in order for isFirstResponder() to work
@@ -39,7 +42,7 @@ class CostTextFieldControllerTransactionDidStartTests: CostTextFieldControllerTe
     override func setUp() {
 
         super.setUp()
-        sut.transactionDidStart()
+        notificationCenter.transactionDidStartCallback?()
     }
 
     func testTextFieldIsFirstResponder() {
@@ -58,7 +61,8 @@ class CostTextFieldControllerTransactionDidResetTests: CostTextFieldControllerTe
     override func setUp() {
 
         super.setUp()
-        sut.reset()
+        textField.text = "1"
+        notificationCenter.transactionDidEndCallback?()
     }
 
     func testTextFieldIsNotFirstResponder() {

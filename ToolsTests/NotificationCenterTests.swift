@@ -31,7 +31,7 @@ class NotificationCenterTests: XCTestCase {
 
     var sut: NotificationCenter!
     var foundationNotificationCenter: NSNotificationCenterForTesting!
-    let notificationName = "noticiation"
+    let notificationName = "notification"
 
     override func setUp() {
 

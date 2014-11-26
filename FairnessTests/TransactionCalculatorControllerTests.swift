@@ -15,7 +15,6 @@ class TransactionCalculatorControllerTestsBase: XCTestCase {
 
     class TransactionCalculatorForTesting: TransactionCalculator {
 
-        var didCallReset = false
         var didCallAmounts = false
         var didSetCost = false
         var hasPayerForTesting = false
@@ -43,11 +42,6 @@ class TransactionCalculatorControllerTestsBase: XCTestCase {
             return hasPayerForTesting
         }
 
-        override func reset() {
-
-            didCallReset = true
-        }
-        
         override func togglePayerAtIndex(index: Int) {
 
             payerIndexForTesting = index
@@ -56,22 +50,6 @@ class TransactionCalculatorControllerTestsBase: XCTestCase {
         override func togglePayeeAtIndex(index: Int) {
 
             payeeIndexForTesting = index
-        }
-    }
-
-    class CostTextFieldControllerForTesting: CostTextFieldController {
-
-        var didCallReset = false
-        var didCallTransactionDidStart = false
-
-        override func reset() {
-
-            didCallReset = true
-        }
-
-        override func transactionDidStart() {
-
-            didCallTransactionDidStart = true
         }
     }
 
@@ -85,8 +63,9 @@ class TransactionCalculatorControllerTestsBase: XCTestCase {
         }
     }
 
-    var costTextFieldController: CostTextFieldControllerForTesting!
+    var costTextFieldController: CostTextFieldController!
     var doneBarButtonItem: UIBarButtonItem!
+    var notificationCenter: NotificationCenterForTesting!
     var participantDataSource: TransactionCalculatorController.ParticipantDataSource!
     var participantController: ParticipantControllerForTesting!
     var sut: TransactionCalculatorController!
@@ -98,12 +77,13 @@ class TransactionCalculatorControllerTestsBase: XCTestCase {
         participantDataSource = TransactionCalculatorController.ParticipantDataSource { (a, b) in }
         transactionCalculator = TransactionCalculatorForTesting()
 
-        costTextFieldController = CostTextFieldControllerForTesting()
+        costTextFieldController = CostTextFieldController()
         doneBarButtonItem = UIBarButtonItem()
+        notificationCenter = NotificationCenterForTesting()
         participantController = ParticipantControllerForTesting()
         tableView = UITableViewForTesting()
 
-        sut = TransactionCalculatorController(transactionCalculator: transactionCalculator, participantDataSource: participantDataSource)
+        sut = TransactionCalculatorController(notificationCenter: notificationCenter, participantDataSource: participantDataSource, transactionCalculator: transactionCalculator)
 
         sut.costTextFieldController = costTextFieldController
         sut.doneBarButtonItem = doneBarButtonItem
@@ -143,14 +123,9 @@ class TransactionCalculatorControllerApplyTests: TransactionCalculatorController
         XCTAssertTrue(tableView.didCallReloadData)
     }
 
-    func testCostTextFieldControllerIsReset() {
+    func testTransactionWasEnded() {
 
-        XCTAssertTrue(costTextFieldController.didCallReset)
-    }
-
-    func testTransactionCalculatorIsReset() {
-
-        XCTAssertTrue(transactionCalculator.didCallReset)
+        XCTAssertTrue(notificationCenter.didCallTransactionDidEnd)
     }
 }
 
@@ -167,14 +142,9 @@ class TransactionCalculatorControllerResetTests: TransactionCalculatorController
         XCTAssertTrue(tableView.didCallReloadData)
     }
 
-    func testCostTextFieldControllerIsReset() {
+    func testTransactionWasEnded() {
 
-        XCTAssertTrue(costTextFieldController.didCallReset)
-    }
-
-    func testTransactionCalculatorIsReset() {
-
-        XCTAssertTrue(transactionCalculator.didCallReset)
+        XCTAssertTrue(notificationCenter.didCallTransactionDidEnd)
     }
 }
 
@@ -246,7 +216,7 @@ class TransactionCalculatorControllerRowSelectionTests: TransactionCalculatorCon
 
     func testTransactionDidStartIsCalledWhenTransactionCalculatorHasAPayer() {
 
-        XCTAssertTrue(costTextFieldController.didCallTransactionDidStart)
+        XCTAssertTrue(notificationCenter.didCallTransactionDidStart)
     }
 
     func testTableViewIsReloaded() {

@@ -2,6 +2,8 @@ import Foundation
 
 class TransactionCalculator {
 
+    let notificationCenter: FairnessNotificationCenter
+
     var amounts: [Double] {
 
         return participantTransactionModels.map { $0.maybeAmount ?? 0 }
@@ -29,13 +31,18 @@ class TransactionCalculator {
 
     var participantTransactionModels: [ParticipantTransactionModel] = []
 
-    func reset() {
+    convenience init() {
 
-        cost = 0.0
+        self.init(notificationCenter: NotificationCenter())
+    }
 
-        for participantTransactionModel in participantTransactionModels {
+    init(notificationCenter: FairnessNotificationCenter) {
 
-            participantTransactionModel.reset()
+        self.notificationCenter = notificationCenter
+        notificationCenter.observeTransactionDidEnd {
+
+            self.cost = 0.0
+            self.participantTransactionModels.map { $0.reset() }
         }
     }
 

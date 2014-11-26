@@ -21,7 +21,6 @@ class TransactionCalculatorController: NSObject {
 
         didSet {
 
-            // TODO: self.tableViewDelegateSplitter.editingDelegate = participantController
             participantController.participantUpdateCallback = { [unowned self] participants in
 
                 let participantTransactionModels = participants.map { (participant: Participant) in
@@ -43,6 +42,7 @@ class TransactionCalculatorController: NSObject {
 
     private let participantDataSource: ParticipantDataSource
     private let transactionCalculator: TransactionCalculator
+    private let notificationCenter: FairnessNotificationCenter
 
     override convenience init() {
 
@@ -50,13 +50,14 @@ class TransactionCalculatorController: NSObject {
 
             cell.configure(participantTransactionViewModel: participantTransactionModel.toViewModel())
         }
-        self.init(transactionCalculator: TransactionCalculator(), participantDataSource: participantDataSource)
+        self.init(notificationCenter: NotificationCenter(), participantDataSource: participantDataSource, transactionCalculator: TransactionCalculator())
     }
 
-    init(transactionCalculator: TransactionCalculator, participantDataSource: ParticipantDataSource) {
+    init(notificationCenter: FairnessNotificationCenter, participantDataSource: ParticipantDataSource, transactionCalculator: TransactionCalculator) {
 
-        self.transactionCalculator = transactionCalculator
+        self.notificationCenter = notificationCenter
         self.participantDataSource = participantDataSource
+        self.transactionCalculator = transactionCalculator
     }
 
     private func updateTransaction() {
@@ -70,8 +71,7 @@ extension TransactionCalculatorController {
 
     @IBAction func reset() {
 
-        costTextFieldController.reset()
-        transactionCalculator.reset()
+        notificationCenter.transactionDidEnd()
         tableView.reloadData()
     }
 
@@ -95,7 +95,7 @@ extension TransactionCalculatorController: TableViewSelectionDelegate {
         else {
             
             transactionCalculator.togglePayerAtIndex(index)
-            costTextFieldController.transactionDidStart()
+            notificationCenter.transactionDidStart()
         }
         
         updateTransaction()

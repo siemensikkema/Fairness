@@ -18,12 +18,15 @@ class TransactionCalculatorTests: XCTestCase {
     }
 
     var sut: TransactionCalculator!
+    var notificationCenter: NotificationCenterForTesting!
     var participantTransactionModels: [ParticipantTransactionModelForTesting]!
 
     override func setUp() {
 
-        sut = TransactionCalculator()
+        notificationCenter = NotificationCenterForTesting()
         participantTransactionModels = [ParticipantTransactionModelForTesting(), ParticipantTransactionModelForTesting()]
+
+        sut = TransactionCalculator(notificationCenter: notificationCenter)
         sut.participantTransactionModels = participantTransactionModels
 
         sut.togglePayerAtIndex(0)
@@ -104,13 +107,13 @@ extension TransactionCalculatorTests {
 
     func testResetSetsCostToZero() {
 
-        sut.reset()
+        notificationCenter.transactionDidEndCallback?()
         XCTAssertEqual(sut.cost, 0.0)
     }
 
     func testResetResetsParticipantViewModels() {
 
-        sut.reset()
+        notificationCenter.transactionDidEndCallback?()
         XCTAssertEqual(participantTransactionModels.map { $0.didCallReset }, [true, true])
     }
 }

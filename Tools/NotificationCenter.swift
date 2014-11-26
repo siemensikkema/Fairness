@@ -2,6 +2,8 @@ import Foundation
 
 class NotificationCenter {
 
+    typealias NotificationCallback = NSNotification -> ()
+
     private var foundationNotificationCenter = NSNotificationCenter.defaultCenter()
 
     private var observers: [NSObjectProtocol] = []
@@ -20,7 +22,7 @@ class NotificationCenter {
         }
     }
 
-    func addObserverForName(name: String, callback: NSNotification -> ()) {
+    func addObserverForName(name: String, callback: NotificationCallback) {
 
         observers.append(foundationNotificationCenter.addObserverForName(name, object: nil, queue: nil, usingBlock: { notification in callback(notification) }))
     }
