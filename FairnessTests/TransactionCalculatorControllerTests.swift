@@ -192,6 +192,11 @@ class TransactionCalculatorControllerParticipantUpdateCallbackTests: Transaction
 
         XCTAssertEqual(transactionCalculator.participantTransactionModels.count, 2)
     }
+
+    func testTableViewIsReloaded() {
+
+        XCTAssertTrue(tableView.didCallReloadData)
+    }
 }
 
 class TransactionCalculatorControllerRowSelectionTests: TransactionCalculatorControllerTestsBase {

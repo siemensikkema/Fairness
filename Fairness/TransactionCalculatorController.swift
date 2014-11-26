@@ -29,6 +29,8 @@ class TransactionCalculatorController: NSObject {
                 }
                 self.participantDataSource.items = participantTransactionModels
                 self.transactionCalculator.participantTransactionModels = participantTransactionModels
+                // the tableView outlet is not guaranteed to be set at this stage
+                self.tableView?.reloadData()
             }
         }
     }
