@@ -29,7 +29,7 @@ class TransactionCalculatorController: NSObject {
                 }
                 self.participantDataSource.items = participantTransactionModels
                 self.transactionCalculator.participantTransactionModels = participantTransactionModels
-                // the tableView outlet is not guaranteed to be set at this stage
+                // the tableView outlet is not guaranteed to be set at this stage, hence the '?'
                 self.tableView?.reloadData()
             }
         }
@@ -50,7 +50,10 @@ class TransactionCalculatorController: NSObject {
 
         let participantDataSource = ParticipantDataSource { (participantTransactionModel, cell) in
 
-            cell.configure(participantTransactionViewModel: participantTransactionModel.toViewModel())
+            cell.configureWithParticipantTransactionViewModel(participantTransactionModel.toViewModel()) { name in
+
+                participantTransactionModel.name = name
+            }
         }
         self.init(notificationCenter: NotificationCenter(), participantDataSource: participantDataSource, transactionCalculator: TransactionCalculator())
     }

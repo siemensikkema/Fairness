@@ -19,8 +19,15 @@
 		5F5A00AE1A263F23000749AB /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5A00AC1A263E7F000749AB /* NavigationController.swift */; };
 		5F5A00AF1A263F26000749AB /* NavigationBarReappearBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5A00A81A2638FC000749AB /* NavigationBarReappearBehavior.swift */; };
 		5F5A00B11A263FEA000749AB /* NavigationBarReappearBehaviorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5A00B01A263FEA000749AB /* NavigationBarReappearBehaviorTests.swift */; };
+		5F6647701A2715B500FC4FC0 /* TextEditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F66476F1A2715B500FC4FC0 /* TextEditController.swift */; };
+		5F6647711A2715B500FC4FC0 /* TextEditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F66476F1A2715B500FC4FC0 /* TextEditController.swift */; };
+		5F6647731A2715E300FC4FC0 /* TextEditControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6647721A2715E300FC4FC0 /* TextEditControllerTests.swift */; };
 		5F7BFF1D1A1C927B00A2357C /* CostTextFieldController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7BFF1C1A1C927B00A2357C /* CostTextFieldController.swift */; };
 		5F7BFF1F1A1C92E500A2357C /* ParticipantTransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7BFF1E1A1C92E500A2357C /* ParticipantTransactionModel.swift */; };
+		5F7FB83C1A271B9B00E70705 /* ParticipantCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7FB83B1A271B9B00E70705 /* ParticipantCellTests.swift */; };
+		5FA659781A27131700BD1F87 /* ParticipantNameTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA659771A27131700BD1F87 /* ParticipantNameTextField.swift */; };
+		5FA659791A27131700BD1F87 /* ParticipantNameTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA659771A27131700BD1F87 /* ParticipantNameTextField.swift */; };
+		5FA6597B1A27137500BD1F87 /* ParticipantNameTextFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA6597A1A27137500BD1F87 /* ParticipantNameTextFieldTests.swift */; };
 		5FB0F9761A2604A100ECE3F0 /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB0F9751A2604A100ECE3F0 /* NotificationCenter.swift */; };
 		5FB0F9781A26050400ECE3F0 /* NotificationCenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB0F9771A26050400ECE3F0 /* NotificationCenterTests.swift */; };
 		5FB0F9791A26051000ECE3F0 /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB0F9751A2604A100ECE3F0 /* NotificationCenter.swift */; };
@@ -128,8 +135,13 @@
 		5F5A00AA1A263BE2000749AB /* IsRunningTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IsRunningTests.swift; sourceTree = "<group>"; };
 		5F5A00AC1A263E7F000749AB /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		5F5A00B01A263FEA000749AB /* NavigationBarReappearBehaviorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBarReappearBehaviorTests.swift; sourceTree = "<group>"; };
+		5F66476F1A2715B500FC4FC0 /* TextEditController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextEditController.swift; sourceTree = "<group>"; };
+		5F6647721A2715E300FC4FC0 /* TextEditControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextEditControllerTests.swift; sourceTree = "<group>"; };
 		5F7BFF1C1A1C927B00A2357C /* CostTextFieldController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CostTextFieldController.swift; sourceTree = "<group>"; };
 		5F7BFF1E1A1C92E500A2357C /* ParticipantTransactionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticipantTransactionModel.swift; sourceTree = "<group>"; };
+		5F7FB83B1A271B9B00E70705 /* ParticipantCellTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticipantCellTests.swift; sourceTree = "<group>"; };
+		5FA659771A27131700BD1F87 /* ParticipantNameTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticipantNameTextField.swift; sourceTree = "<group>"; };
+		5FA6597A1A27137500BD1F87 /* ParticipantNameTextFieldTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticipantNameTextFieldTests.swift; sourceTree = "<group>"; };
 		5FB0F9751A2604A100ECE3F0 /* NotificationCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationCenter.swift; path = Tools/NotificationCenter.swift; sourceTree = SOURCE_ROOT; };
 		5FB0F9771A26050400ECE3F0 /* NotificationCenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenterTests.swift; sourceTree = "<group>"; };
 		5FB0F97C1A2612B300ECE3F0 /* FairnessNotificationCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FairnessNotificationCenter.swift; sourceTree = "<group>"; };
@@ -247,6 +259,8 @@
 				5F07154319D17E14008D4A30 /* ParticipantCell.swift */,
 				5FC3DF431A232D0E00248026 /* ParticipantController.swift */,
 				5F7BFF1E1A1C92E500A2357C /* ParticipantTransactionModel.swift */,
+				5FA659771A27131700BD1F87 /* ParticipantNameTextField.swift */,
+				5F66476F1A2715B500FC4FC0 /* TextEditController.swift */,
 			);
 			name = Participant;
 			sourceTree = "<group>";
@@ -360,18 +374,21 @@
 		5FF360A019D03CA900BBC643 /* FairnessTests */ = {
 			isa = PBXGroup;
 			children = (
-				5F5A00B01A263FEA000749AB /* NavigationBarReappearBehaviorTests.swift */,
 				5F5A00A71A262985000749AB /* Helper classes */,
 				5FF360A119D03CA900BBC643 /* Supporting Files */,
 				5F0C31441A2075470066B297 /* BalanceFormatterTests.swift */,
 				5F0C31401A1F44740066B297 /* CostTextFieldControllerTests.swift */,
 				5FB89EFE19DED42F00AE1A05 /* CostTextFieldDelegateTests.swift */,
 				5FFD2FD71A2396D60089BCAC /* MainStoryboardTests.swift */,
+				5F5A00B01A263FEA000749AB /* NavigationBarReappearBehaviorTests.swift */,
 				5FFD30251A24FA7B0089BCAC /* ParticipantControllerTests.swift */,
+				5FA6597A1A27137500BD1F87 /* ParticipantNameTextFieldTests.swift */,
 				5F0C31421A20723D0066B297 /* ParticipantTransactionModelTests.swift */,
+				5F6647721A2715E300FC4FC0 /* TextEditControllerTests.swift */,
 				5FCB1C721A2229DF00F4B5DC /* TransactionCalculatorControllerTests.swift */,
 				5F0C31461A2078030066B297 /* TransactionCalculatorTests.swift */,
 				5FCB1C6E1A21E93C00F4B5DC /* TransactionEntryViewControllerTests.swift */,
+				5F7FB83B1A271B9B00E70705 /* ParticipantCellTests.swift */,
 			);
 			path = FairnessTests;
 			sourceTree = "<group>";
@@ -575,12 +592,14 @@
 				5FC3DF471A23869E00248026 /* TransactionCalculatorController.swift in Sources */,
 				5FB8BAE019F591A00075C2AE /* TransactionCalculator.swift in Sources */,
 				5FE1A83419DB283A00BCC98C /* BalanceFormatter.swift in Sources */,
+				5FA659781A27131700BD1F87 /* ParticipantNameTextField.swift in Sources */,
 				5F7BFF1D1A1C927B00A2357C /* CostTextFieldController.swift in Sources */,
 				5FFD2FFF1A23DBD40089BCAC /* ReusableCell.swift in Sources */,
 				5FFD30001A23DBD90089BCAC /* NSRange.swift in Sources */,
 				5F07154419D17E14008D4A30 /* ParticipantCell.swift in Sources */,
 				5FF3609019D03CA900BBC643 /* TransactionEntryViewController.swift in Sources */,
 				5FF3608E19D03CA900BBC643 /* AppDelegate.swift in Sources */,
+				5F6647701A2715B500FC4FC0 /* TextEditController.swift in Sources */,
 				5F7BFF1F1A1C92E500A2357C /* ParticipantTransactionModel.swift in Sources */,
 				5F5A00AD1A263E7F000749AB /* NavigationController.swift in Sources */,
 				5FB0F9791A26051000ECE3F0 /* NotificationCenter.swift in Sources */,
@@ -599,7 +618,9 @@
 				5F0C31431A20723D0066B297 /* ParticipantTransactionModelTests.swift in Sources */,
 				5FC240D11A1F377D006CB86F /* ParticipantCell.swift in Sources */,
 				5FFD30261A24FA7B0089BCAC /* ParticipantControllerTests.swift in Sources */,
+				5FA6597B1A27137500BD1F87 /* ParticipantNameTextFieldTests.swift in Sources */,
 				5FFD2FFC1A23DB290089BCAC /* NSRange.swift in Sources */,
+				5F7FB83C1A271B9B00E70705 /* ParticipantCellTests.swift in Sources */,
 				5F0C31451A2075470066B297 /* BalanceFormatterTests.swift in Sources */,
 				5FCB1C701A21EF3800F4B5DC /* TransactionEntryViewController.swift in Sources */,
 				5F5A00B11A263FEA000749AB /* NavigationBarReappearBehaviorTests.swift in Sources */,
@@ -607,6 +628,7 @@
 				5FFD2FF71A23DB0D0089BCAC /* ReusableCell.swift in Sources */,
 				5FC3DF481A238E0800248026 /* CostTextFieldDelegateTests.swift in Sources */,
 				5FB0F97E1A26152500ECE3F0 /* FairnessNotificationCenter.swift in Sources */,
+				5F6647731A2715E300FC4FC0 /* TextEditControllerTests.swift in Sources */,
 				5FFD2FF51A23DAC00089BCAC /* TableViewDataSource.swift in Sources */,
 				5FC240D21A1F3798006CB86F /* TransactionCalculator.swift in Sources */,
 				5FC240CD1A1F373D006CB86F /* CostTextFieldController.swift in Sources */,
@@ -621,9 +643,11 @@
 				5FF2872D19D88D460050CF87 /* Participant.swift in Sources */,
 				5F5A00A61A262972000749AB /* NotificationCenterForTesting.swift in Sources */,
 				5FCB1C731A2229DF00F4B5DC /* TransactionCalculatorControllerTests.swift in Sources */,
+				5FA659791A27131700BD1F87 /* ParticipantNameTextField.swift in Sources */,
 				5F0C31471A2078030066B297 /* TransactionCalculatorTests.swift in Sources */,
 				5FB0F9761A2604A100ECE3F0 /* NotificationCenter.swift in Sources */,
 				5FFD2FFA1A23DB230089BCAC /* TableViewDelegate.swift in Sources */,
+				5F6647711A2715B500FC4FC0 /* TextEditController.swift in Sources */,
 				5FC240CC1A1F373D006CB86F /* BalanceFormatter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

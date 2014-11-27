@@ -19,7 +19,7 @@
                             <subviews>
                                 <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gsd-hj-QDb" userLabel="Cost">
                                     <rect key="frame" x="8" y="7" width="304" height="30"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done"/>
                                     <connections>
                                         <action selector="costDidChange" destination="Gvk-Ox-Fpx" eventType="editingChanged" id="CFr-DR-czn"/>
@@ -37,29 +37,29 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jXD-Rg-TF9" userLabel="Name">
-                                            <rect key="frame" x="8" y="18" width="46" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Amount" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MdW-g7-jFH">
+                                            <rect key="frame" x="252" y="18" width="60" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalCompressionResistancePriority="751" text="Amount" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MdW-g7-jFH">
-                                            <rect key="frame" x="252" y="18" width="60" height="21"/>
+                                        <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Hd-ql-e2b" userLabel="Name" customClass="ParticipantNameTextField" customModule="Fairness" customModuleProvider="target">
+                                            <rect key="frame" x="8" y="18" width="236" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" enablesReturnKeyAutomatically="YES"/>
+                                        </textField>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="jXD-Rg-TF9" firstAttribute="leading" secondItem="VDt-QM-tUO" secondAttribute="leadingMargin" id="Rvf-cO-14P"/>
+                                        <constraint firstItem="MdW-g7-jFH" firstAttribute="leading" secondItem="3Hd-ql-e2b" secondAttribute="trailing" constant="8" id="Bge-WU-qK3"/>
                                         <constraint firstItem="MdW-g7-jFH" firstAttribute="trailing" secondItem="VDt-QM-tUO" secondAttribute="trailingMargin" id="ZWN-g4-lIB"/>
-                                        <constraint firstAttribute="centerY" secondItem="MdW-g7-jFH" secondAttribute="centerY" constant="0.5" id="wJy-Xv-FwK"/>
-                                        <constraint firstAttribute="centerY" secondItem="jXD-Rg-TF9" secondAttribute="centerY" id="yZI-UE-dAh"/>
+                                        <constraint firstItem="3Hd-ql-e2b" firstAttribute="leading" secondItem="VDt-QM-tUO" secondAttribute="leadingMargin" id="fDC-rV-WbE"/>
+                                        <constraint firstAttribute="centerY" secondItem="3Hd-ql-e2b" secondAttribute="centerY" constant="0.25" id="sXy-sD-pgo"/>
+                                        <constraint firstAttribute="centerY" secondItem="MdW-g7-jFH" secondAttribute="centerY" id="wJy-Xv-FwK"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="amountLabel" destination="MdW-g7-jFH" id="8OC-4h-Gle"/>
-                                    <outlet property="nameLabel" destination="jXD-Rg-TF9" id="duN-BY-jJ9"/>
+                                    <outlet property="nameTextField" destination="3Hd-ql-e2b" id="7NT-Uq-Xik"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -125,7 +125,7 @@
         <!--Navigation Controller-->
         <scene sceneID="gxd-nJ-7GQ">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBarsWhenKeyboardAppears="YES" id="Wa6-SV-Kor" customClass="NavigationController" customModule="Fairness" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBarsOnSwipe="YES" hidesBarsWhenKeyboardAppears="YES" id="Wa6-SV-Kor" customClass="NavigationController" customModule="Fairness" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="dTE-zM-6d9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

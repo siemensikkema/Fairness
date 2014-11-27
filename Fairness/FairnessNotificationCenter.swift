@@ -1,3 +1,5 @@
+// TODO: create tests
+
 protocol FairnessNotificationCenter {
 
     func transactionDidStart()

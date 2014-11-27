@@ -5,6 +5,11 @@ class ParticipantTransactionModel: DataSourceItem {
     var isPayee: Bool
     var isPayer: Bool
     var maybeAmount: Double?
+    var name: String? {
+
+        get { return participant.name }
+        set { participant.name = name }
+    }
 
     private let participant: Participant
 
@@ -22,18 +27,26 @@ class ParticipantTransactionModel: DataSourceItem {
         maybeAmount = nil
     }
 
-    func toViewModel() -> ParticipantTransactionViewModel {
+    func toViewModel() -> ParticipantTransactionViewModelInterface {
 
         return ParticipantTransactionViewModel(participantTransactionModel: self)
     }
 }
 
-struct ParticipantTransactionViewModel {
+protocol ParticipantTransactionViewModelInterface {
+
+    var amountString: String { get }
+    var isPayee: Bool { get }
+    var isPayer: Bool { get }
+    var name: String? { get }
+}
+
+struct ParticipantTransactionViewModel: ParticipantTransactionViewModelInterface {
 
     let amountString: String
     let isPayee: Bool
     let isPayer: Bool
-    let name: String
+    let name: String?
 
     init(participantTransactionModel: ParticipantTransactionModel) {
 
@@ -51,6 +64,6 @@ struct ParticipantTransactionViewModel {
         isPayee = participantTransactionModel.isPayee
         isPayer = participantTransactionModel.isPayer
 
-        name = participantTransactionModel.participant.name ?? ""
+        name = participantTransactionModel.participant.name
     }
 }

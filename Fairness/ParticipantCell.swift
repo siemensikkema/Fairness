@@ -1,21 +1,46 @@
 import UIKit
 
+// TODO: create tests
+// TODO: rename maybe* to *OrNil
+// TODO: change navigation bar reappear behavior to respond to keyboard disappearing
+
 class ParticipantCell: UITableViewCell, ReusableCell {
 
     @IBOutlet weak var amountLabel: UILabel!
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var nameTextField: UITextField!
 
-    func configure(#participantTransactionViewModel: ParticipantTransactionViewModel) {
+    let textEditController: TextEditControllerInterface
 
-        amountLabel.text = participantTransactionViewModel.amountString
-        nameLabel.text = participantTransactionViewModel.name
+    override convenience init(style: UITableViewCellStyle, reuseIdentifier: String?) {
 
-        self.backgroundColor = participantTransactionViewModel.isPayee ? UIColor.greenColor() : UIColor.whiteColor()
-        self.layer.borderWidth = participantTransactionViewModel.isPayer ? 1 : 0
+        self.init(style: style, reuseIdentifier: reuseIdentifier, textEditController: TextEditController())
+    }
+
+    init(style: UITableViewCellStyle, reuseIdentifier: String?, textEditController: TextEditControllerInterface) {
+
+        self.textEditController = textEditController
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    }
+
+    required init(coder aDecoder: NSCoder) {
+
+        textEditController = TextEditController()
+        super.init(coder: aDecoder)
     }
 
     class func reuseIdentifier() -> String {
 
         return "Participant"
+    }
+
+    func configureWithParticipantTransactionViewModel(participantTransactionViewModel: ParticipantTransactionViewModelInterface, textChangeCallback: TextChangeCallback) {
+
+        amountLabel.text = participantTransactionViewModel.amountString
+        nameTextField.text = participantTransactionViewModel.name
+
+        backgroundColor = participantTransactionViewModel.isPayee ? UIColor.greenColor() : UIColor.whiteColor()
+        layer.borderWidth = participantTransactionViewModel.isPayer ? 1 : 0
+
+        textEditController.configureWithTextField(nameTextField, textChangeCallback: textChangeCallback)
     }
 }
