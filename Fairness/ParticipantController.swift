@@ -6,10 +6,7 @@ class ParticipantController: NSObject {
 
     var participantUpdateCallbackOrNil: (([Participant]) -> ())? {
 
-        didSet {
-
-            sendParticipantUpdate()
-        }
+        didSet { sendParticipantUpdate() }
     }
 
     private func sendParticipantUpdate() {
