@@ -28,7 +28,7 @@ class NavigationBarReappearBehaviorTests: XCTestCase {
 
     func testNavigationBarIsShownWhenTransactionEnds() {
 
-        notificationCenter.transactionDidEndCallback?()
+        notificationCenter.keyboardWillHideCallback?()
         XCTAssertTrue(navigationController.navigationBarIsShown)
     }
 }

@@ -17,7 +17,7 @@ class NotificationCenterTests: XCTestCase {
         var callbackWasCalled = false
         let callback: NSNotification -> () = { notification in callbackWasCalled = true }
 
-        sut.addObserverForName(notificationName, callback: callback)
+        sut.observeNotificationWithName(notificationName, callback: callback)
 
         foundationNotificationCenter.callback?(NSNotification(name: notificationName, object: nil))
         XCTAssertTrue(callbackWasCalled)
@@ -33,7 +33,7 @@ class NotificationCenterTests: XCTestCase {
 
     func testObserversAreRemoved() {
 
-        sut.addObserverForName(notificationName, callback: { notification in })
+        sut.observeNotificationWithName(notificationName, callback: { notification in })
         sut = nil
         XCTAssertTrue(foundationNotificationCenter.removeObserverWasCalledSuccessfully)
     }

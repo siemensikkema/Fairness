@@ -15,7 +15,7 @@ class NavigationBarReappearBehavior: NSObject {
 
         self.notificationCenter = notificationCenter
         super.init()
-        notificationCenter.observeTransactionDidEnd {
+        notificationCenter.observeKeyboardWillHide {
 
             self.navigationController.setNavigationBarHidden(false, animated: true)
         }

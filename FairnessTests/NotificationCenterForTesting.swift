@@ -3,8 +3,9 @@ class FairnessNotificationCenterForTesting: FairnessNotificationCenter {
     var didCallTransactionDidEnd = false
     var didCallTransactionDidStart = false
 
-    var transactionDidEndCallback: NotificationCenter.CallbackWithoutNotification?
-    var transactionDidStartCallback: NotificationCenter.CallbackWithoutNotification?
+    var keyboardWillHideCallback: CallbackWithoutNotification?
+    var transactionDidEndCallback: CallbackWithoutNotification?
+    var transactionDidStartCallback: CallbackWithoutNotification?
 
     init() {}
 
@@ -18,13 +19,18 @@ class FairnessNotificationCenterForTesting: FairnessNotificationCenter {
         didCallTransactionDidStart = true
     }
 
-    func observeTransactionDidEnd(callback: NotificationCenter.CallbackWithoutNotification) {
+    func observeTransactionDidEnd(callback: CallbackWithoutNotification) {
 
         transactionDidEndCallback = callback
     }
 
-    func observeTransactionDidStart(callback: NotificationCenter.CallbackWithoutNotification) {
+    func observeTransactionDidStart(callback: CallbackWithoutNotification) {
 
         transactionDidStartCallback = callback
+    }
+
+    func observeKeyboardWillHide(callback: CallbackWithoutNotification) {
+
+        keyboardWillHideCallback = callback
     }
 }

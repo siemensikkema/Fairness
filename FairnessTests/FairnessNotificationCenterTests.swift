@@ -6,11 +6,13 @@ class FairnessNotificationCenterTests: XCTestCase {
     var sut: FairnessNotificationCenter!
     var foundationNotificationCenter: NSNotificationCenterForTesting!
     let notification = NSNotification(name: "", object: nil)
-    var closureWasExecuted: Bool!
+    var callback: CallbackWithoutNotification!
+    var closureWasExecuted: Bool = false
 
     override func setUp() {
 
         closureWasExecuted = false
+        callback = { self.closureWasExecuted = true }
         foundationNotificationCenter = NSNotificationCenterForTesting()
         sut = NotificationCenter(foundationNotificationCenter: foundationNotificationCenter)
     }
@@ -26,16 +28,31 @@ class FairnessNotificationCenterTests: XCTestCase {
         sut.transactionDidEnd()
         XCTAssertEqual(foundationNotificationCenter.notificationName, "Transaction Did End")
     }
+}
+
+extension FairnessNotificationCenterTests {
+
+    func assertClosureWasExecuted() {
+
+        foundationNotificationCenter.callback!(notification)
+        XCTAssertTrue(closureWasExecuted)
+    }
 
     func testObserveTransactionDidStart() {
 
-        sut.observeTransactionDidStart { self.closureWasExecuted = true }
-        foundationNotificationCenter.callback!(notification)
+        sut.observeTransactionDidStart(callback)
+        assertClosureWasExecuted()
     }
 
     func testObserveTransactionDidEnd() {
 
-        sut.observeTransactionDidEnd { self.closureWasExecuted = true }
-        foundationNotificationCenter.callback!(notification)
+        sut.observeTransactionDidEnd(callback)
+        assertClosureWasExecuted()
+    }
+
+    func testObserveKeyboardWillHide() {
+
+        sut.observeKeyboardWillHide(callback)
+        assertClosureWasExecuted()
     }
 }

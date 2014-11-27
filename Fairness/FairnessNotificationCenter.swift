@@ -1,49 +1,44 @@
+import UIKit
 
 protocol FairnessNotificationCenter {
 
     func transactionDidStart()
-    func observeTransactionDidStart(callback: NotificationCenter.CallbackWithoutNotification)
+    func observeTransactionDidStart(callback: CallbackWithoutNotification)
     func transactionDidEnd()
-    func observeTransactionDidEnd(callback: NotificationCenter.CallbackWithoutNotification)
+    func observeTransactionDidEnd(callback: CallbackWithoutNotification)
+    func observeKeyboardWillHide(callback: CallbackWithoutNotification)
 }
 
 extension NotificationCenter: FairnessNotificationCenter {
 
-    typealias CallbackWithoutNotification = () -> ()
-
-    private enum FairnessNotification: String {
+    private enum FairnessNotification: String, NotificationEnum {
 
         case TransactionDidEnd = "Transaction Did End"
         case TransactionDidStart = "Transaction Did Start"
     }
 
-    private func postFairnessNotification(fairnessNotification: FairnessNotification) {
-
-        postNotificationWithName(fairnessNotification.rawValue)
-    }
-
-    private func observeFairnessNotification(fairnessNotification: FairnessNotification, callback: NotificationCallback) {
-
-        addObserverForName(fairnessNotification.rawValue, callback: callback)
-    }
-
     func transactionDidStart() {
 
-        postFairnessNotification(.TransactionDidStart)
+        postNotification(FairnessNotification.TransactionDidStart)
     }
 
     func observeTransactionDidStart(callback: CallbackWithoutNotification) {
 
-        observeFairnessNotification(.TransactionDidStart, { _ in callback() })
+        observeNotification(FairnessNotification.TransactionDidStart, { _ in callback() })
     }
 
     func transactionDidEnd() {
 
-        postFairnessNotification(.TransactionDidEnd)
+        postNotification(FairnessNotification.TransactionDidEnd)
     }
 
     func observeTransactionDidEnd(callback: CallbackWithoutNotification) {
 
-        observeFairnessNotification(.TransactionDidEnd, { _ in callback() })
+        observeNotification(FairnessNotification.TransactionDidEnd, { _ in callback() })
+    }
+
+    func observeKeyboardWillHide(callback: CallbackWithoutNotification) {
+
+        observeNotificationWithName(UIKeyboardWillHideNotification, callback: { _ in callback() })
     }
 }
