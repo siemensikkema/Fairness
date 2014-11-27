@@ -19,6 +19,9 @@
 		5F5A00AE1A263F23000749AB /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5A00AC1A263E7F000749AB /* NavigationController.swift */; };
 		5F5A00AF1A263F26000749AB /* NavigationBarReappearBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5A00A81A2638FC000749AB /* NavigationBarReappearBehavior.swift */; };
 		5F5A00B11A263FEA000749AB /* NavigationBarReappearBehaviorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5A00B01A263FEA000749AB /* NavigationBarReappearBehaviorTests.swift */; };
+		5F64825E1A2751AA006AB595 /* FairnessNotificationCenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F64825D1A2751AA006AB595 /* FairnessNotificationCenterTests.swift */; };
+		5F6482601A275262006AB595 /* NSNotificationCenterForTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F64825F1A275262006AB595 /* NSNotificationCenterForTesting.swift */; };
+		5F6482621A27528E006AB595 /* NSNotificationCenterForTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F64825F1A275262006AB595 /* NSNotificationCenterForTesting.swift */; };
 		5F6647701A2715B500FC4FC0 /* TextEditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F66476F1A2715B500FC4FC0 /* TextEditController.swift */; };
 		5F6647711A2715B500FC4FC0 /* TextEditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F66476F1A2715B500FC4FC0 /* TextEditController.swift */; };
 		5F6647731A2715E300FC4FC0 /* TextEditControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6647721A2715E300FC4FC0 /* TextEditControllerTests.swift */; };
@@ -135,6 +138,8 @@
 		5F5A00AA1A263BE2000749AB /* IsRunningTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IsRunningTests.swift; sourceTree = "<group>"; };
 		5F5A00AC1A263E7F000749AB /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		5F5A00B01A263FEA000749AB /* NavigationBarReappearBehaviorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBarReappearBehaviorTests.swift; sourceTree = "<group>"; };
+		5F64825D1A2751AA006AB595 /* FairnessNotificationCenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FairnessNotificationCenterTests.swift; sourceTree = "<group>"; };
+		5F64825F1A275262006AB595 /* NSNotificationCenterForTesting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSNotificationCenterForTesting.swift; sourceTree = "<group>"; };
 		5F66476F1A2715B500FC4FC0 /* TextEditController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextEditController.swift; sourceTree = "<group>"; };
 		5F6647721A2715E300FC4FC0 /* TextEditControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextEditControllerTests.swift; sourceTree = "<group>"; };
 		5F7BFF1C1A1C927B00A2357C /* CostTextFieldController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CostTextFieldController.swift; sourceTree = "<group>"; };
@@ -232,6 +237,14 @@
 			name = Application;
 			sourceTree = "<group>";
 		};
+		5F6482611A275268006AB595 /* Helper classes */ = {
+			isa = PBXGroup;
+			children = (
+				5F64825F1A275262006AB595 /* NSNotificationCenterForTesting.swift */,
+			);
+			name = "Helper classes";
+			sourceTree = "<group>";
+		};
 		5F7BFF241A1CDB4300A2357C /* Transaction and Participant overview and creation */ = {
 			isa = PBXGroup;
 			children = (
@@ -311,6 +324,7 @@
 		5FCEC4A919DD8944001BDA01 /* ToolsTests */ = {
 			isa = PBXGroup;
 			children = (
+				5F6482611A275268006AB595 /* Helper classes */,
 				5FB0F9771A26050400ECE3F0 /* NotificationCenterTests.swift */,
 				5FFD2FDF1A23D9600089BCAC /* TableViewDataSourceTests.swift */,
 				5FFD2FE01A23D9600089BCAC /* TableViewDelegateTests.swift */,
@@ -379,6 +393,7 @@
 				5F0C31441A2075470066B297 /* BalanceFormatterTests.swift */,
 				5F0C31401A1F44740066B297 /* CostTextFieldControllerTests.swift */,
 				5FB89EFE19DED42F00AE1A05 /* CostTextFieldDelegateTests.swift */,
+				5F64825D1A2751AA006AB595 /* FairnessNotificationCenterTests.swift */,
 				5FFD2FD71A2396D60089BCAC /* MainStoryboardTests.swift */,
 				5F5A00B01A263FEA000749AB /* NavigationBarReappearBehaviorTests.swift */,
 				5FFD30251A24FA7B0089BCAC /* ParticipantControllerTests.swift */,
@@ -631,6 +646,7 @@
 				5F6647731A2715E300FC4FC0 /* TextEditControllerTests.swift in Sources */,
 				5FFD2FF51A23DAC00089BCAC /* TableViewDataSource.swift in Sources */,
 				5FC240D21A1F3798006CB86F /* TransactionCalculator.swift in Sources */,
+				5F64825E1A2751AA006AB595 /* FairnessNotificationCenterTests.swift in Sources */,
 				5FC240CD1A1F373D006CB86F /* CostTextFieldController.swift in Sources */,
 				5F5A00AE1A263F23000749AB /* NavigationController.swift in Sources */,
 				5FC240D01A1F3773006CB86F /* ParticipantTransactionModel.swift in Sources */,
@@ -643,6 +659,7 @@
 				5FF2872D19D88D460050CF87 /* Participant.swift in Sources */,
 				5F5A00A61A262972000749AB /* NotificationCenterForTesting.swift in Sources */,
 				5FCB1C731A2229DF00F4B5DC /* TransactionCalculatorControllerTests.swift in Sources */,
+				5F6482621A27528E006AB595 /* NSNotificationCenterForTesting.swift in Sources */,
 				5FA659791A27131700BD1F87 /* ParticipantNameTextField.swift in Sources */,
 				5F0C31471A2078030066B297 /* TransactionCalculatorTests.swift in Sources */,
 				5FB0F9761A2604A100ECE3F0 /* NotificationCenter.swift in Sources */,
@@ -658,6 +675,7 @@
 			files = (
 				5FFD2FF81A23DB0E0089BCAC /* ReusableCell.swift in Sources */,
 				5FFD2FF31A23DA080089BCAC /* TableViewDataSourceTests.swift in Sources */,
+				5F6482601A275262006AB595 /* NSNotificationCenterForTesting.swift in Sources */,
 				5FB0F9781A26050400ECE3F0 /* NotificationCenterTests.swift in Sources */,
 				5FB0F97B1A26051200ECE3F0 /* NotificationCenter.swift in Sources */,
 				5FFD2FFB1A23DB280089BCAC /* NSRange.swift in Sources */,

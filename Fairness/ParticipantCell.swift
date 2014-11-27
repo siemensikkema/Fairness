@@ -1,9 +1,5 @@
 import UIKit
 
-// TODO: create tests
-// TODO: rename maybe* to *OrNil
-// TODO: change navigation bar reappear behavior to respond to keyboard disappearing
-
 class ParticipantCell: UITableViewCell, ReusableCell {
 
     @IBOutlet weak var amountLabel: UILabel!

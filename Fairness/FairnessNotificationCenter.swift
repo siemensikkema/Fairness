@@ -1,4 +1,3 @@
-// TODO: create tests
 
 protocol FairnessNotificationCenter {
 
