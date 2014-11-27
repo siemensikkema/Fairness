@@ -1,8 +1,19 @@
 import Foundation
 
-class TransactionCalculator {
+protocol TransactionCalculatorInterface: class {
 
-    let notificationCenter: FairnessNotificationCenter
+    var amounts: [Double] { get }
+    var cost: Double { get set }
+    var hasPayer: Bool { get }
+    var isValid: Bool { get }
+    var participantTransactionModels: [ParticipantTransactionModel] { get set }
+    func togglePayeeAtIndex(index: Int)
+    func togglePayerAtIndex(index: Int)
+}
+
+class TransactionCalculator: TransactionCalculatorInterface {
+
+    private let notificationCenter: FairnessNotificationCenter
 
     var amounts: [Double] {
 

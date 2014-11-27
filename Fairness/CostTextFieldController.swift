@@ -5,7 +5,7 @@ class CostTextFieldController: NSObject {
     @IBOutlet weak var costTextField: UITextField!
 
     var costDidChangeCallbackOrNil: ((Double) -> ())?
-    let notificationCenter: FairnessNotificationCenter
+    private let notificationCenter: FairnessNotificationCenter
 
     override convenience init() {
 

@@ -43,7 +43,7 @@ class TransactionCalculatorController: NSObject {
     }
 
     private let participantDataSource: ParticipantDataSource
-    private let transactionCalculator: TransactionCalculator
+    private let transactionCalculator: TransactionCalculatorInterface
     private let notificationCenter: FairnessNotificationCenter
 
     override convenience init() {
@@ -58,7 +58,7 @@ class TransactionCalculatorController: NSObject {
         self.init(notificationCenter: NotificationCenter(), participantDataSource: participantDataSource, transactionCalculator: TransactionCalculator())
     }
 
-    init(notificationCenter: FairnessNotificationCenter, participantDataSource: ParticipantDataSource, transactionCalculator: TransactionCalculator) {
+    init(notificationCenter: FairnessNotificationCenter, participantDataSource: ParticipantDataSource, transactionCalculator: TransactionCalculatorInterface) {
 
         self.notificationCenter = notificationCenter
         self.participantDataSource = participantDataSource

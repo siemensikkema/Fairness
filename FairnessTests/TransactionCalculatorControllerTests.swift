@@ -13,7 +13,7 @@ class TransactionCalculatorControllerTestsBase: XCTestCase {
         }
     }
 
-    class TransactionCalculatorForTesting: TransactionCalculator {
+    class TransactionCalculatorForTesting: TransactionCalculatorInterface {
 
         var didCallAmounts = false
         var didSetCost = false
@@ -21,33 +21,35 @@ class TransactionCalculatorControllerTestsBase: XCTestCase {
         var payerIndexForTesting: Int?
         var payeeIndexForTesting: Int?
 
-        override var amounts: [Double] {
+        var participantTransactionModels: [ParticipantTransactionModel] = []
+
+        var amounts: [Double] {
 
             didCallAmounts = true
             return []
         }
 
-        override var cost: Double {
+        var cost: Double = 0.0 {
 
             didSet { didSetCost = true }
         }
 
-        override var isValid: Bool {
+        var isValid: Bool {
             
             return true
         }
 
-        override var hasPayer: Bool {
+        var hasPayer: Bool {
 
             return hasPayerForTesting
         }
 
-        override func togglePayerAtIndex(index: Int) {
+        func togglePayerAtIndex(index: Int) {
 
             payerIndexForTesting = index
         }
 
-        override func togglePayeeAtIndex(index: Int) {
+        func togglePayeeAtIndex(index: Int) {
 
             payeeIndexForTesting = index
         }
