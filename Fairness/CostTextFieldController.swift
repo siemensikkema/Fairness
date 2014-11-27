@@ -4,7 +4,7 @@ class CostTextFieldController: NSObject {
 
     @IBOutlet weak var costTextField: UITextField!
 
-    var costDidChangeCallback: ((Double) -> ())?
+    var costDidChangeCallbackOrNil: ((Double) -> ())?
     let notificationCenter: FairnessNotificationCenter
 
     override convenience init() {
@@ -31,6 +31,6 @@ class CostTextFieldController: NSObject {
 
     @IBAction func costDidChange() {
 
-        costDidChangeCallback?((costTextField.text as NSString).doubleValue)
+        costDidChangeCallbackOrNil?((costTextField.text as NSString).doubleValue)
     }
 }

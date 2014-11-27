@@ -4,11 +4,11 @@ class ParticipantTransactionModel: DataSourceItem {
 
     var isPayee: Bool
     var isPayer: Bool
-    var maybeAmount: Double?
-    var name: String? {
+    var amountOrNil: Double?
+    var nameOrNil: String? {
 
-        get { return participant.name }
-        set { participant.name = name }
+        get { return participant.nameOrNil }
+        set { participant.nameOrNil = nameOrNil }
     }
 
     private let participant: Participant
@@ -24,7 +24,7 @@ class ParticipantTransactionModel: DataSourceItem {
 
         isPayee = false
         isPayer = false
-        maybeAmount = nil
+        amountOrNil = nil
     }
 
     func toViewModel() -> ParticipantTransactionViewModelInterface {
@@ -38,7 +38,7 @@ protocol ParticipantTransactionViewModelInterface {
     var amountString: String { get }
     var isPayee: Bool { get }
     var isPayer: Bool { get }
-    var name: String? { get }
+    var nameOrNil: String? { get }
 }
 
 struct ParticipantTransactionViewModel: ParticipantTransactionViewModelInterface {
@@ -46,7 +46,7 @@ struct ParticipantTransactionViewModel: ParticipantTransactionViewModelInterface
     let amountString: String
     let isPayee: Bool
     let isPayer: Bool
-    let name: String?
+    let nameOrNil: String?
 
     init(participantTransactionModel: ParticipantTransactionModel) {
 
@@ -54,7 +54,7 @@ struct ParticipantTransactionViewModel: ParticipantTransactionViewModelInterface
 
         amountString = balanceFormatter.stringFromNumber(participantTransactionModel.participant.balance) ?? ""
 
-        if let amount = participantTransactionModel.maybeAmount {
+        if let amount = participantTransactionModel.amountOrNil {
 
             let transactionAmountString = balanceFormatter.stringFromNumber(amount) ?? ""
             let transactionAmountPrefix = amount > 0 ? "+" : ""
@@ -64,6 +64,6 @@ struct ParticipantTransactionViewModel: ParticipantTransactionViewModelInterface
         isPayee = participantTransactionModel.isPayee
         isPayer = participantTransactionModel.isPayer
 
-        name = participantTransactionModel.participant.name
+        nameOrNil = participantTransactionModel.nameOrNil
     }
 }

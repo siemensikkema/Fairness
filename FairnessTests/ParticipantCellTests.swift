@@ -20,7 +20,7 @@ class ParticipantCellTests: XCTestCase {
         var amountString: String { return "amount" }
         var isPayee: Bool = false
         var isPayer: Bool = false
-        var name: String? { return "name" }
+        var nameOrNil: String? { return "name" }
     }
 
     var amountLabel: UILabel!
@@ -55,7 +55,7 @@ class ParticipantCellTests: XCTestCase {
 
     func testNameTextFieldTextGetsSet() {
 
-        XCTAssertEqual(nameTextField.text!, participantTransactionViewModel.name!)
+        XCTAssertEqual(nameTextField.text!, participantTransactionViewModel.nameOrNil!)
     }
 
     func testTextEditControllerGetsSet() {

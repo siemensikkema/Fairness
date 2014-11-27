@@ -154,7 +154,7 @@ class TransactionCalculatorControllerCostDidChangeTests: TransactionCalculatorCo
 
         super.setUp()
         doneBarButtonItem.enabled = false
-        costTextFieldController.costDidChangeCallback!(1)
+        costTextFieldController.costDidChangeCallbackOrNil!(1)
     }
 
     func testTableViewIsReloaded() {
@@ -180,7 +180,7 @@ class TransactionCalculatorControllerParticipantUpdateCallbackTests: Transaction
 
         super.setUp()
         let participants = ["name1", "name2"].map { Participant(name: $0) }
-        participantController.participantUpdateCallback!(participants)
+        participantController.participantUpdateCallbackOrNil!(participants)
     }
 
     func testParticipantTransactionModelsAreSetOnParticipantDataSource() {

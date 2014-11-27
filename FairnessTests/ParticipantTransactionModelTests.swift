@@ -13,24 +13,24 @@ class ParticipantTransactionModelTests: XCTestCase {
 
     func testAmountStringForNegativeAmount() {
 
-        sut.maybeAmount = -1.23
+        sut.amountOrNil = -1.23
         XCTAssertEqual(sut.toViewModel().amountString, "10.00 -1.23")
     }
 
     func testAmountStringForPositiveAmount() {
 
-        sut.maybeAmount = 1.23
+        sut.amountOrNil = 1.23
         XCTAssertEqual(sut.toViewModel().amountString, "10.00 +1.23")
     }
 
     func testNameOfViewModelEqualsNameOfParticipant() {
 
-        XCTAssertEqual(sut.toViewModel().name!, "name")
+        XCTAssertEqual(sut.toViewModel().nameOrNil!, "name")
     }
 
     func testNamelessParticipantResultsInNilString() {
 
-        participant.name = nil
-        XCTAssertNil(sut.toViewModel().name)
+        participant.nameOrNil = nil
+        XCTAssertNil(sut.toViewModel().nameOrNil)
     }
 }

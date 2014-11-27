@@ -6,7 +6,7 @@ class TransactionCalculator {
 
     var amounts: [Double] {
 
-        return participantTransactionModels.map { $0.maybeAmount ?? 0 }
+        return participantTransactionModels.map { $0.amountOrNil ?? 0 }
     }
 
     var cost: Double = 0.0 {
@@ -64,7 +64,7 @@ class TransactionCalculator {
 
         for index in 0..<participantTransactionModels.count {
 
-            var maybeAmount: Double?
+            var amountOrNil: Double?
 
             if (self.isValid) {
 
@@ -72,17 +72,17 @@ class TransactionCalculator {
 
                 if participantTransactionModel.isPayee {
 
-                    maybeAmount = -self.cost/numberOfPayees
+                    amountOrNil = -self.cost/numberOfPayees
                 }
 
                 if participantTransactionModel.isPayer {
 
-                    maybeAmount = (maybeAmount ?? 0) + self.cost
+                    amountOrNil = (amountOrNil ?? 0) + self.cost
                 }
 
             }
 
-            participantTransactionModels[index].maybeAmount = maybeAmount
+            participantTransactionModels[index].amountOrNil = amountOrNil
         }
     }
 }

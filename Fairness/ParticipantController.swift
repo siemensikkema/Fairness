@@ -4,7 +4,7 @@ class ParticipantController: NSObject {
 
     private var participants: [Participant] = [Participant(name: "Siemen"), Participant(name: "Willem")]
 
-    var participantUpdateCallback: (([Participant]) -> ())? {
+    var participantUpdateCallbackOrNil: (([Participant]) -> ())? {
 
         didSet {
 
@@ -14,7 +14,7 @@ class ParticipantController: NSObject {
 
     private func sendParticipantUpdate() {
 
-        participantUpdateCallback?(participants)
+        participantUpdateCallbackOrNil?(participants)
     }
 
     @IBAction func addParticipant() {

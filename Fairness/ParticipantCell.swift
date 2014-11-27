@@ -32,7 +32,7 @@ class ParticipantCell: UITableViewCell, ReusableCell {
     func configureWithParticipantTransactionViewModel(participantTransactionViewModel: ParticipantTransactionViewModelInterface, textChangeCallback: TextChangeCallback) {
 
         amountLabel.text = participantTransactionViewModel.amountString
-        nameTextField.text = participantTransactionViewModel.name
+        nameTextField.text = participantTransactionViewModel.nameOrNil
 
         backgroundColor = participantTransactionViewModel.isPayee ? UIColor.greenColor() : UIColor.whiteColor()
         layer.borderWidth = participantTransactionViewModel.isPayer ? 1 : 0

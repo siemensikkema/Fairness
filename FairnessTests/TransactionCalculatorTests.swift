@@ -91,13 +91,13 @@ extension TransactionCalculatorTests {
 
     func testTransactionAmountsForSimpleTransactionAreCorrect() {
 
-        XCTAssertEqual(sut.participantTransactionModels.map { $0.maybeAmount! }, [1.23, -1.23])
+        XCTAssertEqual(sut.participantTransactionModels.map { $0.amountOrNil! }, [1.23, -1.23])
     }
 
     func testTransactionAmountsForSharedTransactionAreCorrect() {
 
         sut.togglePayeeAtIndex(0)
-        XCTAssertEqual(sut.participantTransactionModels.map { $0.maybeAmount! }, [0.615, -0.615])
+        XCTAssertEqual(sut.participantTransactionModels.map { $0.amountOrNil! }, [0.615, -0.615])
     }
 
     func testAmounts() {

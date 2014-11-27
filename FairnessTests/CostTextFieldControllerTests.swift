@@ -29,7 +29,7 @@ class CostTextFieldControllerTests: CostTextFieldControllerTestsBase {
         let cost = 1.23
         costTextField.text = "\(cost)"
 
-        sut.costDidChangeCallback = { costFromCallback in
+        sut.costDidChangeCallbackOrNil = { costFromCallback in
 
             XCTAssertEqual(costFromCallback, cost)
         }

@@ -8,7 +8,7 @@ class TransactionCalculatorController: NSObject {
 
         didSet {
 
-            costTextFieldController.costDidChangeCallback = { [unowned self] cost in
+            costTextFieldController.costDidChangeCallbackOrNil = { [unowned self] cost in
 
                 self.transactionCalculator.cost = cost
                 self.updateTransaction()
@@ -21,7 +21,7 @@ class TransactionCalculatorController: NSObject {
 
         didSet {
 
-            participantController.participantUpdateCallback = { [unowned self] participants in
+            participantController.participantUpdateCallbackOrNil = { [unowned self] participants in
 
                 let participantTransactionModels = participants.map { (participant: Participant) in
 
@@ -52,7 +52,7 @@ class TransactionCalculatorController: NSObject {
 
             cell.configureWithParticipantTransactionViewModel(participantTransactionModel.toViewModel()) { name in
 
-                participantTransactionModel.name = name
+                participantTransactionModel.nameOrNil = name
             }
         }
         self.init(notificationCenter: NotificationCenter(), participantDataSource: participantDataSource, transactionCalculator: TransactionCalculator())

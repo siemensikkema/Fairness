@@ -8,7 +8,7 @@ class ParticipantControllerTests: XCTestCase {
     override func setUp() {
 
         sut = ParticipantController()
-        sut.participantUpdateCallback = { participants in
+        sut.participantUpdateCallbackOrNil = { participants in
 
             self.participantsFromCallback = participants
         }
@@ -24,6 +24,6 @@ class ParticipantControllerTests: XCTestCase {
     func testAddParticipantAddsNewParticipantAtEndOfArray() {
 
         sut.addParticipant()
-        XCTAssertNil(participantsFromCallback[2].name)
+        XCTAssertNil(participantsFromCallback[2].nameOrNil)
     }
 }
