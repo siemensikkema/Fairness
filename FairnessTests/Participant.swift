@@ -14,15 +14,20 @@ class Participant {
     init() {}
 }
 
+extension Participant: DebugPrintable {
+
+    var debugDescription: String { return "name: \(nameOrNil), balance: \(balance) hash: \(hashValue)" }
+}
+
 extension Participant: Hashable, Equatable {
 
     var hashValue: Int {
 
-        return balance.hashValue ^ (nameOrNil?.hashValue ?? 0)
+        return ObjectIdentifier(self).hashValue
     }
 }
 
 func ==(lhs: Participant, rhs: Participant) -> Bool {
 
-    return lhs.nameOrNil == rhs.nameOrNil && lhs.balance == rhs.balance
+    return ObjectIdentifier(lhs) == ObjectIdentifier(rhs)
 }

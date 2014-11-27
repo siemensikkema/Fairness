@@ -1,14 +1,38 @@
 import Foundation
 
-class ParticipantTransactionModel: DataSourceItem {
+protocol ParticipantTransactionViewModelInterface {
+
+    var amountString: String { get }
+    var isPayee: Bool { get }
+    var isPayer: Bool { get }
+    var nameOrNil: String? { get }
+}
+
+class ParticipantTransactionModel: DataSourceItem, ParticipantTransactionViewModelInterface {
+
+    let balanceFormatter = BalanceFormatter.sharedInstance
 
     var isPayee: Bool
     var isPayer: Bool
     var amountOrNil: Double?
+    var amountString: String {
+
+        var amountString = balanceFormatter.stringFromNumber(participant.balance) ?? ""
+
+        if let amount = amountOrNil {
+
+            let transactionAmountString = balanceFormatter.stringFromNumber(amount) ?? ""
+            let transactionAmountPrefix = amount > 0 ? "+" : ""
+            amountString = "\(amountString) \(transactionAmountPrefix)\(transactionAmountString)"
+        }
+
+        return amountString
+    }
+
     var nameOrNil: String? {
 
         get { return participant.nameOrNil }
-        set { participant.nameOrNil = nameOrNil }
+        set { participant.nameOrNil = newValue }
     }
 
     private let participant: Participant
@@ -25,45 +49,5 @@ class ParticipantTransactionModel: DataSourceItem {
         isPayee = false
         isPayer = false
         amountOrNil = nil
-    }
-
-    func toViewModel() -> ParticipantTransactionViewModelInterface {
-
-        return ParticipantTransactionViewModel(participantTransactionModel: self)
-    }
-}
-
-protocol ParticipantTransactionViewModelInterface {
-
-    var amountString: String { get }
-    var isPayee: Bool { get }
-    var isPayer: Bool { get }
-    var nameOrNil: String? { get }
-}
-
-struct ParticipantTransactionViewModel: ParticipantTransactionViewModelInterface {
-
-    let amountString: String
-    let isPayee: Bool
-    let isPayer: Bool
-    let nameOrNil: String?
-
-    init(participantTransactionModel: ParticipantTransactionModel) {
-
-        let balanceFormatter = BalanceFormatter.sharedInstance
-
-        amountString = balanceFormatter.stringFromNumber(participantTransactionModel.participant.balance) ?? ""
-
-        if let amount = participantTransactionModel.amountOrNil {
-
-            let transactionAmountString = balanceFormatter.stringFromNumber(amount) ?? ""
-            let transactionAmountPrefix = amount > 0 ? "+" : ""
-            amountString = "\(amountString) \(transactionAmountPrefix)\(transactionAmountString)"
-        }
-
-        isPayee = participantTransactionModel.isPayee
-        isPayer = participantTransactionModel.isPayer
-
-        nameOrNil = participantTransactionModel.nameOrNil
     }
 }

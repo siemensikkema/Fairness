@@ -50,7 +50,7 @@ class TransactionCalculatorController: NSObject {
 
         let participantDataSource = ParticipantDataSource { (participantTransactionModel, cell) in
 
-            cell.configureWithParticipantTransactionViewModel(participantTransactionModel.toViewModel()) { name in
+            cell.configureWithParticipantTransactionViewModel(participantTransactionModel) { name in
 
                 participantTransactionModel.nameOrNil = name
             }
