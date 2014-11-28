@@ -132,7 +132,7 @@ class MainStoryboardParticipantControllerTests: MainStoryboardTestsBase {
     override func setUp() {
 
         super.setUp()
-        sut = transactionCalculatorController.participantController
+        sut = transactionCalculatorController.participantController as ParticipantController
         addParticipantButton = transactionEntryViewController.addParticipantButton
     }
 

@@ -5,7 +5,11 @@ protocol DataSourceItem {}
 class TableViewDataSource<ItemType: DataSourceItem, CellType: UITableViewCell where CellType: ReusableCell> {
 
     typealias Configurator = (ItemType, CellType) -> ()
+    typealias DeletionCallback = (Int) -> ()
+
     let toObjC: TableViewDataSourceObjC
+
+    var deletionCallback: DeletionCallback?
     var items: [ItemType] = [] {
 
         didSet { toObjC.items = itemsObjC() }
@@ -13,8 +17,16 @@ class TableViewDataSource<ItemType: DataSourceItem, CellType: UITableViewCell wh
 
     init(configurator: Configurator) {
 
-        self.toObjC = TableViewDataSourceObjC(cellIdentifier: CellType.reuseIdentifier()) { (item, cell) in
+        toObjC = TableViewDataSourceObjC(cellIdentifier: CellType.reuseIdentifier()) { (item, cell) in
+
             configurator(item as ItemType, cell as CellType)
+        }
+
+        self.toObjC.deletionCallback = { (tableView, indexPath) in
+
+            self.items.removeAtIndex(indexPath.row)
+            tableView.reloadData()
+            self.deletionCallback?(indexPath.row)
         }
     }
 
@@ -30,9 +42,11 @@ class TableViewDataSource<ItemType: DataSourceItem, CellType: UITableViewCell wh
 class TableViewDataSourceObjC: NSObject, UITableViewDataSource {
 
     typealias ConfiguratorObjC = (DataSourceItem, AnyObject) -> Void
+    typealias DeletionCallbackObjC = (UITableView, NSIndexPath) -> Void
 
     let cellIdentifier: String
     let configurator: ConfiguratorObjC
+    var deletionCallback: DeletionCallbackObjC?
     var items: [DataSourceItem] = []
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -50,6 +64,14 @@ class TableViewDataSourceObjC: NSObject, UITableViewDataSource {
         else {
 
             fatalError("Could not dequeue cell with identifier: \(cellIdentifier)")
+        }
+    }
+
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+
+        if editingStyle == .Delete {
+
+            deletionCallback?(tableView, indexPath)
         }
     }
 

@@ -1,7 +1,7 @@
 import UIKit
 import XCTest
 
-class Item: DataSourceItem {}
+extension String: DataSourceItem {}
 
 class Cell: UITableViewCell, ReusableCell {
 
@@ -10,16 +10,26 @@ class Cell: UITableViewCell, ReusableCell {
 
 class TableViewDataSourceTests: XCTestCase {
 
-    typealias TestDataSource = TableViewDataSource<Item, Cell>
+    typealias TestDataSource = TableViewDataSource<String, Cell>
 
-    let tableView: UITableView = UITableView()
+    let tableView: UITableViewForTesting = UITableViewForTesting()
     var sut: TestDataSource!
-    var items: [Item]!
+    var items: [String]!
+    let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+
+    var configurator: TestDataSource.Configurator!
 
     override func setUp() {
 
+        configurator = { (item, cell) in }
         tableView.registerClass(Cell.self, forCellReuseIdentifier: Cell.reuseIdentifier())
-        items = [Item(), Item()]
+        items = ["a", "b"]
+        sut = TestDataSource { (item, cell) in
+
+            self.configurator(item, cell) }
+        sut.items = items
+
+        items.first
     }
 }
 
@@ -27,20 +37,24 @@ extension TableViewDataSourceTests {
 
     func testNumberOfRowsEquals2() {
 
-        sut = TestDataSource { (item, cell) in }
-        sut.items = items
         let numberOfRows = sut.toObjC.tableView(tableView, numberOfRowsInSection: 0)
         XCTAssertEqual(numberOfRows, 2)
     }
 
     func testFirstItemIsReturnedForFirstRow() {
 
-        sut = TestDataSource { (item, cell) in
+        configurator = { (item: String, cell) in
 
-            XCTAssertTrue(item === self.items.first)
+            XCTAssertTrue(item == self.items.first)
         }
-        sut.items = items
         tableView.dataSource = sut.toObjC
-        sut.toObjC.tableView(tableView, cellForRowAtIndexPath: NSIndexPath(forRow: 0, inSection: 0))
+        sut.toObjC.tableView(tableView, cellForRowAtIndexPath: indexPath)
+    }
+
+    func testDeleteRow() {
+
+        sut.toObjC.tableView(tableView, commitEditingStyle: .Delete, forRowAtIndexPath: indexPath)
+        XCTAssertEqual(sut.items, ["b"])
+        XCTAssertTrue(tableView.didCallReloadData)
     }
 }

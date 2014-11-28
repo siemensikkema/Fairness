@@ -1,10 +1,19 @@
 import Foundation
 
-class ParticipantController: NSObject {
+typealias ParticipantUpdateCallback = ([Participant]) -> ()
+
+@objc protocol ParticipantControllerInterface: class {
+
+    var participantUpdateCallbackOrNil: ParticipantUpdateCallback? { get set }
+    func applyAmounts(amounts: [Double])
+    func deleteParticipantAtIndex(index: Int)
+}
+
+class ParticipantController: NSObject, ParticipantControllerInterface {
 
     private var participants: [Participant] = [Participant(name: "Siemen"), Participant(name: "Willem")]
 
-    var participantUpdateCallbackOrNil: (([Participant]) -> ())? {
+    var participantUpdateCallbackOrNil: ParticipantUpdateCallback? {
 
         didSet { sendParticipantUpdate() }
     }
@@ -26,5 +35,10 @@ class ParticipantController: NSObject {
 
             participant.balance += amount
         }
+    }
+
+    func deleteParticipantAtIndex(index: Int) {
+
+        participants.removeAtIndex(index)
     }
 }

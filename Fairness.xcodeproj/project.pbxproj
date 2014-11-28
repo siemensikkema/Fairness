@@ -28,6 +28,8 @@
 		5F7BFF1D1A1C927B00A2357C /* CostTextFieldController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7BFF1C1A1C927B00A2357C /* CostTextFieldController.swift */; };
 		5F7BFF1F1A1C92E500A2357C /* ParticipantTransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7BFF1E1A1C92E500A2357C /* ParticipantTransactionModel.swift */; };
 		5F7FB83C1A271B9B00E70705 /* ParticipantCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7FB83B1A271B9B00E70705 /* ParticipantCellTests.swift */; };
+		5F945F2E1A28709A00F9F311 /* UITableViewForTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F945F2D1A28709A00F9F311 /* UITableViewForTesting.swift */; };
+		5F945F2F1A28709A00F9F311 /* UITableViewForTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F945F2D1A28709A00F9F311 /* UITableViewForTesting.swift */; };
 		5FA659781A27131700BD1F87 /* ParticipantNameTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA659771A27131700BD1F87 /* ParticipantNameTextField.swift */; };
 		5FA659791A27131700BD1F87 /* ParticipantNameTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA659771A27131700BD1F87 /* ParticipantNameTextField.swift */; };
 		5FA6597B1A27137500BD1F87 /* ParticipantNameTextFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA6597A1A27137500BD1F87 /* ParticipantNameTextFieldTests.swift */; };
@@ -145,6 +147,7 @@
 		5F7BFF1C1A1C927B00A2357C /* CostTextFieldController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CostTextFieldController.swift; sourceTree = "<group>"; };
 		5F7BFF1E1A1C92E500A2357C /* ParticipantTransactionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticipantTransactionModel.swift; sourceTree = "<group>"; };
 		5F7FB83B1A271B9B00E70705 /* ParticipantCellTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticipantCellTests.swift; sourceTree = "<group>"; };
+		5F945F2D1A28709A00F9F311 /* UITableViewForTesting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewForTesting.swift; sourceTree = "<group>"; };
 		5FA659771A27131700BD1F87 /* ParticipantNameTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticipantNameTextField.swift; sourceTree = "<group>"; };
 		5FA6597A1A27137500BD1F87 /* ParticipantNameTextFieldTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticipantNameTextFieldTests.swift; sourceTree = "<group>"; };
 		5FB0F9751A2604A100ECE3F0 /* NotificationCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationCenter.swift; path = Tools/NotificationCenter.swift; sourceTree = SOURCE_ROOT; };
@@ -240,6 +243,7 @@
 		5F6482611A275268006AB595 /* Helper classes */ = {
 			isa = PBXGroup;
 			children = (
+				5F945F2D1A28709A00F9F311 /* UITableViewForTesting.swift */,
 				5F64825F1A275262006AB595 /* NSNotificationCenterForTesting.swift */,
 			);
 			name = "Helper classes";
@@ -650,6 +654,7 @@
 				5FC240CD1A1F373D006CB86F /* CostTextFieldController.swift in Sources */,
 				5F5A00AE1A263F23000749AB /* NavigationController.swift in Sources */,
 				5FC240D01A1F3773006CB86F /* ParticipantTransactionModel.swift in Sources */,
+				5F945F2E1A28709A00F9F311 /* UITableViewForTesting.swift in Sources */,
 				5F5A00AF1A263F26000749AB /* NavigationBarReappearBehavior.swift in Sources */,
 				5FC3DF451A232EE300248026 /* ParticipantController.swift in Sources */,
 				5FCB1C6F1A21E93C00F4B5DC /* TransactionEntryViewControllerTests.swift in Sources */,
@@ -681,6 +686,7 @@
 				5FFD2FFB1A23DB280089BCAC /* NSRange.swift in Sources */,
 				5FFD2FF61A23DAF10089BCAC /* TableViewDataSource.swift in Sources */,
 				5FFD2FF91A23DB220089BCAC /* TableViewDelegate.swift in Sources */,
+				5F945F2F1A28709A00F9F311 /* UITableViewForTesting.swift in Sources */,
 				5FFD2FF41A23DA080089BCAC /* TableViewDelegateTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

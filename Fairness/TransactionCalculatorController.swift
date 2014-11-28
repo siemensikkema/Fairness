@@ -1,8 +1,8 @@
 import UIKit
 
-class TransactionCalculatorController: NSObject {
+typealias ParticipantDataSource = TableViewDataSource<ParticipantTransactionModel, ParticipantCell>
 
-    typealias ParticipantDataSource = TableViewDataSource<ParticipantTransactionModel, ParticipantCell>
+class TransactionCalculatorController: NSObject {
 
     @IBOutlet var costTextFieldController: CostTextFieldController! {
 
@@ -17,7 +17,7 @@ class TransactionCalculatorController: NSObject {
     }
     @IBOutlet var tableViewDelegateSplitter: TableViewDelegateSplitter!
     @IBOutlet weak var doneBarButtonItem: UIBarButtonItem!
-    @IBOutlet weak var participantController: ParticipantController! {
+    @IBOutlet weak var participantController: ParticipantControllerInterface! {
 
         didSet {
 
@@ -63,6 +63,13 @@ class TransactionCalculatorController: NSObject {
         self.notificationCenter = notificationCenter
         self.participantDataSource = participantDataSource
         self.transactionCalculator = transactionCalculator
+
+        super.init()
+        
+        participantDataSource.deletionCallback = { index in
+
+            self.participantController.deleteParticipantAtIndex(index)
+        }
     }
 
     private func updateTransaction() {

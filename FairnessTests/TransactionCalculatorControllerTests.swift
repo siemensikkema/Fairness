@@ -3,16 +3,6 @@ import UIKit
 
 class TransactionCalculatorControllerTestsBase: XCTestCase {
 
-    class UITableViewForTesting: UITableView {
-
-        var didCallReloadData = false
-
-        override func reloadData() {
-
-            didCallReloadData = true
-        }
-    }
-
     class TransactionCalculatorForTesting: TransactionCalculatorInterface {
 
         var didCallAmounts = false
@@ -34,41 +24,27 @@ class TransactionCalculatorControllerTestsBase: XCTestCase {
             didSet { didSetCost = true }
         }
 
-        var isValid: Bool {
-            
-            return true
-        }
+        var isValid = true
+        var hasPayer: Bool { return hasPayerForTesting }
 
-        var hasPayer: Bool {
-
-            return hasPayerForTesting
-        }
-
-        func togglePayerAtIndex(index: Int) {
-
-            payerIndexForTesting = index
-        }
-
-        func togglePayeeAtIndex(index: Int) {
-
-            payeeIndexForTesting = index
-        }
+        func togglePayerAtIndex(index: Int) { payerIndexForTesting = index }
+        func togglePayeeAtIndex(index: Int) { payeeIndexForTesting = index }
     }
 
-    class ParticipantControllerForTesting: ParticipantController {
+    class ParticipantControllerForTesting: ParticipantControllerInterface {
 
         var didCallApplyAmounts = false
+        var participantDeletionIndex: Int?
+        var participantUpdateCallbackOrNil: ParticipantUpdateCallback?
 
-        override func applyAmounts(amounts: [Double]) {
-
-            didCallApplyAmounts = true
-        }
+        func applyAmounts(amounts: [Double]) { didCallApplyAmounts = true }
+        func deleteParticipantAtIndex(index: Int) { participantDeletionIndex = index }
     }
 
     var costTextFieldController: CostTextFieldController!
     var doneBarButtonItem: UIBarButtonItem!
     var notificationCenter: FairnessNotificationCenterForTesting!
-    var participantDataSource: TransactionCalculatorController.ParticipantDataSource!
+    var participantDataSource: ParticipantDataSource!
     var participantController: ParticipantControllerForTesting!
     var sut: TransactionCalculatorController!
     var tableView: UITableViewForTesting!
@@ -76,7 +52,7 @@ class TransactionCalculatorControllerTestsBase: XCTestCase {
 
     override func setUp() {
 
-        participantDataSource = TransactionCalculatorController.ParticipantDataSource { (a, b) in }
+        participantDataSource = ParticipantDataSource { (a, b) in }
         transactionCalculator = TransactionCalculatorForTesting()
 
         costTextFieldController = CostTextFieldController()
@@ -99,6 +75,12 @@ class TransactionCalculatorControllerTests: TransactionCalculatorControllerTests
     func testTableViewDataSourceIsSet() {
 
         XCTAssertNotNil(sut.tableView.dataSource)
+    }
+
+    func testDeletionCallbackCallsDeleteOnParticipantController() {
+
+        participantDataSource.deletionCallback?(0)
+        XCTAssertEqual(participantController.participantDeletionIndex!, 0)
     }
 }
 

@@ -4,7 +4,7 @@ class NavigationBarReappearBehavior: NSObject {
 
     @IBOutlet weak var navigationController: UINavigationController!
 
-    let notificationCenter: FairnessNotificationCenter
+    private let notificationCenter: FairnessNotificationCenter
 
     convenience override init() {
 
