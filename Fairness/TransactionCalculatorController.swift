@@ -14,11 +14,11 @@ class TransactionCalculatorController: NSObject {
         }
     }
     @IBOutlet weak var doneBarButtonItem: UIBarButtonItem!
-    @IBOutlet weak var participantController: ParticipantControllerInterface! {
+    @IBOutlet weak var participantsController: ParticipantsControllerInterface! {
 
         didSet {
 
-            participantController.participantTransactionModelUpdateCallbackOrNil = { participantTransactionModels in
+            participantsController.participantTransactionModelUpdateCallbackOrNil = { participantTransactionModels in
 
                 self.transactionCalculator.participantTransactionModels = participantTransactionModels
             }
@@ -57,7 +57,7 @@ extension TransactionCalculatorController {
 
     @IBAction func apply() {
 
-        participantController.applyAmounts(transactionCalculator.amounts)
+        participantsController.applyAmounts(transactionCalculator.amounts)
         reset()
     }
 }

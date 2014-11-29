@@ -108,11 +108,11 @@
                     <connections>
                         <outlet property="costTextFieldController" destination="Gvk-Ox-Fpx" id="enU-B1-nN9"/>
                         <outlet property="doneBarButtonItem" destination="ccX-6L-N9T" id="uUV-Gd-08Z"/>
-                        <outlet property="participantController" destination="1OU-9A-1S6" id="5fT-Zl-6bB"/>
+                        <outlet property="participantsController" destination="1OU-9A-1S6" id="5fT-Zl-6bB"/>
                         <outlet property="tableView" destination="2wO-P0-BA6" id="Nl0-1I-keO"/>
                     </connections>
                 </customObject>
-                <customObject id="1OU-9A-1S6" customClass="ParticipantController" customModule="Fairness" customModuleProvider="target">
+                <customObject id="1OU-9A-1S6" customClass="ParticipantsController" customModule="Fairness" customModuleProvider="target">
                     <connections>
                         <outlet property="tableView" destination="2wO-P0-BA6" id="AcX-fJ-Eaf"/>
                     </connections>

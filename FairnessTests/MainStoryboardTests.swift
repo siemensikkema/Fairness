@@ -58,7 +58,7 @@ class MainStoryboardTransactionCalculatorControllerTests: MainStoryboardTestsBas
 
         XCTAssertNotNil(sut.costTextFieldController)
         XCTAssertNotNil(sut.doneBarButtonItem)
-        XCTAssertNotNil(sut.participantController)
+        XCTAssertNotNil(sut.participantsController)
         XCTAssertNotNil(sut.tableView)
         XCTAssertNotNil(sut.tableView.dataSource)
     }
@@ -107,21 +107,21 @@ class MainStoryboardCostTextFieldControllerTests: MainStoryboardTestsBase {
     }
 }
 
-class MainStoryboardParticipantControllerTests: MainStoryboardTestsBase {
+class MainStoryboardParticipantsControllerTests: MainStoryboardTestsBase {
 
-    var sut: ParticipantController!
+    var sut: ParticipantsController!
     var addParticipantButton: UIBarButtonItem!
 
     override func setUp() {
 
         super.setUp()
-        sut = transactionCalculatorController.participantController as ParticipantController
+        sut = transactionCalculatorController.participantsController as ParticipantsController
         addParticipantButton = transactionEntryViewController.addParticipantButton
     }
 
     func testAddParticipantButtonTarget() {
 
-        XCTAssertEqual(addParticipantButton.target as ParticipantController, sut)
+        XCTAssertEqual(addParticipantButton.target as ParticipantsController, sut)
     }
 
     func testAddParticipantButtonAction() {

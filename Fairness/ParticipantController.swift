@@ -3,13 +3,13 @@ import UIKit
 typealias ParticipantTransactionModelDataSource = TableViewDataSource<ParticipantTransactionModel, ParticipantCell>
 typealias ParticipantTransactionModelUpdateCallback = ([ParticipantTransactionModel]) -> ()
 
-@objc protocol ParticipantControllerInterface: class {
+@objc protocol ParticipantsControllerInterface: class {
 
     var participantTransactionModelUpdateCallbackOrNil: ParticipantTransactionModelUpdateCallback? { get set }
     func applyAmounts(amounts: [Double])
 }
 
-class ParticipantController: NSObject, ParticipantControllerInterface {
+class ParticipantsController: NSObject, ParticipantsControllerInterface {
 
     @IBOutlet weak var tableView: UITableView! {
 

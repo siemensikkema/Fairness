@@ -31,7 +31,7 @@ class TransactionCalculatorControllerTestsBase: XCTestCase {
         func togglePayeeAtIndex(index: Int) { payeeIndexForTesting = index }
     }
 
-    class ParticipantControllerForTesting: ParticipantControllerInterface {
+    class ParticipantsControllerForTesting: ParticipantsControllerInterface {
 
         var didCallApplyAmounts = false
         var participantTransactionModelUpdateCallbackOrNil: ParticipantTransactionModelUpdateCallback?
@@ -42,7 +42,7 @@ class TransactionCalculatorControllerTestsBase: XCTestCase {
     var costTextFieldController: CostTextFieldController!
     var doneBarButtonItem: UIBarButtonItem!
     var notificationCenter: FairnessNotificationCenterForTesting!
-    var participantController: ParticipantControllerForTesting!
+    var participantsController: ParticipantsControllerForTesting!
     var sut: TransactionCalculatorController!
     var tableView: UITableViewForTesting!
     var transactionCalculator: TransactionCalculatorForTesting!
@@ -52,7 +52,7 @@ class TransactionCalculatorControllerTestsBase: XCTestCase {
         costTextFieldController = CostTextFieldController()
         doneBarButtonItem = UIBarButtonItem()
         notificationCenter = FairnessNotificationCenterForTesting()
-        participantController = ParticipantControllerForTesting()
+        participantsController = ParticipantsControllerForTesting()
         tableView = UITableViewForTesting()
         transactionCalculator = TransactionCalculatorForTesting()
 
@@ -60,7 +60,7 @@ class TransactionCalculatorControllerTestsBase: XCTestCase {
 
         sut.costTextFieldController = costTextFieldController
         sut.doneBarButtonItem = doneBarButtonItem
-        sut.participantController = participantController
+        sut.participantsController = participantsController
         sut.tableView = tableView
     }
 }
@@ -78,9 +78,9 @@ class TransactionCalculatorControllerApplyTests: TransactionCalculatorController
         XCTAssertTrue(transactionCalculator.didCallAmounts)
     }
 
-    func testCallsApplyAmountsOnParticipantController() {
+    func testCallsApplyAmountsOnParticipantsController() {
 
-        XCTAssertTrue(participantController.didCallApplyAmounts)
+        XCTAssertTrue(participantsController.didCallApplyAmounts)
     }
 
     func testTableViewIsReloaded() {
@@ -144,7 +144,7 @@ class TransactionCalculatorControllerParticipantUpdateCallbackTests: Transaction
 
         super.setUp()
         let participants = ["name1", "name2"].map { ParticipantTransactionModel(participant: Participant(name: $0)) }
-        participantController.participantTransactionModelUpdateCallbackOrNil!(participants)
+        participantsController.participantTransactionModelUpdateCallbackOrNil!(participants)
     }
 
     func testParticipantTransactionModelsAreSetOnTransactionCalculator() {

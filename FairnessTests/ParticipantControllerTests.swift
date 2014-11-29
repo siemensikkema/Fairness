@@ -1,9 +1,9 @@
 import XCTest
 import UIKit
 
-class ParticipantControllerTests: XCTestCase {
+class ParticipantsControllerTests: XCTestCase {
 
-    var sut: ParticipantController!
+    var sut: ParticipantsController!
     var participantTransactionModelsFromCallback: [ParticipantTransactionModel]!
     var participants: [Participant]!
     var tableView: UITableViewForTesting!
@@ -15,7 +15,7 @@ class ParticipantControllerTests: XCTestCase {
         participants = ["name1", "name2"].map { Participant(name: $0) }
         tableView = UITableViewForTesting()
 
-        sut = ParticipantController(participants: participants)
+        sut = ParticipantsController(participants: participants)
         sut.participantTransactionModelUpdateCallbackOrNil = { participantTransactionModels in
 
             self.participantTransactionModelsFromCallback = participantTransactionModels
@@ -66,7 +66,7 @@ class ParticipantControllerTests: XCTestCase {
         XCTAssertEqual(participantTransactionModelDataSource.items.count, 3)
     }
 
-    func testDeletionCallbackCallsDeleteOnParticipantController() {
+    func testDeletionCallbackCallsDeleteOnParticipantsController() {
 
         participantTransactionModelDataSource.deletionCallback?(tableView, NSIndexPath(forRow: 0, inSection: 0))
         XCTAssertEqual(participantTransactionModelsFromCallback.first!.nameOrNil!, "name2")
