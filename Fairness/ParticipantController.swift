@@ -69,6 +69,7 @@ class ParticipantController: NSObject, ParticipantControllerInterface {
 
     private func participantsDidUpdate(#shouldUpdateDataSource: Bool) {
 
+        let participantTransactionModels = self.participantTransactionModels
         participantTransactionModelUpdateCallbackOrNil?(participantTransactionModels)
         if shouldUpdateDataSource {
 

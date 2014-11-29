@@ -2,17 +2,9 @@ import UIKit
 
 class ParticipantNameTextField: UITextField {
 
-    override func becomeFirstResponder() -> Bool {
+    func enableEditing(editing: Bool) {
 
-        userInteractionEnabled = true
-        borderStyle = .RoundedRect
-        return super.becomeFirstResponder()
-    }
-
-    override func resignFirstResponder() -> Bool {
-
-        userInteractionEnabled = false
-        borderStyle = .None
-        return super.resignFirstResponder()
+        userInteractionEnabled = editing
+        borderStyle = editing ? .RoundedRect : .None
     }
 }

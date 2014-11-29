@@ -51,3 +51,8 @@ class ParticipantTransactionModel: DataSourceItem, ParticipantTransactionViewMod
         amountOrNil = nil
     }
 }
+
+extension ParticipantTransactionModel: DebugPrintable {
+
+    var debugDescription: String { return "name: \(nameOrNil), amount: \(amountOrNil), id: \(ObjectIdentifier(self).hashValue)" }
+}

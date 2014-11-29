@@ -123,7 +123,7 @@
         <!--Navigation Controller-->
         <scene sceneID="gxd-nJ-7GQ">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBarsOnSwipe="YES" hidesBarsWhenKeyboardAppears="YES" id="Wa6-SV-Kor" customClass="NavigationController" customModule="Fairness" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBarsWhenKeyboardAppears="YES" id="Wa6-SV-Kor" customClass="NavigationController" customModule="Fairness" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="dTE-zM-6d9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

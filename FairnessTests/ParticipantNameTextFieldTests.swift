@@ -10,16 +10,16 @@ class ParticipantNameTextFieldTests: XCTestCase {
         sut = ParticipantNameTextField()
     }
 
-    func testBecomeFirstResponder() {
+    func testEnableEditing() {
 
-        sut.becomeFirstResponder()
+        sut.enableEditing(true)
         XCTAssertTrue(sut.userInteractionEnabled)
         XCTAssertEqual(sut.borderStyle, UITextBorderStyle.RoundedRect)
     }
 
-    func testResignFirstResponder() {
+    func testDisableEditing() {
 
-        sut.resignFirstResponder()
+        sut.enableEditing(false)
         XCTAssertFalse(sut.userInteractionEnabled)
         XCTAssertEqual(sut.borderStyle, UITextBorderStyle.None)
     }

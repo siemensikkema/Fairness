@@ -3,7 +3,7 @@ import UIKit
 class ParticipantCell: UITableViewCell, ReusableCell {
 
     @IBOutlet weak var amountLabel: UILabel!
-    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var nameTextField: ParticipantNameTextField!
 
     let textEditController: TextEditControllerInterface
 
@@ -14,7 +14,7 @@ class ParticipantCell: UITableViewCell, ReusableCell {
 
     init(style: UITableViewCellStyle, reuseIdentifier: String?, textEditController: TextEditControllerInterface) {
 
-        self.textEditController = textEditController
+        self.textEditController = textEditController    
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
 
@@ -43,9 +43,6 @@ class ParticipantCell: UITableViewCell, ReusableCell {
     override func setEditing(editing: Bool, animated: Bool) {
 
         super.setEditing(editing, animated: animated)
-        if editing == false {
-
-            nameTextField.endEditing(false)
-        }
+        nameTextField.enableEditing(editing)
     }
 }

@@ -27,7 +27,6 @@ class ParticipantControllerTests: XCTestCase {
 
             self.participantTransactionModelsFromCallback = participantTransactionModels
         }
-
     }
 
     func testApplyAmountsAddsSuppliedNumbersToParticipantsBalance() {
@@ -46,6 +45,13 @@ class ParticipantControllerTests: XCTestCase {
 
         XCTAssertEqual(participantTransactionModelsFromCallback!.count, 2)
         XCTAssertEqual(participantTransactionModelDataSource.items.count, 2)
+    }
+
+    func testParticipantTransactionModelsFromCallbackAndDataSourceAreSameInstances() {
+
+        XCTAssertEqual(
+            ObjectIdentifier(participantTransactionModelsFromCallback.first!),
+            ObjectIdentifier(participantTransactionModelDataSource.items.first! as ParticipantTransactionModel))
     }
 
     func testAddParticipantAddsNewNamelessParticipantAtEndOfArray() {

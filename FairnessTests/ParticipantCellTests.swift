@@ -24,7 +24,7 @@ class ParticipantCellTests: XCTestCase {
     }
 
     var amountLabel: UILabel!
-    var nameTextField: UITextField!
+    var nameTextField: ParticipantNameTextField!
     var sut: ParticipantCell!
     let participantTransactionViewModel = ParticipantTransactionViewModelForTesting()
     let window = UIWindow()
@@ -34,7 +34,7 @@ class ParticipantCellTests: XCTestCase {
     override func setUp() {
 
         amountLabel = UILabel()
-        nameTextField = UITextField()
+        nameTextField = ParticipantNameTextField()
         textEditController = TextEditControllerForTesting()
 
         sut = ParticipantCell(style: .Default, reuseIdentifier: ParticipantCell.reuseIdentifier(), textEditController: textEditController)
