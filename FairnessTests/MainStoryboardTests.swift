@@ -57,7 +57,6 @@ class MainStoryboardTransactionCalculatorControllerTests: MainStoryboardTestsBas
     func testOutlets() {
 
         XCTAssertNotNil(sut.costTextFieldController)
-        XCTAssertNotNil(sut.tableViewDelegateSplitter)
         XCTAssertNotNil(sut.doneBarButtonItem)
         XCTAssertNotNil(sut.participantController)
         XCTAssertNotNil(sut.tableView)
@@ -108,22 +107,6 @@ class MainStoryboardCostTextFieldControllerTests: MainStoryboardTestsBase {
     }
 }
 
-class MainStoryboardTableViewDelegateSplitterTests: MainStoryboardTestsBase {
-
-    var sut: TableViewDelegateSplitter!
-
-    override func setUp() {
-
-        super.setUp()
-        sut = transactionEntryViewController.tableView.delegate as TableViewDelegateSplitter
-    }
-
-    func testSelectionDelegateOutlet() {
-
-        XCTAssertNotNil(sut.selectionDelegate)
-    }
-}
-
 class MainStoryboardParticipantControllerTests: MainStoryboardTestsBase {
 
     var sut: ParticipantController!
@@ -144,6 +127,11 @@ class MainStoryboardParticipantControllerTests: MainStoryboardTestsBase {
     func testAddParticipantButtonAction() {
 
         XCTAssertEqual(String(_sel: addParticipantButton.action), "addParticipant")
+    }
+
+    func testTableViewOutlet() {
+
+        XCTAssertNotNil(sut.tableView)
     }
 }
 

@@ -1,7 +1,5 @@
 import UIKit
 
-typealias ParticipantDataSource = TableViewDataSource<ParticipantTransactionModel, ParticipantCell>
-
 class TransactionCalculatorController: NSObject {
 
     @IBOutlet var costTextFieldController: CostTextFieldController! {
@@ -15,61 +13,31 @@ class TransactionCalculatorController: NSObject {
             }
         }
     }
-    @IBOutlet var tableViewDelegateSplitter: TableViewDelegateSplitter!
     @IBOutlet weak var doneBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var participantController: ParticipantControllerInterface! {
 
         didSet {
 
-            participantController.participantUpdateCallbackOrNil = { [unowned self] participants in
+            participantController.participantTransactionModelUpdateCallbackOrNil = { participantTransactionModels in
 
-                let participantTransactionModels = participants.map { (participant: Participant) in
-
-                    ParticipantTransactionModel(participant: participant)
-                }
-                self.participantDataSource.items = participantTransactionModels
                 self.transactionCalculator.participantTransactionModels = participantTransactionModels
-                // the tableView outlet is not guaranteed to be set at this stage, hence the '?'
-                self.tableView?.reloadData()
             }
         }
     }
-    @IBOutlet weak var tableView: UITableView! {
+    @IBOutlet weak var tableView: UITableView!
 
-        didSet {
-
-            tableView.dataSource = participantDataSource.toObjC
-        }
-    }
-
-    private let participantDataSource: ParticipantDataSource
-    private let transactionCalculator: TransactionCalculatorInterface
     private let notificationCenter: FairnessNotificationCenter
+    private let transactionCalculator: TransactionCalculatorInterface
 
     override convenience init() {
 
-        let participantDataSource = ParticipantDataSource { (participantTransactionModel, cell) in
-
-            cell.configureWithParticipantTransactionViewModel(participantTransactionModel) { name in
-
-                participantTransactionModel.nameOrNil = name
-            }
-        }
-        self.init(notificationCenter: NotificationCenter(), participantDataSource: participantDataSource, transactionCalculator: TransactionCalculator())
+        self.init(notificationCenter: NotificationCenter(), transactionCalculator: TransactionCalculator())
     }
 
-    init(notificationCenter: FairnessNotificationCenter, participantDataSource: ParticipantDataSource, transactionCalculator: TransactionCalculatorInterface) {
+    init(notificationCenter: FairnessNotificationCenter, transactionCalculator: TransactionCalculatorInterface) {
 
         self.notificationCenter = notificationCenter
-        self.participantDataSource = participantDataSource
         self.transactionCalculator = transactionCalculator
-
-        super.init()
-        
-        participantDataSource.deletionCallback = { index in
-
-            self.participantController.deleteParticipantAtIndex(index)
-        }
     }
 
     private func updateTransaction() {
@@ -94,7 +62,7 @@ extension TransactionCalculatorController {
     }
 }
 
-extension TransactionCalculatorController: TableViewSelectionDelegate {
+extension TransactionCalculatorController: UITableViewDelegate {
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 

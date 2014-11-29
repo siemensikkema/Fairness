@@ -1,32 +1,62 @@
-import Foundation
+import UIKit
 
-typealias ParticipantUpdateCallback = ([Participant]) -> ()
+typealias ParticipantTransactionModelDataSource = TableViewDataSource<ParticipantTransactionModel, ParticipantCell>
+typealias ParticipantTransactionModelUpdateCallback = ([ParticipantTransactionModel]) -> ()
 
 @objc protocol ParticipantControllerInterface: class {
 
-    var participantUpdateCallbackOrNil: ParticipantUpdateCallback? { get set }
+    var participantTransactionModelUpdateCallbackOrNil: ParticipantTransactionModelUpdateCallback? { get set }
     func applyAmounts(amounts: [Double])
-    func deleteParticipantAtIndex(index: Int)
 }
 
 class ParticipantController: NSObject, ParticipantControllerInterface {
 
-    private var participants: [Participant] = [Participant(name: "Siemen"), Participant(name: "Willem")]
+    @IBOutlet weak var tableView: UITableView! {
 
-    var participantUpdateCallbackOrNil: ParticipantUpdateCallback? {
-
-        didSet { sendParticipantUpdate() }
+        didSet { tableView.dataSource = participantTransactionModelDataSource.toObjC }
     }
 
-    private func sendParticipantUpdate() {
+    var participantTransactionModelUpdateCallbackOrNil: ParticipantTransactionModelUpdateCallback? {
 
-        participantUpdateCallbackOrNil?(participants)
+        didSet { self.participantsDidUpdate(shouldUpdateDataSource: true) }
+    }
+
+    private let participantTransactionModelDataSource = ParticipantTransactionModelDataSource { (participantTransactionModel, cell) in
+
+        cell.configureWithParticipantTransactionViewModel(participantTransactionModel) { name in
+
+            participantTransactionModel.nameOrNil = name
+        }
+    }
+
+    private var participants: [Participant]
+    private var participantTransactionModels: [ParticipantTransactionModel] {
+
+        return participants.map { (participant: Participant) in
+
+            ParticipantTransactionModel(participant: participant)
+        }
+    }
+
+    override convenience init() {
+
+        self.init(participants: ["Siemen", "Shannon"].map { Participant(name: $0) })
+    }
+
+    init(participants: [Participant]) {
+
+        self.participants = participants
+        super.init()
+        participantTransactionModelDataSource.deletionCallback = { [unowned self] index in
+
+            self.removeParticipantAtIndex(index)
+        }
     }
 
     @IBAction func addParticipant() {
 
         participants.append(Participant())
-        sendParticipantUpdate()
+        participantsDidUpdate(shouldUpdateDataSource: true)
     }
 
     func applyAmounts(amounts: [Double]) {
@@ -37,8 +67,19 @@ class ParticipantController: NSObject, ParticipantControllerInterface {
         }
     }
 
-    func deleteParticipantAtIndex(index: Int) {
+    private func participantsDidUpdate(#shouldUpdateDataSource: Bool) {
 
-        participants.removeAtIndex(index)
+        participantTransactionModelUpdateCallbackOrNil?(participantTransactionModels)
+        if shouldUpdateDataSource {
+
+            participantTransactionModelDataSource.items = participantTransactionModels
+            tableView?.reloadData()
+        }
+    }
+
+    private func removeParticipantAtIndex(index: Int) {
+
+        self.participants.removeAtIndex(index)
+        participantsDidUpdate(shouldUpdateDataSource: false)
     }
 }

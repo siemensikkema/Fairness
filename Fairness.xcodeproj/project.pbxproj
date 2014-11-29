@@ -75,7 +75,7 @@
 		5FFD2FDE1A23D9190089BCAC /* TableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD2FDB1A23D9190089BCAC /* TableViewDelegate.swift */; };
 		5FFD2FED1A23D9FA0089BCAC /* Tools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FCEC49919DD8944001BDA01 /* Tools.framework */; };
 		5FFD2FF31A23DA080089BCAC /* TableViewDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD2FDF1A23D9600089BCAC /* TableViewDataSourceTests.swift */; };
-		5FFD2FF41A23DA080089BCAC /* TableViewDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD2FE01A23D9600089BCAC /* TableViewDelegateTests.swift */; };
+		5FFD2FF41A23DA080089BCAC /* TableViewDelegateSplitterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD2FE01A23D9600089BCAC /* TableViewDelegateSplitterTests.swift */; };
 		5FFD2FF51A23DAC00089BCAC /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD2FDA1A23D9190089BCAC /* TableViewDataSource.swift */; };
 		5FFD2FF61A23DAF10089BCAC /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD2FDA1A23D9190089BCAC /* TableViewDataSource.swift */; };
 		5FFD2FF71A23DB0D0089BCAC /* ReusableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD2FD91A23D9190089BCAC /* ReusableCell.swift */; };
@@ -183,7 +183,7 @@
 		5FFD2FDA1A23D9190089BCAC /* TableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
 		5FFD2FDB1A23D9190089BCAC /* TableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDelegate.swift; sourceTree = "<group>"; };
 		5FFD2FDF1A23D9600089BCAC /* TableViewDataSourceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDataSourceTests.swift; sourceTree = "<group>"; };
-		5FFD2FE01A23D9600089BCAC /* TableViewDelegateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDelegateTests.swift; sourceTree = "<group>"; };
+		5FFD2FE01A23D9600089BCAC /* TableViewDelegateSplitterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDelegateSplitterTests.swift; sourceTree = "<group>"; };
 		5FFD2FE71A23D9FA0089BCAC /* ToolsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToolsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FFD30251A24FA7B0089BCAC /* ParticipantControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticipantControllerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -331,7 +331,7 @@
 				5F6482611A275268006AB595 /* Helper classes */,
 				5FB0F9771A26050400ECE3F0 /* NotificationCenterTests.swift */,
 				5FFD2FDF1A23D9600089BCAC /* TableViewDataSourceTests.swift */,
-				5FFD2FE01A23D9600089BCAC /* TableViewDelegateTests.swift */,
+				5FFD2FE01A23D9600089BCAC /* TableViewDelegateSplitterTests.swift */,
 				5FCEC4AA19DD8944001BDA01 /* Supporting Files */,
 			);
 			path = ToolsTests;
@@ -687,7 +687,7 @@
 				5FFD2FF61A23DAF10089BCAC /* TableViewDataSource.swift in Sources */,
 				5FFD2FF91A23DB220089BCAC /* TableViewDelegate.swift in Sources */,
 				5F945F2F1A28709A00F9F311 /* UITableViewForTesting.swift in Sources */,
-				5FFD2FF41A23DA080089BCAC /* TableViewDelegateTests.swift in Sources */,
+				5FFD2FF41A23DA080089BCAC /* TableViewDelegateSplitterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

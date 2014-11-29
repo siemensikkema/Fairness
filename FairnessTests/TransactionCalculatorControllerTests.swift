@@ -34,17 +34,14 @@ class TransactionCalculatorControllerTestsBase: XCTestCase {
     class ParticipantControllerForTesting: ParticipantControllerInterface {
 
         var didCallApplyAmounts = false
-        var participantDeletionIndex: Int?
-        var participantUpdateCallbackOrNil: ParticipantUpdateCallback?
+        var participantTransactionModelUpdateCallbackOrNil: ParticipantTransactionModelUpdateCallback?
 
         func applyAmounts(amounts: [Double]) { didCallApplyAmounts = true }
-        func deleteParticipantAtIndex(index: Int) { participantDeletionIndex = index }
     }
 
     var costTextFieldController: CostTextFieldController!
     var doneBarButtonItem: UIBarButtonItem!
     var notificationCenter: FairnessNotificationCenterForTesting!
-    var participantDataSource: ParticipantDataSource!
     var participantController: ParticipantControllerForTesting!
     var sut: TransactionCalculatorController!
     var tableView: UITableViewForTesting!
@@ -52,35 +49,19 @@ class TransactionCalculatorControllerTestsBase: XCTestCase {
 
     override func setUp() {
 
-        participantDataSource = ParticipantDataSource { (a, b) in }
-        transactionCalculator = TransactionCalculatorForTesting()
-
         costTextFieldController = CostTextFieldController()
         doneBarButtonItem = UIBarButtonItem()
         notificationCenter = FairnessNotificationCenterForTesting()
         participantController = ParticipantControllerForTesting()
         tableView = UITableViewForTesting()
+        transactionCalculator = TransactionCalculatorForTesting()
 
-        sut = TransactionCalculatorController(notificationCenter: notificationCenter, participantDataSource: participantDataSource, transactionCalculator: transactionCalculator)
+        sut = TransactionCalculatorController(notificationCenter: notificationCenter, transactionCalculator: transactionCalculator)
 
         sut.costTextFieldController = costTextFieldController
         sut.doneBarButtonItem = doneBarButtonItem
         sut.participantController = participantController
         sut.tableView = tableView
-    }
-}
-
-class TransactionCalculatorControllerTests: TransactionCalculatorControllerTestsBase {
-
-    func testTableViewDataSourceIsSet() {
-
-        XCTAssertNotNil(sut.tableView.dataSource)
-    }
-
-    func testDeletionCallbackCallsDeleteOnParticipantController() {
-
-        participantDataSource.deletionCallback?(0)
-        XCTAssertEqual(participantController.participantDeletionIndex!, 0)
     }
 }
 
@@ -148,7 +129,6 @@ class TransactionCalculatorControllerCostDidChangeTests: TransactionCalculatorCo
 
     func testDoneBarButtonItemIsEnabledWhenTransactionIsValid() {
 
-
         XCTAssertTrue(doneBarButtonItem.enabled)
     }
 
@@ -163,23 +143,13 @@ class TransactionCalculatorControllerParticipantUpdateCallbackTests: Transaction
     override func setUp() {
 
         super.setUp()
-        let participants = ["name1", "name2"].map { Participant(name: $0) }
-        participantController.participantUpdateCallbackOrNil!(participants)
-    }
-
-    func testParticipantTransactionModelsAreSetOnParticipantDataSource() {
-
-        XCTAssertEqual(participantDataSource.items.count, 2)
+        let participants = ["name1", "name2"].map { ParticipantTransactionModel(participant: Participant(name: $0)) }
+        participantController.participantTransactionModelUpdateCallbackOrNil!(participants)
     }
 
     func testParticipantTransactionModelsAreSetOnTransactionCalculator() {
 
         XCTAssertEqual(transactionCalculator.participantTransactionModels.count, 2)
-    }
-
-    func testTableViewIsReloaded() {
-
-        XCTAssertTrue(tableView.didCallReloadData)
     }
 }
 
