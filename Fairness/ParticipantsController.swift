@@ -1,6 +1,7 @@
 import UIKit
 
 typealias ParticipantTransactionModelDataSource = TableViewDataSource<ParticipantTransactionModel, ParticipantCell>
+
 typealias ParticipantTransactionModelUpdateCallback = ([ParticipantTransactionModel]) -> ()
 
 @objc protocol ParticipantsControllerInterface: class {
@@ -29,58 +30,45 @@ class ParticipantsController: NSObject, ParticipantsControllerInterface {
         }
     }
 
-    private var participants: [Participant]
-    private var participantTransactionModels: [ParticipantTransactionModel] {
-
-        return participants.map { (participant: Participant) in
-
-            ParticipantTransactionModel(participant: participant)
-        }
-    }
+    private let participantsStore: ParticipantsStoreInterface
 
     override convenience init() {
 
-        self.init(participants: ["Siemen", "Shannon"].map { Participant(name: $0) })
+        self.init(participantsStore: ParticipantsStore())
     }
 
-    init(participants: [Participant]) {
+    init(participantsStore: ParticipantsStoreInterface) {
 
-        self.participants = participants
+        self.participantsStore = participantsStore
+
         super.init()
+
         participantTransactionModelDataSource.deletionCallback = { [unowned self] index in
 
-            self.removeParticipantAtIndex(index)
+            participantsStore.removeParticipantAtIndex(index)
+            self.participantsDidUpdate(shouldUpdateDataSource: false)
         }
     }
 
     @IBAction func addParticipant() {
 
-        participants.append(Participant())
+        participantsStore.addParticipant()
         participantsDidUpdate(shouldUpdateDataSource: true)
     }
 
     func applyAmounts(amounts: [Double]) {
 
-        for (participant, amount) in Zip2(participants, amounts) {
-
-            participant.balance += amount
-        }
+        participantsStore.applyAmounts(amounts)
     }
 
     private func participantsDidUpdate(#shouldUpdateDataSource: Bool) {
 
-        let participantTransactionModels = self.participantTransactionModels
+        let participantTransactionModels = participantsStore.participantTransactionModels
         participantTransactionModelUpdateCallbackOrNil?(participantTransactionModels)
         if shouldUpdateDataSource {
 
             participantTransactionModelDataSource.items = participantTransactionModels
             tableView?.reloadData()
         }
-    }
-
-    private func removeParticipantAtIndex(index: Int) {
-
-        self.participants.removeAtIndex(index)
-        participantsDidUpdate(shouldUpdateDataSource: false)
     }
 }

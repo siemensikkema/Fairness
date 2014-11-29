@@ -33,10 +33,10 @@ class TransactionCalculatorControllerTestsBase: XCTestCase {
 
     class ParticipantsControllerForTesting: ParticipantsControllerInterface {
 
-        var didCallApplyAmounts = false
+        var argumentPassedToApplyAmounts: [Double] = []
         var participantTransactionModelUpdateCallbackOrNil: ParticipantTransactionModelUpdateCallback?
 
-        func applyAmounts(amounts: [Double]) { didCallApplyAmounts = true }
+        func applyAmounts(amounts: [Double]) { argumentPassedToApplyAmounts = amounts }
     }
 
     var costTextFieldController: CostTextFieldController!
@@ -73,14 +73,9 @@ class TransactionCalculatorControllerApplyTests: TransactionCalculatorController
         sut.apply()
     }
 
-    func testCallsAmountsOnTransactionCalculator() {
-
-        XCTAssertTrue(transactionCalculator.didCallAmounts)
-    }
-
     func testCallsApplyAmountsOnParticipantsController() {
 
-        XCTAssertTrue(participantsController.didCallApplyAmounts)
+        XCTAssertEqual(participantsController.argumentPassedToApplyAmounts, transactionCalculator.amounts)
     }
 
     func testTableViewIsReloaded() {
