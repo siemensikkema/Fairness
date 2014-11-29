@@ -27,6 +27,7 @@ class ParticipantCellTests: XCTestCase {
     var nameTextField: UITextField!
     var sut: ParticipantCell!
     let participantTransactionViewModel = ParticipantTransactionViewModelForTesting()
+    let window = UIWindow()
 
     var textEditController: TextEditControllerForTesting!
 
@@ -39,6 +40,7 @@ class ParticipantCellTests: XCTestCase {
         sut = ParticipantCell(style: .Default, reuseIdentifier: ParticipantCell.reuseIdentifier(), textEditController: textEditController)
         sut.amountLabel = amountLabel
         sut.nameTextField = nameTextField
+        window.addSubview(nameTextField)
 
         sut.configureWithParticipantTransactionViewModel(participantTransactionViewModel, textChangeCallback: { _ in })
     }
@@ -91,5 +93,12 @@ class ParticipantCellTests: XCTestCase {
         participantTransactionViewModel.isPayer = true
         sut.configureWithParticipantTransactionViewModel(participantTransactionViewModel, textChangeCallback: { _ in })
         XCTAssertEqual(sut.layer.borderWidth, 1 as CGFloat)
+    }
+
+    func testTextFieldEditingIsEndedWhenSettingEditingToFalse() {
+
+        nameTextField.becomeFirstResponder()
+        sut.setEditing(false, animated: false)
+        XCTAssertFalse(nameTextField.editing)
     }
 }

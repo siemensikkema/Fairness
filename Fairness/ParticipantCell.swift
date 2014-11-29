@@ -39,4 +39,13 @@ class ParticipantCell: UITableViewCell, ReusableCell {
 
         textEditController.configureWithTextField(nameTextField, textChangeCallback: textChangeCallback)
     }
+
+    override func setEditing(editing: Bool, animated: Bool) {
+
+        super.setEditing(editing, animated: animated)
+        if editing == false {
+
+            nameTextField.endEditing(false)
+        }
+    }
 }
