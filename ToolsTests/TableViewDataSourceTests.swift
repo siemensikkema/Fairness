@@ -1,8 +1,6 @@
 import UIKit
 import XCTest
 
-extension String: DataSourceItem {}
-
 class Cell: UITableViewCell, ReusableCell {
 
     class func reuseIdentifier() -> String { return "Cell" }

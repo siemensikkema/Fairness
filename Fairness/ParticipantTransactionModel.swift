@@ -8,7 +8,7 @@ protocol ParticipantTransactionViewModelInterface {
     var nameOrNil: String? { get }
 }
 
-class ParticipantTransactionModel: DataSourceItem, ParticipantTransactionViewModelInterface {
+class ParticipantTransactionModel: ParticipantTransactionViewModelInterface {
 
     let balanceFormatter = BalanceFormatter.sharedInstance
 
