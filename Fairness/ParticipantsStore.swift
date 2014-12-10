@@ -21,7 +21,7 @@ class ParticipantsStore: ParticipantsStoreInterface {
 
     convenience init() {
 
-        self.init(participants: ["Siemen", "Shannon"].map { Participant(name: $0) })
+        self.init(participants: ["EP", "Marco", "Daan", "Niels", "Stijn", "Siemen", "Sander", "Elwin"].map { Participant(name: $0) })
     }
 
     init(participants: [Participant]) {
