@@ -13,10 +13,7 @@ class ParticipantsStore: ParticipantsStoreInterface {
 
     var participantTransactionModels: [ParticipantTransactionModel] {
 
-        return participants.map { (participant: Participant) in
-
-            ParticipantTransactionModel(participant: participant)
-        }
+        return participants.map { ParticipantTransactionModel(participant: $0) }
     }
 
     convenience init() {
