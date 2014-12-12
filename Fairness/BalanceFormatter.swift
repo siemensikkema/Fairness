@@ -3,14 +3,11 @@ import Foundation
 private let sharedBalanceFormatter = BalanceFormatter()
 
 class BalanceFormatter: NSNumberFormatter {
-
     class var sharedInstance: BalanceFormatter {
-
         return sharedBalanceFormatter
     }
 
     override init() {
-
         super.init()
         numberStyle = .CurrencyStyle
         currencySymbol = ""

@@ -2,12 +2,10 @@ import UIKit
 import XCTest
 
 class Cell: UITableViewCell, ReusableCell {
-
     class func reuseIdentifier() -> String { return "Cell" }
 }
 
 class TableViewDataSourceTests: XCTestCase {
-
     typealias TestDataSource = TableViewDataSource<String, Cell>
 
     let tableView: UITableViewForTesting = UITableViewForTesting()
@@ -18,13 +16,12 @@ class TableViewDataSourceTests: XCTestCase {
     var configurator: TestDataSource.Configurator!
 
     override func setUp() {
-
         configurator = { (item, cell) in }
         tableView.registerClass(Cell.self, forCellReuseIdentifier: Cell.reuseIdentifier())
         items = ["a", "b"]
         sut = TestDataSource { (item, cell) in
-
-            self.configurator(item, cell) }
+            self.configurator(item, cell)
+        }
         sut.items = items
 
         items.first
@@ -32,17 +29,13 @@ class TableViewDataSourceTests: XCTestCase {
 }
 
 extension TableViewDataSourceTests {
-
     func testNumberOfRowsEquals2() {
-
         let numberOfRows = sut.toObjC.tableView(tableView, numberOfRowsInSection: 0)
         XCTAssertEqual(numberOfRows, 2)
     }
 
     func testFirstItemIsReturnedForFirstRow() {
-
         configurator = { (item: String, cell) in
-
             XCTAssertTrue(item == self.items.first)
         }
         tableView.dataSource = sut.toObjC
@@ -50,7 +43,6 @@ extension TableViewDataSourceTests {
     }
 
     func testDeleteRow() {
-
         sut.toObjC.tableView(tableView, commitEditingStyle: .Delete, forRowAtIndexPath: indexPath)
         XCTAssertEqual(sut.items, ["b"])
         XCTAssertTrue(tableView.didCallReloadData)

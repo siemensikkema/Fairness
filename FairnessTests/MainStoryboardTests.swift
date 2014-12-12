@@ -2,7 +2,6 @@ import XCTest
 import UIKit
 
 class MainStoryboardTestsBase: XCTestCase {
-
     let storyboard = UIStoryboard(name: "Main", bundle: NSBundle(forClass: TransactionEntryViewControllerTests.self))
 
     var costTextFieldController: CostTextFieldController!
@@ -11,7 +10,6 @@ class MainStoryboardTestsBase: XCTestCase {
     var transactionEntryViewController: TransactionEntryViewController!
 
     override func setUp() {
-
         navigationController = storyboard.instantiateInitialViewController() as NavigationController
         transactionEntryViewController = navigationController.viewControllers.first as TransactionEntryViewController
 
@@ -24,17 +22,14 @@ class MainStoryboardTestsBase: XCTestCase {
 }
 
 class MainStoryboardTransactionEntryViewControllerTests: MainStoryboardTestsBase {
-
     var sut: TransactionEntryViewController!
 
     override func setUp() {
-
         super.setUp()
         sut = transactionEntryViewController
     }
 
     func testOutlets() {
-
         XCTAssertNotNil(sut.costTextField)
         XCTAssertNotNil(sut.accessoryToolbar)
         XCTAssertNotNil(sut.costTextField.delegate)
@@ -45,17 +40,14 @@ class MainStoryboardTransactionEntryViewControllerTests: MainStoryboardTestsBase
 }
 
 class MainStoryboardTransactionCalculatorControllerTests: MainStoryboardTestsBase {
-
     var sut: TransactionCalculatorController!
 
     override func setUp() {
-
         super.setUp()
         sut = transactionEntryViewController.transactionCalculatorController
     }
 
     func testOutlets() {
-
         XCTAssertNotNil(sut.costTextFieldController)
         XCTAssertNotNil(sut.doneBarButtonItem)
         XCTAssertNotNil(sut.participantsController)
@@ -65,19 +57,15 @@ class MainStoryboardTransactionCalculatorControllerTests: MainStoryboardTestsBas
 }
 
 class MainStoryboardAccessoryToolbarButtonTests: MainStoryboardTestsBase {
-
     var toolbarButtons: [UIBarButtonItem]!
 
     override func setUp() {
-
         super.setUp()
         toolbarButtons = [0, 2].map { self.transactionEntryViewController.accessoryToolbar.items?[$0] as UIBarButtonItem }
     }
 
     func testTargets() {
-
         func testTarget(barButtonItem: UIBarButtonItem) {
-
             XCTAssertEqual(barButtonItem.target! as TransactionCalculatorController, transactionCalculatorController)
         }
 
@@ -86,59 +74,48 @@ class MainStoryboardAccessoryToolbarButtonTests: MainStoryboardTestsBase {
     }
 
     func testActions() {
-
         XCTAssertEqual(toolbarButtons.map { $0.action }, ["reset", "apply"])
     }
 }
 
 class MainStoryboardCostTextFieldControllerTests: MainStoryboardTestsBase {
-
     var sut: CostTextFieldController!
 
     override func setUp() {
-
         super.setUp()
         sut = transactionCalculatorController.costTextFieldController
     }
 
     func testCostTextFieldDidChangeTriggersCorrectAction() {
-
         XCTAssertEqual(sut.costTextField.actionsForTarget(sut, forControlEvent: .EditingChanged)!.first as String, "costDidChange")
     }
 }
 
 class MainStoryboardParticipantsControllerTests: MainStoryboardTestsBase {
-
     var sut: ParticipantsController!
     var addParticipantButton: UIBarButtonItem!
 
     override func setUp() {
-
         super.setUp()
         sut = transactionCalculatorController.participantsController as ParticipantsController
         addParticipantButton = transactionEntryViewController.addParticipantButton
     }
 
     func testAddParticipantButtonTarget() {
-
         XCTAssertEqual(addParticipantButton.target as ParticipantsController, sut)
     }
 
     func testAddParticipantButtonAction() {
-
         XCTAssertEqual(String(_sel: addParticipantButton.action), "addParticipant")
     }
 
     func testTableViewOutlet() {
-
         XCTAssertNotNil(sut.tableView)
     }
 }
 
 class MainStoryboardNavigationControllerTests: MainStoryboardTestsBase {
-
     func testNavigationBarReappearBehaviorHasOutletToNavigationController() {
-
         XCTAssertEqual(navigationController.navigationBarReappearBehavior.navigationController, navigationController)
     }
 }

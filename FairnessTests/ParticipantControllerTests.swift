@@ -2,11 +2,8 @@ import XCTest
 import UIKit
 
 class ParticipantsControllerTests: XCTestCase {
-
     class ParticipantsStoreForTesting: ParticipantsStoreInterface {
-
         var argumentPassedToApplyAmounts: [Double] = []
-
         var participantTransactionModels = ["name1", "name2"].map { ParticipantTransactionModel(participant: Participant(name: $0)) }
 
         func addParticipant() {
@@ -24,27 +21,23 @@ class ParticipantsControllerTests: XCTestCase {
     var participantTransactionModelDataSource: TableViewDataSourceObjC!
 
     override func setUp() {
-
         tableView = UITableViewForTesting()
 
         participantsStore = ParticipantsStoreForTesting()
 
         sut = ParticipantsController(participantsStore: participantsStore)
         sut.participantTransactionModelUpdateCallbackOrNil = { participantTransactionModels in
-
             self.participantTransactionModelsFromCallback = participantTransactionModels
         }
         sut.tableView = tableView
         participantTransactionModelDataSource = tableView.dataSource as TableViewDataSourceObjC
 
         sut.participantTransactionModelUpdateCallbackOrNil = { participantTransactionModels in
-
             self.participantTransactionModelsFromCallback = participantTransactionModels
         }
     }
 
     func testApplyAmountsAddsSuppliedNumbersToParticipantsBalance() {
-
         let amounts = [0, 1.23]
         sut.applyAmounts(amounts)
 
@@ -52,37 +45,31 @@ class ParticipantsControllerTests: XCTestCase {
     }
 
     func testDataSourceIsSet() {
-
         XCTAssertNotNil(participantTransactionModelDataSource)
     }
 
     func testParticipantTransactionModelUpdateCallbackAfterSettingIt() {
-
         XCTAssertEqual(participantTransactionModelsFromCallback!.count, 2)
         XCTAssertEqual(participantTransactionModelDataSource.items.count, 2)
     }
 
     func testParticipantTransactionModelsFromCallbackAndDataSourceAreSameInstances() {
-
         XCTAssertEqual(
             ObjectIdentifier(participantTransactionModelsFromCallback.first!),
             ObjectIdentifier(participantTransactionModelDataSource.items.first! as ParticipantTransactionModel))
     }
 
     func testAddParticipantUpdatesDataSource() {
-
         sut.addParticipant()
         XCTAssertEqual(participantTransactionModelDataSource.items.count, 3)
     }
 
     func testAddParticipantReloadsTableView() {
-
         sut.addParticipant()
         XCTAssertTrue(tableView.didCallReloadData)
     }
 
     func testDeletionCallbackCallsDeleteOnParticipantsController() {
-
         participantTransactionModelDataSource.deletionCallback?(tableView, NSIndexPath(forRow: 0, inSection: 0))
         XCTAssertEqual(participantTransactionModelsFromCallback.first!.nameOrNil!, "name2")
     }

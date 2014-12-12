@@ -1,7 +1,6 @@
 import Foundation
 
 protocol ParticipantTransactionViewModelInterface {
-
     var amountString: String { get }
     var isPayee: Bool { get }
     var isPayer: Bool { get }
@@ -9,18 +8,15 @@ protocol ParticipantTransactionViewModelInterface {
 }
 
 class ParticipantTransactionModel: ParticipantTransactionViewModelInterface {
-
     let balanceFormatter = BalanceFormatter.sharedInstance
 
     var isPayee: Bool
     var isPayer: Bool
     var amountOrNil: Double?
     var amountString: String {
-
         var amountString = balanceFormatter.stringFromNumber(participant.balance) ?? ""
 
         if let amount = amountOrNil {
-
             let transactionAmountString = balanceFormatter.stringFromNumber(amount) ?? ""
             let transactionAmountPrefix = amount > 0 ? "+" : ""
             amountString = "\(amountString) \(transactionAmountPrefix)\(transactionAmountString)"
@@ -30,7 +26,6 @@ class ParticipantTransactionModel: ParticipantTransactionViewModelInterface {
     }
 
     var nameOrNil: String? {
-
         get { return participant.nameOrNil }
         set { participant.nameOrNil = newValue }
     }
@@ -38,14 +33,12 @@ class ParticipantTransactionModel: ParticipantTransactionViewModelInterface {
     private let participant: Participant
 
     init(participant: Participant) {
-
         isPayee = false
         isPayer = false
         self.participant = participant
     }
 
     func reset() {
-
         isPayee = false
         isPayer = false
         amountOrNil = nil
@@ -53,6 +46,5 @@ class ParticipantTransactionModel: ParticipantTransactionViewModelInterface {
 }
 
 extension ParticipantTransactionModel: DebugPrintable {
-
     var debugDescription: String { return "name: \(nameOrNil), amount: \(amountOrNil), id: \(ObjectIdentifier(self).hashValue)" }
 }

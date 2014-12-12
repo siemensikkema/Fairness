@@ -1,13 +1,9 @@
 import UIKit
 
 class TransactionCalculatorController: NSObject {
-
     @IBOutlet var costTextFieldController: CostTextFieldController! {
-
         didSet {
-
             costTextFieldController.costDidChangeCallbackOrNil = { [unowned self] cost in
-
                 self.transactionCalculator.cost = cost
                 self.updateTransaction()
             }
@@ -15,11 +11,8 @@ class TransactionCalculatorController: NSObject {
     }
     @IBOutlet weak var doneBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var participantsController: ParticipantsControllerInterface! {
-
         didSet {
-
             participantsController.participantTransactionModelUpdateCallbackOrNil = { participantTransactionModels in
-
                 self.transactionCalculator.participantTransactionModels = participantTransactionModels
             }
         }
@@ -30,50 +23,39 @@ class TransactionCalculatorController: NSObject {
     private let transactionCalculator: TransactionCalculatorInterface
 
     override convenience init() {
-
         self.init(notificationCenter: NotificationCenter(), transactionCalculator: TransactionCalculator())
     }
 
     init(notificationCenter: FairnessNotificationCenter, transactionCalculator: TransactionCalculatorInterface) {
-
         self.notificationCenter = notificationCenter
         self.transactionCalculator = transactionCalculator
     }
 
     private func updateTransaction() {
-
         tableView.reloadData()
         doneBarButtonItem.enabled = transactionCalculator.isValid
     }
 }
 
 extension TransactionCalculatorController {
-
     @IBAction func reset() {
-
         notificationCenter.transactionDidEnd()
         tableView.reloadData()
     }
 
     @IBAction func apply() {
-
         participantsController.applyAmounts(transactionCalculator.amounts)
         reset()
     }
 }
 
 extension TransactionCalculatorController: UITableViewDelegate {
-
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-
         let index = indexPath.row
 
         if transactionCalculator.hasPayer {
-
             transactionCalculator.togglePayeeAtIndex(index)
-        }
-        else {
-            
+        } else {
             transactionCalculator.togglePayerAtIndex(index)
             notificationCenter.transactionDidStart()
         }

@@ -2,13 +2,10 @@ import XCTest
 import UIKit
 
 class TableViewDelegateSplitterTests: XCTestCase {
-
     class TableViewSelectionDelegateForTesting: TableViewSelectionDelegate {
-
         var didCallDidSelectRowAtIndexPath = false
 
         func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-
             didCallDidSelectRowAtIndexPath = true
         }
     }
@@ -19,14 +16,12 @@ class TableViewDelegateSplitterTests: XCTestCase {
     var tableViewSelectionDelegate: TableViewSelectionDelegateForTesting!
 
     override func setUp() {
-
         sut = TableViewDelegateSplitter()
         tableViewSelectionDelegate = TableViewSelectionDelegateForTesting()
         sut.selectionDelegate = tableViewSelectionDelegate
     }
 
     func testDidSelectRowAtIndexPathIsForwarded() {
-
         sut.tableView(tableView, didSelectRowAtIndexPath: indexPath)
         XCTAssertTrue(tableViewSelectionDelegate.didCallDidSelectRowAtIndexPath)
     }

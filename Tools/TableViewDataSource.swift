@@ -1,7 +1,6 @@
 import UIKit
 
 class TableViewDataSource<ItemType, CellType: UITableViewCell where CellType: ReusableCell> {
-
     typealias Configurator = (ItemType, CellType) -> ()
     typealias DeletionCallback = (Int) -> ()
 
@@ -32,7 +31,6 @@ class TableViewDataSource<ItemType, CellType: UITableViewCell where CellType: Re
 }
 
 class TableViewDataSourceObjC: NSObject, UITableViewDataSource {
-
     typealias ConfiguratorObjC = (Any, AnyObject) -> Void
     typealias DeletionCallbackObjC = (UITableView, NSIndexPath) -> Void
 
@@ -49,8 +47,7 @@ class TableViewDataSourceObjC: NSObject, UITableViewDataSource {
         if let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as? UITableViewCell {
             configurator(items[indexPath.row], cell)
             return cell;
-        }
-        else {
+        } else {
             fatalError("Could not dequeue cell with identifier: \(cellIdentifier)")
         }
     }
