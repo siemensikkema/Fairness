@@ -74,12 +74,4 @@ class ParticipantsControllerTests: XCTestCase {
         participantTransactionModelDataSource.deletionCallback?(tableView, indexPath)
         XCTAssertEqual(participantTransactionModelsFromCallback.first!.nameOrNil!, "name2")
     }
-
-    func testT() {
-        if let cell = tableView.cellForRowAtIndexPath(indexPath) as? ParticipantCell {
-
-        } else {
-            XCTAssert(false)
-        }
-    }
 }

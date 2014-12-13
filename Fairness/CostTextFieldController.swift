@@ -25,6 +25,11 @@ class CostTextFieldController: NSObject {
     }
 
     @IBAction func costDidChange() {
-        costDidChangeCallbackOrNil?((costTextField.text as NSString).doubleValue)
+        // untested
+        let balanceFormatter = BalanceFormatter.sharedInstance
+        balanceFormatter.numberFromString(costTextField.text)
+        let cost = balanceFormatter.numberFromString(costTextField.text)?.doubleValue
+
+        costDidChangeCallbackOrNil?(cost!)
     }
 }

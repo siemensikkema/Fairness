@@ -21,6 +21,7 @@ class ParticipantsStore: ParticipantsStoreInterface {
     convenience init() {
         self.init(participants: [])
 
+        // untested
         let names = userDefaults.stringArrayForKey(namesKey) as? [String] ?? []
         let balances = userDefaults.arrayForKey(balancesKey) as? [Double] ?? []
 
@@ -41,14 +42,17 @@ class ParticipantsStore: ParticipantsStoreInterface {
         for (participant, amount) in Zip2(participants, amounts) {
             participant.balance += amount
         }
+        // untested
         persist()
     }
 
     func removeParticipantAtIndex(index: Int) {
         participants.removeAtIndex(index)
+        // untested
         persist()
     }
 
+    // untested
     func persist() {
         let namedParticipants = participants.filter { $0.nameOrNil != nil }
 

@@ -20,6 +20,7 @@ class ParticipantsController: NSObject, ParticipantsControllerInterface {
 
     private let participantTransactionModelDataSource = ParticipantTransactionModelDataSource { (participantTransactionModel, cell) in
         cell.configureWithParticipantTransactionViewModel(participantTransactionModel) { name in
+            // untested
             participantTransactionModel.nameOrNil = name
         }
     }

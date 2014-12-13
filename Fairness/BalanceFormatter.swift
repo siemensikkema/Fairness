@@ -11,6 +11,10 @@ class BalanceFormatter: NSNumberFormatter {
         super.init()
         numberStyle = .CurrencyStyle
         currencySymbol = ""
+
+        // untested
+        negativePrefix = "-"
+        negativeSuffix = ""
     }
 
     required init(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
