@@ -17,6 +17,7 @@ class ParticipantsControllerTests: XCTestCase {
     var participantTransactionModelsFromCallback: [ParticipantTransactionModel]!
     var participantsStore: ParticipantsStoreForTesting!
     var tableView: UITableViewForTesting!
+    let indexPath = NSIndexPath(forRow: 0, inSection: 0)
 
     var participantTransactionModelDataSource: TableViewDataSourceObjC!
 
@@ -70,7 +71,15 @@ class ParticipantsControllerTests: XCTestCase {
     }
 
     func testDeletionCallbackCallsDeleteOnParticipantsController() {
-        participantTransactionModelDataSource.deletionCallback?(tableView, NSIndexPath(forRow: 0, inSection: 0))
+        participantTransactionModelDataSource.deletionCallback?(tableView, indexPath)
         XCTAssertEqual(participantTransactionModelsFromCallback.first!.nameOrNil!, "name2")
+    }
+
+    func testT() {
+        if let cell = tableView.cellForRowAtIndexPath(indexPath) as? ParticipantCell {
+
+        } else {
+            XCTAssert(false)
+        }
     }
 }

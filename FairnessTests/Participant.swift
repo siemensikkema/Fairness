@@ -1,15 +1,22 @@
 import UIKit
 
+typealias NameChangeCallback = () -> ()
+
 class Participant {
     var balance = 0.0
-    var nameOrNil: String?
-
-    convenience init(name: String) {
-        self.init()
-        nameOrNil = name
+    var nameOrNil: String? {
+        didSet {
+            nameChangeCallback?()
+        }
     }
 
-    init() {}
+    var nameChangeCallback: NameChangeCallback?
+
+    init(name: String? = nil, nameChangeCallback: NameChangeCallback? = nil, balance: Double = 0.0) {
+        self.balance = balance
+        self.nameOrNil = name
+        self.nameChangeCallback = nameChangeCallback
+    }
 }
 
 extension Participant: DebugPrintable {

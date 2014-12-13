@@ -1,3 +1,5 @@
+import Foundation
+
 protocol ParticipantsStoreInterface {
     var participantTransactionModels: [ParticipantTransactionModel] { get }
 
@@ -7,14 +9,24 @@ protocol ParticipantsStoreInterface {
 }
 
 class ParticipantsStore: ParticipantsStoreInterface {
-    private var participants: [Participant] = []
+    private let balancesKey = "balances"
+    private let namesKey = "names"
+    private let userDefaults = NSUserDefaults.standardUserDefaults()
+    private var participants: [Participant]
 
     var participantTransactionModels: [ParticipantTransactionModel] {
         return participants.map { ParticipantTransactionModel(participant: $0) }
     }
 
     convenience init() {
-        self.init(participants: ["EP", "Marco", "Daan", "Niels", "Stijn", "Siemen", "Sander", "Elwin"].map { Participant(name: $0) })
+        self.init(participants: [])
+
+        let names = userDefaults.stringArrayForKey(namesKey) as? [String] ?? []
+        let balances = userDefaults.arrayForKey(balancesKey) as? [Double] ?? []
+
+        participants = Array(Zip2(names, balances)).map {
+            Participant(name: $0.0, nameChangeCallback: { self.persist() }, balance: $0.1)
+        }
     }
 
     init(participants: [Participant]) {
@@ -22,19 +34,26 @@ class ParticipantsStore: ParticipantsStoreInterface {
     }
 
     func addParticipant() {
-        participants.append(Participant())
-        // persist
+        participants.append(Participant(nameChangeCallback: { self.persist() }))
     }
 
     func applyAmounts(amounts: [Double]) {
         for (participant, amount) in Zip2(participants, amounts) {
             participant.balance += amount
         }
-        // persist
+        persist()
     }
 
     func removeParticipantAtIndex(index: Int) {
         participants.removeAtIndex(index)
-        // persist
+        persist()
+    }
+
+    func persist() {
+        let namedParticipants = participants.filter { $0.nameOrNil != nil }
+
+        userDefaults.setObject(namedParticipants.map { $0.balance }, forKey: balancesKey)
+        userDefaults.setObject(namedParticipants.map { $0.nameOrNil! }, forKey: namesKey)
+        userDefaults.synchronize()
     }
 }
