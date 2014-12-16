@@ -30,6 +30,6 @@ class CostTextFieldController: NSObject {
         balanceFormatter.numberFromString(costTextField.text)
         let cost = balanceFormatter.numberFromString(costTextField.text)?.doubleValue
 
-        costDidChangeCallbackOrNil?(cost!)
+        costDidChangeCallbackOrNil?(cost ?? 0)
     }
 }
